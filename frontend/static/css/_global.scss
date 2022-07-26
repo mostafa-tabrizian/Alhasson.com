@@ -1,0 +1,318 @@
+body, html {
+    direction: rtl;
+    font-family: $main, Arial, sans-serif;
+    transition: all .3s ease-in-out;
+    color: white;
+    background: linear-gradient(0, #070515, #0d0735);
+    height: auto;
+    scroll-behavior: smooth;
+}
+
+body::-webkit-scrollbar {
+    width: 11px;
+}
+body {
+    scrollbar-width: thin;
+    scrollbar-color: #23157b;
+}
+body::-webkit-scrollbar-track {
+    background: #0d0735;
+}
+body::-webkit-scrollbar-thumb {
+    background: linear-gradient(0, #0d0735, #23157b);
+    border-radius: 6px;
+}
+  
+
+h1 {
+    font-size: 1.5rem !important;
+    color: #e0bd87 !important;
+}
+
+h2 {
+    font-size: 1.2rem !important;
+    color: #d5ba91 !important;
+}
+
+h5 {
+
+    font-size: 1rem !important;
+    color: #e0bd87 !important;
+}
+
+p {
+    font-size: 1.3rem;
+    line-height: 3rem;
+    text-align: justify;
+    margin-bottom: 1rem !important;
+
+    & > a {
+        color: #e0bd87 !important;
+    
+        &:hover {
+            border-bottom: 1px solid #e0bd87;
+        }
+    }
+}
+
+li {
+    font-size: 1.1rem;
+}
+
+iframe {
+    width: 21rem !important;
+    height: 12rem !important;
+}
+
+.ltr {
+    direction: ltr;
+}
+
+footer {
+    a {
+        color: black !important;
+        
+        &:hover {
+            color: #4e3faa !important;
+        }
+    }
+}
+
+.underlineHover {
+    &:hover {
+        border-bottom: 1px solid #e0bd87;
+    }
+}
+
+.rightBorder {
+    border-right: 1px solid #e0bd87;
+    padding-right: 1rem;
+}
+
+.wrapper {
+    padding: 0 10rem;
+    margin: auto;
+
+    @include breakpoints-down(large) {
+        padding: 1rem;
+    }
+
+    &-p {
+        max-width: 65rem;
+        padding: 0 5rem;
+        margin: auto;
+
+        @include breakpoints-down(large) {
+            padding: 0 2rem;
+        }
+    }
+
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.btn {
+    &-purple {
+        // background: linear-gradient(45deg, #b653e8, #711a81);
+        background: linear-gradient(45deg, #3cb6b4, teal);
+        border-right: none !important;
+
+        h1, h2, h3, p {
+            color: white !important;
+        }
+    }
+}
+
+input, button {
+    font-size: 1rem;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.shadow {
+    &-light {
+        box-shadow: 0 0 15px #8080805e
+    }
+    &-medium {
+        box-shadow: 0 0 30px #dbdbdb;
+    }
+    &-large {
+        box-shadow: inset 0 0 19px black, 0 0 15px black
+    }
+    &-gold {
+        box-shadow: 0 0 10px #e0bd87;  // 287E7D
+        // box-shadow: 0 0 10px #a855f7;  // 287E7D
+    }
+    &-inset {
+        box-shadow: inset 0 0 10px #80808059;
+    }
+}
+
+.hoverGold {
+    transition: all .1s ease-in-out;
+
+    &:hover {
+        box-shadow: 0 0 20px #e0bd87;
+        transform: translateY(-.5rem)
+    }
+}
+
+.colorPr {
+    color: #e0bd87
+    // darkBlur: #0d0735
+}
+
+.center {
+    position: absolute;
+    right: 50%;
+    top: 50%;
+    transform: translate(50%, -50%);
+}
+
+hr {
+    margin: 1rem 0 !important;
+}
+
+.touchScroll {
+    -webkit-overflow-scrolling: touch;
+}
+
+.pop {
+    &Up {
+        transform: translate(-50%, -50%);
+        visibility: visible !important;
+        opacity: 1 !important;
+        transition: all .53s ease-in-out !important; 
+    }
+
+    &Down {
+        transform: translate(-50%, -45%);
+        visibility: hidden !important;
+        opacity: 0 !important;
+        transition: all .53s ease-in-out !important;
+    }
+}
+
+.slide {
+    &Up {
+        transform: translateY(0);
+        transition: all .53s ease-in-out !important; 
+    }
+
+    &Down {
+        transform: translateY(150%);
+        transition: all .53s ease-in-out !important;
+    }
+}
+
+.fade {
+    &Out {
+        opacity: 0;
+        transition: all .53s ease-in-out;
+    }
+
+    &In {
+        opacity: 1;
+        transition: all .53s ease-in-out;  
+    }
+}
+
+.blur {
+    filter: blur(20px), brightness(50%);
+}
+
+//clears the ‘X’ from Internet Explorer
+input[type=search]::-ms-clear { display: none; width : 0; height: 0; }
+input[type=search]::-ms-reveal { display: none; width : 0; height: 0; }
+// clears the ‘X’ from Chrome
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration { display: none; }
+
+.glow {
+    -webkit-animation: glow 1s alternate infinite;
+    animation: glow 1s alternate infinite;
+}
+@-webkit-keyframes glow {
+    0% {
+        -webkit-filter: drop-shadow(0);
+        filter: drop-shadow(0);
+    }
+    100% {
+        -webkit-filter: drop-shadow(0 0 4px #e0bc87b3);
+        filter: drop-shadow(0 0 4px #e0bc87b3);
+    }
+}
+@keyframes glow {
+    0% {
+        -webkit-filter: drop-shadow(0);
+        filter: drop-shadow(0);
+    }
+    100% {
+        -webkit-filter: drop-shadow(0 0 4px #e0bc87b3);
+        filter: drop-shadow(0 0 4px #e0bc87b3);
+    }
+}
+
+.spinner {
+  -webkit-animation: rotate 2s linear infinite;
+          animation: rotate 2s linear infinite;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -25px 0 0 -25px;
+  width: 50px;
+  height: 50px;
+}
+
+.spinner .path {
+  stroke: #93bfec;
+  stroke-linecap: round;
+  -webkit-animation: dash 1.5s ease-in-out infinite;
+          animation: dash 1.5s ease-in-out infinite;
+}
+
+.title {
+    font-size: 2rem !important;
+    display: flex;
+
+    &-center {
+        justify-content: center;
+    }
+}
+
+.divider {
+    border-bottom: 1px solid rgb(121, 121, 121);
+    width: 50vw;
+    margin-left: 50%; margin-top: .7rem; margin-bottom: 0rem;
+    transform: translate(-50%);
+}
+
+// .bookmark {
+    // display: flex;
+    // flex-direction: column;
+    // position: fixed;
+    // background: linear-gradient(45deg, #3e328b, #0d0735);
+    // padding: 1.5rem;
+    // margin-right: 2rem;
+    // border-radius: 15px;
+    // line-height: 2rem;
+// }
+
+// Visibility
+.hideForMobile {
+    @include breakpoints-down(large) {
+        display: none !important;
+    }
+}
+
+.hideForDesktop {
+    @include breakpoints-up(large) {
+        display: none !important;
+    }
+}

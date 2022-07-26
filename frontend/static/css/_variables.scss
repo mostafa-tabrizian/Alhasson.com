@@ -1,0 +1,8 @@
+// Font Family
+@font-face {
+    font-family: "baloo";
+    font-display: swap;
+    src: url('../font/BalooBhaijaan2-Regular.ttf') format('truetype')   
+}
+
+$main: baloo, sans-serif, serif;

@@ -1,0 +1,56 @@
+
+.book{
+	&_cover {
+		margin-top: 2rem;
+		
+		> a {
+			width: 27vw;
+			margin-left: 4rem;
+			
+			img {
+				box-shadow: 0 0 10px #e0bd87;
+				border-radius: 5px;
+			}
+		}
+	}
+	
+	&_bio {
+		&_title{
+			font-family: sans-serif;
+			font-size: 1rem;
+			color: #e0bd87;
+		}
+		
+		&_details {
+			&_head {
+				color: #e0bd87;
+				font-size: .6rem - .1;
+				margin-left: .5rem;
+			}
+			
+			&_info {
+				color: whitesmoke;
+				font-size: .6rem - .1;
+				
+				&:not(:last-child) {
+					margin-left: 1.5rem;
+				}
+			}		
+		}
+		
+		&_description {
+			direction: rtl;
+			font-size: 30px;
+			line-height: 3vw;
+			width: 640px;
+			margin: 0 0 0 90px;
+			text-align: justify;
+			font-family: sans-serif;
+			color: white;
+			
+			span{
+				color: #e0bd87;
+			}
+		}
+	}
+}
