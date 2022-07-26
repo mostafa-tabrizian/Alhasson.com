@@ -1,0 +1,23 @@
+
+*__pycache__*
+*.pyc
+htmlcov
+.coverage
+QuizLand.session.sql
+.vscode
+geckodriver
+venv-alhasson
+.gitignore
+.env
+migrations
+# *.jpg
+# *.png
+# *.gif
+# *.svg
+# *.webp
+frontend/static/build
+*.zip
+*.log
+changes.txt
+node_modules
+.gitOLD
