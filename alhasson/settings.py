@@ -151,7 +151,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': config('NAME'),
         'USER': config('USER'),
-        # 'PASSWORD': config('PASSWORD'),
+        'PASSWORD': config('PASSWORD'),
         'HOST': config('HOST'),
         'PORT': '3306',
     }
@@ -187,15 +187,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-# MEDIA_URL = '/media/'
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-
-AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY')
-AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_KEY')
-AWS_STORAGE_BUCKET_NAME = 'alhassoncom'
-AWS_S3_ENDPOINT_URL = 'https://s3.ir-thr-at1.arvanstorage.com'
-
-AWS_DEFAULT_ACL = None
-AWS_S3_FILE_OVERWRITE = True
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
