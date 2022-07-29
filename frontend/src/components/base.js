@@ -12,6 +12,10 @@ export const replaceFunction = (string, oldValue, newValue) => {
     return string.replaceAll(oldValue, newValue)
 }
 
+export const priceWithDiscount = (price, discount) => {
+    return price - ((price * discount) / 100)
+}
+
 export const fadeIn = (element) => {
     element.target.classList.remove('fadeOut')
     element.target.classList.add('fadeIn')

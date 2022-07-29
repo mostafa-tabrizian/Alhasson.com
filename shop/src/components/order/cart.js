@@ -62,7 +62,7 @@ const Cart = () => {
             <div className='relative'>
                 <h1 className='font-bold text-center'>سبد خرید</h1>
                 <div className='absolute top-0 left-0'>
-                    <Link to='/'>
+                    <Link to='/shop/'>
                         <svg class="h-6 w-6 text-[#cfa278]"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <line x1="4" y1="12" x2="14" y2="12" />  <line x1="4" y1="12" x2="8" y2="16" />  <line x1="4" y1="12" x2="8" y2="8" />  <line x1="20" y1="4" x2="20" y2="20" /></svg>
                     </Link>
                 </div>
@@ -72,7 +72,7 @@ const Cart = () => {
                 شما {cartItems.items.length} کتاب در سبد خود دارید.
             </div>
 
-            <div>
+            <div className='space-y-4'>
                 <ProductCart allProducts={allProductsData} />
             </div>
 

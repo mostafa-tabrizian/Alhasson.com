@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 
-import { log, takeParameterFromUrl } from '../../../frontend/src/components/base'
+import { log, takeParameterFromUrl, priceWithDiscount } from '../../../frontend/src/components/base'
 import CartStore from '../store/cartStore'
 
 const Product = () => {
@@ -40,7 +40,41 @@ const Product = () => {
                 <div>
                     <div className='flex justify-between'>
                         <h1 className='font-semibold'>{productDetail?.title}</h1>
-                        <div className='font-semibold'><span className='text-xl'>{productDetail?.price} تومان</span></div>
+                        <div className='flex space-x-3 space-x-reverse font-semibold '>
+                            <div>
+                                {
+                                    productDetail?.discount !== 0 &&
+                                    <span
+                                        className={`
+                                            flex text-left font-semibold bg-red-600 rounded-full px-2 text-white
+                                            text-[.7rem] md:w-52 md:text-base items-center w-fit
+                                        `}
+                                    >
+                                        {productDetail?.discount}%
+                                    </span>
+                                }
+                            </div>
+                            <div>
+                                <span
+                                    className={`
+                                        flex text-left font-semibold
+                                        text-sm md:w-52 md:text-base
+                                    `}
+                                >
+                                    {priceWithDiscount(productDetail?.price, productDetail?.discount)}   تومان
+                                </span>
+                                {
+                                    productDetail?.discount !== 0 &&
+                                    <s className={`
+                                        flex justify-start font-semibold
+                                        text-[.7rem] text-gray-400 decoration-slice
+                                    `}>
+                                        {productDetail?.price}
+                                        {/* before discount */}
+                                    </s>
+                                }
+                            </div>
+                        </div>
                     </div>
 
                     <hr />
