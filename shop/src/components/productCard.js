@@ -1,29 +1,25 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
-import { log, replaceFunction } from '../../../frontend/src/components/base'
+import { log, replaceFunction, priceWithDiscount } from '../../../frontend/src/components/base'
 
 const ProductCard = (props) => {
-    const priceWithDiscount = (price, discount) => {
-        return price - ((price * discount) / 100)
-    }
-
     return (
         props.products.map((product) => {
             return (
-                <article className='m-auto w-fit'>
+                <article className='m-auto'>
 
                     <Link
                         to={`/shop/${replaceFunction(product.title, ' ', '-')}?slug=${product.slug}`}
                         className='flex flex-col'
                     >
-                        <div className='w-[10rem] h-[15rem]'>
+                        <div className=''>
                             <img
                                 src={product.thumbnail}
                                 width={200}
                                 height={200}
-                                alt={`${product.category} | ${product.title}`}
-                                className='object-cover h-full'
+                                alt={`${product.title}`}
+                                className='object-cover'
                             />
                         </div>
                         <div className='my-3'>

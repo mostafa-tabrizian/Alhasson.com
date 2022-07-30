@@ -26,7 +26,7 @@ const ProductCart = (props) => {
                             <img src={productData?.image} alt={productData?.title} />
                         </div>
                     </Link>
-                    <div className='flex flex-col justify-between w-full'>
+                    <div className='flex flex-col w-full'>
                         <div className='flex flex-col space-y-1'>
                             <h2 className={`
                                 flex

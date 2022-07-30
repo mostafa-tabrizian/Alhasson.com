@@ -4,7 +4,7 @@ import { log } from '../../../frontend/src/components/base';
 
 const CartStore = createStore({
     initialState: {
-        items: [],
+        items: JSON.parse(localStorage.getItem('cartStore'))?.items || [],
     },
     actions: {
         addOrIncreaseItem:
@@ -15,25 +15,17 @@ const CartStore = createStore({
                 const exist = currentItems.find(item => itemData.id === item.id)
 
                 if (exist) {
-                    // log('exist')
                     currentItems.map(each => {
                         if (itemData.id == each.id) {
                             return {...each, count: each.count++}
                         }
                     })
-                    // log(currentItems)
-                    setState(
-                        {
-                            items: [...currentItems]
-                        }
-                    );
+
+                    localStorage.setItem('cartStore', JSON.stringify({items: [...currentItems]}))
+                    setState({items: [...currentItems]});
                 } else {
-                    // log('new')
-                    setState(
-                        {
-                            items: [...currentItems, {id: itemData.id, count: 1}]
-                        }
-                    )
+                    localStorage.setItem('cartStore', JSON.stringify({items: [...currentItems, {id: itemData.id, count: 1}]}))
+                    setState({items: [...currentItems, {id: itemData.id, count: 1}]})
                 }
             },
 
@@ -47,22 +39,15 @@ const CartStore = createStore({
                         const nextCount = each.count--
                         
                         if (nextCount == 0) {
-                            // log('remove')
                             currentItems.splice(index, 1)
                         } else {
-                            // log('decrease')
                             return {...each, count: nextCount}
                         }
                     }
                 })
 
-                // log(currentItems)
-
-                setState(
-                    {
-                        items: [...currentItems]
-                    }
-                );
+                localStorage.setItem('cartStore', JSON.stringify({items: [...currentItems]}))
+                setState({items: [...currentItems]});
             },
     },
     name: 'items',

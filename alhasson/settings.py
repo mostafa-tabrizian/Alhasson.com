@@ -50,12 +50,23 @@ REST_FRAMEWORK = {
     ),
     
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    
+    'DEFAULT_THROTTLE_CLASSES': [
+        'rest_framework.throttling.AnonRateThrottle',
+        'rest_framework.throttling.UserRateThrottle'
+    ],
+    
+    'DEFAULT_THROTTLE_RATES': {
+        'anon': '70/minute',
+        'user': '70/minute',
+    }
 
 }
 
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
+    'ACCESS_TOKEN_LIFETIME': timedelta(hours=1),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=14),
+    
     'ROTATE_REFRESH_TOKENS': True,
     'BLACKLIST_AFTER_ROTATION': True,
     'ALGORITHM': 'HS256',
@@ -70,8 +81,11 @@ SIMPLE_JWT = {
 
 
 ALLOWED_HOSTS = [
-    'localhost'
+    'alhasson.com', 'www.alhasson.com'
+    ,'localhost'
 ]
+
+CORS_ORIGIN_ALLOW_ALL = False
 
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:8000'
@@ -107,6 +121,8 @@ CACHE_TTL = 15 * 60
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
+    
+    'django.middleware.gzip.GZipMiddleware',
     
     'django.middleware.cache.UpdateCacheMiddleware',
     'django.middleware.security.SecurityMiddleware',
@@ -187,15 +203,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-# MEDIA_URL = '/media/'
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-
-AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY')
-AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_KEY')
-AWS_STORAGE_BUCKET_NAME = 'alhassoncom'
-AWS_S3_ENDPOINT_URL = 'https://s3.ir-thr-at1.arvanstorage.com'
-
-AWS_DEFAULT_ACL = None
-AWS_S3_FILE_OVERWRITE = True
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
