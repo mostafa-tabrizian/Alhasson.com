@@ -1,6 +1,27 @@
 import datetime
 from django.db import models
 from ckeditor.fields import RichTextField
+from django.contrib.auth.models import AbstractUser
+
+Gender = (
+    ('Male', 'male'),
+    ('Female', 'female')
+)   
+
+class CustomUser(AbstractUser):
+    blocked = models.BooleanField(default=False)
+    avatar = models.CharField(blank=True, null=True, max_length=600, default='{"accessory":"shades","body":"chest","circleColor":"blue","clothing":"tankTop","clothingColor":"red","eyebrows":"raised","eyes":"simple","faceMask":false,"faceMaskColor":"white","facialHair":"none","graphic":"none","hair":"none","hairColor":"pink","hat":"none","hatColor":"blue","lashes":false,"lipColor":"green","mask":true,"mouth":"serious","skinTone":"light"}')
+    bio = models.CharField(blank=True, null=True, max_length=255)
+    birthday_date = models.DateField(blank=True, null=True)
+    gender = models.CharField(blank=True, null=True, max_length=7, choices=Gender)
+    points = models.IntegerField(default=0)
+    most_played_categories = models.TextField(blank=True, null=True, max_length=9000)
+    played_history = models.TextField(blank=True, null=True, default='_0', max_length=9000)
+    liked_quizzes = models.TextField(blank=True, null=True, default='_0', max_length=9000)
+    watch_list = models.TextField(blank=True, null=True, default='_0', max_length=9000)
+    
+    def __str__(self):
+        return str(self.email)
 
 class Product(models.Model):
     id = models.AutoField(primary_key=True)

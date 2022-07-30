@@ -9,7 +9,8 @@ import { log } from '../../frontend/src/components/base'
 const Index   = lazy(() => import('./pages/index'))
 const Product = lazy(() => import('./pages/product'))
 
-const Login   = lazy(() => import('./pages/login'))
+const Login   = lazy(() => import('./pages/user/login'))
+
 const OrderHistory      = lazy(() => import('./components/profile/orderHistory'))
 const Cart              = lazy(() => import('./components/order/cart'))
 const PaymentMethod     = lazy(() => import('./components/order/paymentMethod'))

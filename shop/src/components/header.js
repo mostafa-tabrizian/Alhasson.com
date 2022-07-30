@@ -1,12 +1,82 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { gapi } from 'gapi-script'
+import { useGoogleLogout } from 'react-google-login'
+import { useCookies } from "react-cookie";
 
+import userProfileDetail from '../components/profile/userProfileDetail'
 import { log } from '../../../frontend/src/components/base'
 
 const Header = () => {
+    const [profileSubMenu, setProfileSubMenu] = useState(false)
+    const [userProfile, setUserProfile] = useState(null)
+
+    const [cookies, setCookie, removeCookie] = useCookies(['USER_ACCESS_TOKEN', 'USER_REFRESH_TOKEN']);
+
+    const { signOut } = useGoogleLogout({
+        clientId: '590155860234-tm0e6smarma5dvr7bi42v6r26v4qkdun.apps.googleusercontent.com',
+        onLogoutSuccess: () => {log('google 1')},
+        onFailure: () => {log('google 2')},
+    })
+
+    useEffect(() => {
+        gapiLoad()
+        getUserData()
+    }, [])
+
+    const gapiLoad = () => {
+        const startGapiClient = () => {
+            gapi.client.init({
+                clientId: process.env.GOOGLE_LOGIN_CLIENT,
+                scope: ''
+            })
+        }
+        gapi.load('client:auth2', startGapiClient)
+    }
+
+    const getUserData = async () => {
+        const userProfileDetailData = await userProfileDetail()
+        if (userProfileDetailData !== undefined) {
+            if (userProfileDetailData == 'inactive') {
+                handleLogout()
+            } else {
+                setUserProfile(userProfileDetailData)
+            }
+        }
+    }
+
+    const handleLogout = async () => {
+        message.loading('در حال خارج شدن ...')
+        
+        try {
+            signOut()
+        }
+        catch (e) {
+            log('signOut google error')
+            log(e)
+        }
+        
+        try {
+            
+            await axiosInstance.post('/api/blacklist/', {
+                "refresh_token": cookies.USER_REFRESH_TOKEN,
+            });
+            
+            removeCookie('USER_ACCESS_TOKEN')
+            removeCookie('USER_REFRESH_TOKEN')
+            
+            axiosInstance.defaults.headers['Authorization'] = null;
+            window.location.reload()
+        }
+        catch (e) {
+            log('error')
+            console.log(e);
+        }
+    };
+
     return (
         <header>
-            <div className="relative justify-between m-8 md:flex">
+            <div className="relative justify-between m-8 flex">
                 <div className='items-center hidden space-x-10 space-x-reverse md:flex'>
                     <img className='w-12' src="/static/img/inTheNameOfGod.png" alt="الدکتور-الشیخ-علاء-الحسّون" />
                     <a href="/">
@@ -20,6 +90,32 @@ const Header = () => {
                             document.location.href = `/بحث?q=${e.target.value}`
                         }
                     }}/>
+                </div>
+                <div>
+                    {
+                        userProfile ?
+                        <div className='flex items-center space-x-3 space-x-reverse hover:cursor-pointer' onClick={() => setProfileSubMenu(!profileSubMenu)}>
+                            <div className='flex items-center'>
+                                {
+                                    userProfile.first_name !== '' || userProfile.last_name !== '' ?
+                                    <div className='flex space-x-1 space-x-reverse'>
+                                        <h2>
+                                            {userProfile.first_name}
+                                        </h2>
+                                        <h2>
+                                            {userProfile.last_name}
+                                        </h2>
+                                    </div>
+                                    :
+                                    <div>
+                                        {userProfile.username}
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                        :
+                        <Link to='/shop/login' className='px-4 h-fit border-2 border-[#690D11] rounded-lg'>ورود</Link>
+                    }
                 </div>
             </div>
 

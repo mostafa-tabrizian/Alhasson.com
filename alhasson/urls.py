@@ -18,13 +18,16 @@ router = routers.DefaultRouter()
 router.register(r'bookView', frontendView.BookView)
 router.register(r'clipView', frontendView.ClipView)
 router.register(r'albumView', frontendView.AlbumView)
+router.register(r'userView', shopView.CustomUserView)
 router.register(r'productView', shopView.ProductView)
 
 urlpatterns = [
+    path('shop/api/', include(router.urls)),
+    path('api/', include(router.urls)),
+    
     path('', include('frontend.urls')),   
     path('shop/', include('shop.urls')),  
      
-    path('api/', include(router.urls)),
     path('adminAlhasson', admin.site.urls),
     path('sitemap.xml/', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
 ]
