@@ -32,14 +32,14 @@ const CartStore = createStore({
         removeOrDecreaseItem:
             (itemData) =>
             ({ setState, getState }) => {
-                const currentItems = getState().items
+                let currentItems = getState().items
 
                 currentItems.map((each, index) => {
                     if (itemData.id == each.id) {
                         const nextCount = each.count--
                         
-                        if (nextCount == 0) {
-                            currentItems.splice(index, 1)
+                        if (nextCount == 1) {
+                            currentItems = []
                         } else {
                             return {...each, count: nextCount}
                         }
