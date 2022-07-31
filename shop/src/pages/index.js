@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
-import ProductCard from '../components/productCard'
+import ProductCard from '../components/order/productCard'
 import { log } from '../../../frontend/src/components/base'
 
 const Index = () => {

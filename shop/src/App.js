@@ -7,15 +7,16 @@ import { LoadingOutlined } from '@ant-design/icons'
 import { log } from '../../frontend/src/components/base'
 
 const Index   = lazy(() => import('./pages/index'))
-const Product = lazy(() => import('./pages/product'))
 
 const Login   = lazy(() => import('./pages/user/login'))
 
-const OrderHistory      = lazy(() => import('./components/profile/orderHistory'))
-const Cart              = lazy(() => import('./components/order/cart'))
-const PaymentMethod     = lazy(() => import('./components/order/paymentMethod'))
-const Profile           = lazy(() => import('./components/profile/profile'))
-const EditProfile       = lazy(() => import('./components/profile/editProfile'))
+const Cart              = lazy(() => import('./pages/order/cart'))
+const PaymentMethod     = lazy(() => import('./pages/order/paymentMethod'))
+const Product           = lazy(() => import('./pages/order/product'))
+const OrderHistory      = lazy(() => import('./pages/order/orderHistory'))
+
+const Profile           = lazy(() => import('./pages/user/profile'))
+const ProfileSetting       = lazy(() => import('./pages/user/profileSetting'))
 
 const Header = lazy(() => import('./components/header'))
 const Navbar = lazy(() => import('./components/navbar'))
@@ -46,7 +47,7 @@ const App = () => {
                         <Route path='/shop/cart/' exact component={Cart} />
                         <Route path='/shop/payment-method/' exact component={PaymentMethod} />
                         <Route path='/shop/profile/' exact component={Profile} />
-                        <Route path='/shop/edit-profile/' exact component={EditProfile} />
+                        <Route path='/shop/profile/setting' exact component={ProfileSetting} />
                         <Route path='/shop/:product_slug' exact component={Product} />
                     </Switch>
 

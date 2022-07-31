@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 import { Link } from 'react-router-dom'
 
 import { log } from '../../../../frontend/src/components/base'
-import LoginForm from "../../components/profile/loginForm";
+import LoginForm from "../../components/user/loginForm";
 
 const pathRed = '/static/img/bubbles.webp'
 

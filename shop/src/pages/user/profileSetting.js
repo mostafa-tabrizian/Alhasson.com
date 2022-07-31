@@ -1,21 +1,15 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react'
 import { Helmet } from "react-helmet";
-import DatePicker, { DateObject } from "react-multi-date-picker"
-import persian from "react-date-object/calendars/persian"
-import persian_fa from "react-date-object/locales/persian_fa"
-import persianJs from "persianjs"
 import { useCookies } from "react-cookie";
 import debounce from 'lodash.debounce'
-import ReCAPTCHA from 'react-google-recaptcha'
 import { message } from 'antd';
 import { toString } from 'lodash';
 
 import axiosInstance from '../../components/axiosApi';
 import Header from '../../components/header'
 import Footer from '../../components/footer'
-import { log } from '../../components/base'
+import { log } from '../../../../frontend/src/components/base'
 import userProfileDetail from '../../components/user/userProfileDetail'
-import Avatar from '../../components/user/avatar'
 
 const ProfileSetting = () => {
     const [user, setUser] = useState(null)

@@ -8,7 +8,9 @@ module.exports = {
     './shop/src/components/order/*.js',
     './shop/src/components/profile/*.js',
 
-    './shop/src/pages/*.js'
+    './shop/src/pages/*.js',
+    './shop/src/pages/order/*.js',
+    './shop/src/pages/user/*.js',
   ],
   theme: {
     extend: {},

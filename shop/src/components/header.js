@@ -4,7 +4,7 @@ import { gapi } from 'gapi-script'
 import { useGoogleLogout } from 'react-google-login'
 import { useCookies } from "react-cookie";
 
-import userProfileDetail from '../components/profile/userProfileDetail'
+import userProfileDetail from './user/userProfileDetail'
 import { log } from '../../../frontend/src/components/base'
 
 const Header = () => {
@@ -90,32 +90,6 @@ const Header = () => {
                             document.location.href = `/بحث?q=${e.target.value}`
                         }
                     }}/>
-                </div>
-                <div>
-                    {
-                        userProfile ?
-                        <div className='flex items-center space-x-3 space-x-reverse hover:cursor-pointer' onClick={() => setProfileSubMenu(!profileSubMenu)}>
-                            <div className='flex items-center'>
-                                {
-                                    userProfile.first_name !== '' || userProfile.last_name !== '' ?
-                                    <div className='flex space-x-1 space-x-reverse'>
-                                        <h2>
-                                            {userProfile.first_name}
-                                        </h2>
-                                        <h2>
-                                            {userProfile.last_name}
-                                        </h2>
-                                    </div>
-                                    :
-                                    <div>
-                                        {userProfile.username}
-                                    </div>
-                                }
-                            </div>
-                        </div>
-                        :
-                        <Link to='/shop/login' className='px-4 h-fit border-2 border-[#690D11] rounded-lg'>ورود</Link>
-                    }
                 </div>
             </div>
 
