@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { gapi } from 'gapi-script'
 import { useGoogleLogout } from 'react-google-login'
 import { useCookies } from "react-cookie";
+import { message } from 'antd'
 
 import userProfileDetail from './user/userProfileDetail'
 import { log } from '../../../frontend/src/components/base'

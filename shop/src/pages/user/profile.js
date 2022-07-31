@@ -18,18 +18,36 @@ const Profile = () => {
 
     const getUserDetail = async () => {
         setUser(await UserProfileDetail())
-        // const now = new Date().getTime()
-        // return await axiosInstance.get(`/api/userView/?username=${username}&is_active=true&timestamp=${now}`)
-        //     .then( async res => {
-        //         if (res.data.length == 0) {
-        //             return null
-        //         } else {
-        //             const userDetail = res.data[0]
-        //             setUser(userDetail)
-        //             return userDetail
-        //         }
-        //     })
     }
+
+    const handleLogout = async () => {
+        message.loading('در حال خارج شدن ...')
+        
+        try {
+            signOut()
+        }
+        catch (e) {
+            log('signOut google error')
+            log(e)
+        }
+        
+        try {
+            
+            await axiosInstance.post('/api/blacklist/', {
+                "refresh_token": cookies.USER_REFRESH_TOKEN,
+            });
+            
+            removeCookie('USER_ACCESS_TOKEN')
+            removeCookie('USER_REFRESH_TOKEN')
+            
+            axiosInstance.defaults.headers['Authorization'] = null;
+            window.location.reload()
+        }
+        catch (e) {
+            log('error')
+            console.log(e);
+        }
+    };
 
     return (
         <React.Fragment>
@@ -41,13 +59,30 @@ const Profile = () => {
 
             {
                 loaded ?
-                <div className='mx-4 space-y-10 md:mx-auto md:w-4/5'>
-                    <div className={`space-y-5 py-8 px-4 mb-20 shadow-[0_1px_10px_#690D11] border-4 border-[#690D11] rounded-lg`}>
+                <div className='mx-4 h-screen space-y-10 md:mx-auto md:w-4/5'>
+                    <div className='relative'>
+                        <h1 className='text-center font-bold'>پروفایل</h1>
+                        <div className='absolute top-0 left-0'>
+                            <Link to='/shop/'>
+                                <svg class="h-6 w-6 text-[#cfa278]"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <line x1="4" y1="12" x2="14" y2="12" />  <line x1="4" y1="12" x2="8" y2="16" />  <line x1="4" y1="12" x2="8" y2="8" />  <line x1="20" y1="4" x2="20" y2="20" /></svg>
+                            </Link>
+                        </div>
+                    </div>
+                    <div className={`space-y-5 py-8 px-4 mb-20`}>
                         <div>
-                            <div className="flex items-center mb-5 space-x-2 space-x-reverse">
+                            <div className="text-center mb-5">
                                 <h2>{user?.first_name }&nbsp;{user?.last_name}</h2>
+                                <h5>{user?.phone_number}</h5>
                             </div>
                         </div>
+                    </div>
+                    <div>
+                        <ul className='flex flex-col text-center space-y-3'>
+                            <li><Link to='/shop/setting/'>اطلاعات حساب کاربری</Link></li>
+                            <li><Link to='/shop/order-history/'>سفارش ها</Link></li>
+                            <li><Link to='/shop/messages/'>پیغام ها</Link></li>
+                            <li><button onClick={handleLogout}>خروج</button></li>
+                        </ul>
                     </div>
                     {/* <div className='space-y-5 py-8 px-4 shadow-[0_1px_10px_#690D11] border-4 bg-[#0e0202d4] border-[#690D11] rounded-lg'>
                         <div className="flex justify-between">

@@ -1024,6 +1024,21 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-color: rgb(22 163 74 / var(--tw-border-opacity));
 }
 
+.border-b-blue-900 {
+  --tw-border-opacity: 1;
+  border-bottom-color: rgb(30 58 138 / var(--tw-border-opacity));
+}
+
+.border-b-yellow-600 {
+  --tw-border-opacity: 1;
+  border-bottom-color: rgb(202 138 4 / var(--tw-border-opacity));
+}
+
+.border-b-yellow-500 {
+  --tw-border-opacity: 1;
+  border-bottom-color: rgb(234 179 8 / var(--tw-border-opacity));
+}
+
 .bg-\[\#e0bd87\] {
   --tw-bg-opacity: 1;
   background-color: rgb(224 189 135 / var(--tw-bg-opacity));
@@ -1063,12 +1078,20 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: #0e0202d4;
 }
 
+.bg-transparent {
+  background-color: transparent;
+}
+
 .bg-gradient-to-tr {
   background-image: linear-gradient(to top right, var(--tw-gradient-stops));
 }
 
 .bg-gradient-to-b {
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
+}
+
+.bg-none {
+  background-image: none;
 }
 
 .from-\[\#3e328b\] {
@@ -1387,6 +1410,21 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .ease-in-out {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.placeholder\:text-gray-500::-moz-placeholder {
+  --tw-text-opacity: 1;
+  color: rgb(107 114 128 / var(--tw-text-opacity));
+}
+
+.placeholder\:text-gray-500:-ms-input-placeholder {
+  --tw-text-opacity: 1;
+  color: rgb(107 114 128 / var(--tw-text-opacity));
+}
+
+.placeholder\:text-gray-500::placeholder {
+  --tw-text-opacity: 1;
+  color: rgb(107 114 128 / var(--tw-text-opacity));
 }
 
 .hover\:text-\[\#4e3faa\]:hover {

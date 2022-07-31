@@ -26,36 +26,36 @@ const LikeCommentButton = (props) => {
             })
     }
 
-    const debounceRemoveLikeQuizFromUser = useCallback(
-        debounce(
-            async (userDetail) => {  
-                const userLikedQuizzes = userDetail.liked_quizzes.split('_')
-                const findCurrentQuizLike = userLikedQuizzes.indexOf(String(props.quizId) + props.quizType.slice(0, 1))
-                let updatedUserLikedQuizzes = userLikedQuizzes.splice(findCurrentQuizLike, 1)
-                updatedUserLikedQuizzes = userLikedQuizzes.join('_')
+    // const debounceRemoveLikeQuizFromUser = useCallback(
+    //     debounce(
+    //         async (userDetail) => {  
+    //             const userLikedQuizzes = userDetail.liked_quizzes.split('_')
+    //             const findCurrentQuizLike = userLikedQuizzes.indexOf(String(props.quizId) + props.quizType.slice(0, 1))
+    //             let updatedUserLikedQuizzes = userLikedQuizzes.splice(findCurrentQuizLike, 1)
+    //             updatedUserLikedQuizzes = userLikedQuizzes.join('_')
                 
-                await axiosInstance.patch(`/api/userView/${userDetail.id}/`, { liked_quizzes: updatedUserLikedQuizzes})
-                    // .then(res => {
-                    // })
-                    .catch(err => {
-                        log(err.response)
-                    })
-            }
-        , 1000), []
-    )
+    //             await axiosInstance.patch(`/api/userView/${userDetail.id}/`, { liked_quizzes: updatedUserLikedQuizzes})
+    //                 // .then(res => {
+    //                 // })
+    //                 .catch(err => {
+    //                     log(err.response)
+    //                 })
+    //         }
+    //     , 1000), []
+    // )
     
-    const debounceSubmitUserLikedTheQuiz = useCallback(
-        debounce(
-            async (userDetail) => {
-                await axiosInstance.patch(`/api/userView/${userDetail.id}/`, { liked_quizzes: userDetail.liked_quizzes + `_${props.quizId}${props.quizType.slice(0, 1)}` })
-                // .then(res => {
-                // })
-                .catch(err => {
-                    log(err.response)
-                })
-            }
-        , 1000), []
-    )
+    // const debounceSubmitUserLikedTheQuiz = useCallback(
+    //     debounce(
+    //         async (userDetail) => {
+    //             await axiosInstance.patch(`/api/userView/${userDetail.id}/`, { liked_quizzes: userDetail.liked_quizzes + `_${props.quizId}${props.quizType.slice(0, 1)}` })
+    //             // .then(res => {
+    //             // })
+    //             .catch(err => {
+    //                 log(err.response)
+    //             })
+    //         }
+    //     , 1000), []
+    // )
 
     const previousLikeCount = async () => {
         const now = new Date().getTime()

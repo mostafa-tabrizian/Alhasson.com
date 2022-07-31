@@ -10,12 +10,15 @@ urlpatterns = [
     path('api/google', auth_google),
     path("api/user/update", user_update),
     path("api/coupon", coupon),
+    path("api/recaptcha", verify_recaptcha),
     
     path('', index),
-    path('login', index),
+    path('login/', index),
     path('cart/', index),
     path('payment-method/', index),
     path('profile/', index),
-    path('edit-profile/', index),
+    path('setting/', index),
+    path('messages/', index),
+    path('order-history/', index),
     path('<product_slug>', index),
 ]

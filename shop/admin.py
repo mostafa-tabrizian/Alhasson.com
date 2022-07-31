@@ -6,7 +6,7 @@ admin.site.site_header = "Quizzland Admin Panel"
 
 class CustomUserAdmin(UserAdmin):
     list_display = ('username', 'email', 'last_name', 'first_name')
-    list_filter = ('birthday_date', 'gender', 'blocked')
+    list_filter = ('blocked', )
     search_fields = ['username', 'email', 'last_name', 'first_name']
     
     fieldsets = (
@@ -15,16 +15,10 @@ class CustomUserAdmin(UserAdmin):
             'More',  # group heading of your choice; set to None for a blank space instead of a header
             {
                 'fields': (
-                    'blocked',
-                    'avatar',
-                    'bio',
-                    'birthday_date',
-                    'gender',
-                    'most_played_categories',
-                    'played_history',
-                    'liked_quizzes',
-                    'watch_list',
-                    'points',
+                    'order_history',
+                    'address',
+                    'postal_code',
+                    'phone_number',
                 ),
             },
         ),

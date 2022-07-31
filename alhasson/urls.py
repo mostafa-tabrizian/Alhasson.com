@@ -18,7 +18,6 @@ router = routers.DefaultRouter()
 router.register(r'bookView', frontendView.BookView)
 router.register(r'clipView', frontendView.ClipView)
 router.register(r'albumView', frontendView.AlbumView)
-router.register(r'userView', shopView.CustomUserView)
 router.register(r'productView', shopView.ProductView)
 
 urlpatterns = [

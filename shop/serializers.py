@@ -23,25 +23,6 @@ class CustomJWTSerializer(TokenObtainPairSerializer):
 
         return super().validate(credentials)
 
-class CustomUserSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = CustomUser
-        fields = (
-            'id',
-            'username',
-            'email',
-            'first_name',
-            'last_name',
-            'avatar',
-            'bio',
-            'points',
-            'most_played_categories',
-            'liked_quizzes',
-            'played_history',
-            'watch_list',
-            'is_active',
-        )
-
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product

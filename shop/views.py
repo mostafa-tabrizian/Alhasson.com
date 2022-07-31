@@ -54,15 +54,11 @@ def user_data(request, *args, **kwargs):
                         'username': user.username,
                         'first_name': user.first_name,
                         'last_name': user.last_name,
-                        'points': user.points,
                         'blocked': user.blocked,
-                        'avatar': str(user.avatar),
-                        'bio': user.bio,
-                        'points': user.points,
-                        'most_played_categories': user.most_played_categories,
-                        'played_history': user.played_history,
-                        'liked_quizzes': user.liked_quizzes,
-                        'watch_list': user.watch_list,
+                        "order_history": user.order_history,
+                        "address": user.address,
+                        "postal_code": user.postal_code,
+                        "phone_number": user.phone_number,
                         'is_active': user.is_active,
                     }   
                 )
@@ -74,6 +70,18 @@ def user_data(request, *args, **kwargs):
     
 def checkAlreadyUserExists(username, email):
     return CustomUser.objects.filter(username=username).exists() or CustomUser.objects.filter(email=email).exists() 
+    
+def verify_recaptcha(res):
+    response = res.GET.get('r')
+    RECAPTCHA_SECRET = config('RECAPTCHA_SECRET', cast=str)
+    
+    params = {
+        'secret': RECAPTCHA_SECRET,
+        'response': response
+    }
+    req = requests.post('https://www.google.com/recaptcha/api/siteverify', params)
+    
+    return HttpResponse((json.loads(req.content))['success'])
     
 def user_update(request, *args, **kwargs):
     if request.method == 'PATCH':
@@ -101,18 +109,18 @@ def user_update(request, *args, **kwargs):
             last_name = payload['lastName']
             if len(last_name):
                 user.last_name = last_name
-            bio = payload['bio']
-            if len(bio):
-                user.bio = bio
-            gender = payload['gender']
-            if len(gender):
-                user.gender = gender
-            birthdayData = payload['birthdayData']
-            if birthdayData != 'undefined':
-                user.birthday_date = birthdayData.replace('/', '-')
-            avatar = payload['avatar']
-            if avatar != 'null':
-                user.avatar = avatar
+            order_history = payload['order_history']
+            if len(order_history):
+                user.order_history = order_history
+            address = payload['address']
+            if len(address):
+                user.address = address
+            postal_code = payload['postalCode']
+            if len(postal_code):
+                user.postal_code = postal_code
+            phone_number = payload['phone_number']
+            if len(phone_number):
+                user.phone_number = phone_number
                 
             user.save()
             return HttpResponse('success')
@@ -186,12 +194,6 @@ def coupon(request, *args, **kwargs):
 
 def handler404(request, exception):
     return render(request, 'shop/index.html', status=404)
-
-class CustomUserView(viewsets.ModelViewSet):
-    permissions_classes = (BasePermission,)
-    queryset = CustomUser.objects.all()
-    serializer_class = CustomUserSerializer
-    filterset_class = CustomUserFilter
 
 
 class ProductView(viewsets.ModelViewSet):
