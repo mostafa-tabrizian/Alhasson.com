@@ -168,6 +168,22 @@ def auth_google(request, *args, **kwargs):
         
         return HttpResponse(json.dumps(response))
 
+def coupon(request, *args, **kwargs):
+    if request.method == 'POST':
+        payload = json.loads(request.body.decode('utf-8'))
+        
+        try:
+            entered_code = payload['code']
+            enteredCouponCode = Coupon.objects.get(code=entered_code)
+            
+            return HttpResponse(enteredCouponCode.discount_amount)
+        
+        except Coupon.DoesNotExist:
+            return HttpResponse('کد تخفیف وجود ندارد')
+        
+        except Exception as e:
+            return HttpResponse('error: ' + e)
+
 def handler404(request, exception):
     return render(request, 'shop/index.html', status=404)
 

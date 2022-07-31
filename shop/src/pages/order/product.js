@@ -34,7 +34,11 @@ const Product = () => {
 
             <div>
                 <div className='flex justify-center mb-10 w-[90vw] h-full'>
-                    <img src={productDetail?.image} alt={`${productDetail?.slug}-${productDetail?.title}`} />
+                    <img
+                        src={productDetail?.image}
+                        alt={`${productDetail?.slug}-${productDetail?.title}`}
+                        className='rounded-md'
+                    />
                 </div>
 
                 <div>
@@ -47,7 +51,7 @@ const Product = () => {
                                     <span
                                         className={`
                                             flex text-left font-semibold bg-red-600 rounded-full px-2 text-white
-                                            text-[.7rem] md:w-52 md:text-base items-center w-fit
+                                            text-[.9rem] md:w-52 md:text-base items-center w-fit
                                         `}
                                     >
                                         {productDetail?.discount}%
@@ -58,7 +62,7 @@ const Product = () => {
                                 <span
                                     className={`
                                         flex text-left font-semibold
-                                        text-sm md:w-52 md:text-base
+                                        text-[1rem] md:w-52 md:text-base
                                     `}
                                 >
                                     {priceWithDiscount(productDetail?.price, productDetail?.discount)}   تومان
@@ -67,7 +71,7 @@ const Product = () => {
                                     productDetail?.discount !== 0 &&
                                     <s className={`
                                         flex justify-start font-semibold
-                                        text-[.7rem] text-gray-400 decoration-slice
+                                        text-[.9rem] text-gray-400 decoration-slice
                                     `}>
                                         {productDetail?.price}
                                         {/* before discount */}

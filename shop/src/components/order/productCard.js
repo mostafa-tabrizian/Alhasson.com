@@ -19,7 +19,7 @@ const ProductCard = (props) => {
                                 width={200}
                                 height={200}
                                 alt={`${product.title}`}
-                                className='object-cover'
+                                className='object-cover rounded-md'
                             />
                         </div>
                         <div className='my-3'>

@@ -23,7 +23,11 @@ const ProductCart = (props) => {
                         className='flex flex-col'
                     >
                         <div className='w-[6rem] h-auto ml-5'>
-                            <img src={productData?.image} alt={productData?.title} />
+                            <img
+                                src={productData?.image}
+                                alt={productData?.title}
+                                className='rounded-md'
+                            />
                         </div>
                     </Link>
                     <div className='flex flex-col w-full'>
@@ -34,9 +38,6 @@ const ProductCart = (props) => {
                             `}>
                                 {productData?.title}
                             </h2>
-                            <h3 className='text-xs text-zinc-400'>
-                                کتاب
-                            </h3>
                         </div>
                         
                         <div>

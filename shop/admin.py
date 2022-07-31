@@ -37,3 +37,9 @@ class ProductAdmin(admin.ModelAdmin):
     list_display = ('title', 'public', 'available_count', 'price', 'discount', 'views_monthly', 'sold_monthly', 'created_at')
     list_filter = ('public', 'created_at')
     search_fields = ['title', 'slug', 'description']
+    
+@admin.register(Coupon)
+class CouponAdmin(admin.ModelAdmin):
+    list_display =('code', 'active', 'created_at', 'expire_at', 'used_at')
+    list_filter = ('active', 'created_at', 'expire_at', 'used_at')
+    search_fields = ('id' ,'code')

@@ -84,7 +84,7 @@ SIMPLE_JWT = {
 
 ALLOWED_HOSTS = [
     'alhasson.com', 'www.alhasson.com'
-    ,'localhost'
+    ,'localhost', '192.168.1.6'
 ]
 
 CORS_ORIGIN_ALLOW_ALL = False

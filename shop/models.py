@@ -50,3 +50,15 @@ class Product(models.Model):
     
     def __str__(self):
         return f'{self.title}'
+    
+class Coupon(models.Model):
+    id = models.AutoField(primary_key=True)
+    active = models.BooleanField(default=True, help_text='فعال')
+    code = models.CharField(max_length=255, blank=False, help_text='کد تخفیف')
+    discount_amount = models.IntegerField(blank=False, help_text='مقدار درصد تخفیف')
+    expire_at = models.DateTimeField(blank=True, null=True, help_text='تاریخ انقضا کد')
+    created_at = models.DateTimeField(default=datetime.datetime.now, blank=False, help_text='تاریخ ایجاد کد')
+    used_at = models.DateTimeField(blank=True, null=True, help_text='تاریخ استفاده کردن از کد')
+    
+    def __str__(self):
+        return f'Code:{self.code} Amount:{self.discount_amount}%'
