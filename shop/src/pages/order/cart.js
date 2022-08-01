@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom'
 import CartStore from '../../store/cartStore'
 import ProductCart from '../../components/order/productCart'
 import { log } from '../../../../frontend/src/components/base'
-import UserProfileDetail from '../../components/user/userProfileDetail'
 
 const Cart = () => {
     const [loadState, setLoaded] = useState(false)
@@ -96,16 +95,9 @@ const Cart = () => {
             </div>
 
             <div className='flex justify-center bg-[#cfa278] w-full py-2 rounded-xl font-semibold'>
-                {/* {
-                    UserProfileDetail?.username? */}
-                    <Link to='/shop/payment-method/'>
-                        ادامه فرایند خرید
-                    </Link>
-                    {/* :
-                    <Link to='/shop/login'>
-                        ادامه فرایند خرید
-                    </Link> */}
-                {/* } */}
+                <Link to='/shop/payment-method/'>
+                    ادامه فرایند خرید
+                </Link>
             </div>
         </div>
     );

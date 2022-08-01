@@ -59,6 +59,7 @@ module.exports = {
     new webpack.DefinePlugin({
       "process.env": {
         NODE_ENV: JSON.stringify("production"),  // development production
+        'GOOGLE_LOGIN_CLIENT': JSON.stringify("687160730568-s62liqkremb5stf1q3gobiso529n7upv.apps.googleusercontent.com"),
       },
     }),
 

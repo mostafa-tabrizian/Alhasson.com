@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { Helmet } from "react-helmet";
 import { Link, useLocation } from 'react-router-dom'
+import { message } from 'antd'
+import { useCookies } from "react-cookie";
+import axios from 'axios'
+import { useGoogleLogout } from 'react-google-login'
 
 import { log } from '../../../../frontend/src/components/base'
 import UserProfileDetail from '../../components/user/userProfileDetail';
@@ -8,6 +12,8 @@ import UserProfileDetail from '../../components/user/userProfileDetail';
 const Profile = () => {
     const [user, setUser] = useState(null)
     const [loaded, setLoaded] = useState(false)
+
+    const [cookies, setCookie, removeCookie] = useCookies(['USER_ACCESS_TOKEN', 'USER_REFRESH_TOKEN']);
     
     const location = useLocation()
 
@@ -17,34 +23,38 @@ const Profile = () => {
     }, [location])
 
     const getUserDetail = async () => {
-        setUser(await UserProfileDetail())
+        const userDetail = await UserProfileDetail()
+        if (userDetail) {
+            setUser(userDetail)
+        } else {
+            window.location.href = '/shop/login/'
+        }
     }
+
+    const { signOut } = useGoogleLogout({
+        clientId: process.env.GOOGLE_LOGIN_CLIENT,
+        onLogoutSuccess: () => {log('google 1')},
+        onFailure: () => {log('google 2')},
+    })
 
     const handleLogout = async () => {
         message.loading('در حال خارج شدن ...')
-        
+
         try {
-            signOut()
+            await axios.post('/shop/api/blacklist/', {"refresh_token": cookies.USER_REFRESH_TOKEN,})
+                .then(res => {
+                    removeCookie('USER_ACCESS_TOKEN', {path: '/'})
+                    removeCookie('USER_REFRESH_TOKEN', {path: '/'})
+                    
+                    axios.defaults.headers['Authorization'] = null;
+                    signOut()         
+                    window.location.reload()
+                })
+                .catch(err => {
+                    window.location.href = '/shop/'
+                })
         }
         catch (e) {
-            log('signOut google error')
-            log(e)
-        }
-        
-        try {
-            
-            await axiosInstance.post('/api/blacklist/', {
-                "refresh_token": cookies.USER_REFRESH_TOKEN,
-            });
-            
-            removeCookie('USER_ACCESS_TOKEN')
-            removeCookie('USER_REFRESH_TOKEN')
-            
-            axiosInstance.defaults.headers['Authorization'] = null;
-            window.location.reload()
-        }
-        catch (e) {
-            log('error')
             console.log(e);
         }
     };
@@ -58,7 +68,7 @@ const Profile = () => {
             </Helmet>
 
             {
-                loaded ?
+                loaded && user ?
                 <div className='mx-4 h-screen space-y-10 md:mx-auto md:w-4/5'>
                     <div className='relative'>
                         <h1 className='text-center font-bold'>پروفایل</h1>

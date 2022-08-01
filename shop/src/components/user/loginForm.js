@@ -12,7 +12,7 @@ const LoginForm = (props) => {
     const [cookies, setCookie, removeCookie] = useCookies(['USER_ACCESS_TOKEN', 'USER_REFRESH_TOKEN']);
 
     const { signOut } = useGoogleLogout({
-        clientId: '590155860234-tm0e6smarma5dvr7bi42v6r26v4qkdun.apps.googleusercontent.com',
+        clientId: process.env.GOOGLE_LOGIN_CLIENT,
         onLogoutSuccess: () => {log('google 1')},
         onFailure: () => {log('google 2')},
     })
@@ -35,33 +35,29 @@ const LoginForm = (props) => {
 
     const logout = async () => {
         try {
-            signOut()
+            await axios.post('/shop/api/blacklist/', {"refresh_token": cookies.USER_REFRESH_TOKEN,})
+                .then(res => {
+                    removeCookie('USER_ACCESS_TOKEN', {path: '/'})
+                    removeCookie('USER_REFRESH_TOKEN', {path: '/'})
+                    
+                    axios.defaults.headers['Authorization'] = null;
+                    signOut()         
+                    window.location.reload()
+                })
+                .catch(err => {
+                    window.location.href = '/shop/'
+                })
         }
         catch (e) {
-            log('signOut google error')
-            log(e)
+            console.log(e);
         }
-        
-        if (cookies.USER_REFRESH_TOKEN) {
-            await axiosInstance.post('/api/blacklist/', {
-                "refresh_token": cookies.USER_REFRESH_TOKEN,
-            });
-            
-            removeCookie('USER_ACCESS_TOKEN')
-            removeCookie('USER_REFRESH_TOKEN')
-            
-            axiosInstance.defaults.headers['Authorization'] = null;
-            setTimeout(() => {
-                window.location.reload()          
-            }, 5000)
-        }
-    }
+    };
 
     const checkIfLoggedIn = async () => {
         const userProfile = await userProfileDetail()
         
         if (userProfile !== undefined && window.location.pathname == '/shop/login/') {
-            window.location.href = '/'
+            window.location.href = '/shop/'
         }
     }
 
@@ -142,7 +138,7 @@ const LoginForm = (props) => {
 
     return (
             <GoogleLogin
-                clientId="590155860234-tm0e6smarma5dvr7bi42v6r26v4qkdun.apps.googleusercontent.com"
+                clientId="687160730568-s62liqkremb5stf1q3gobiso529n7upv.apps.googleusercontent.com"
                 className='ltr'  // w-[90%] flex justify-center
                 buttonText="ورود/ثبت نام با حساب گوگل"
                 onSuccess={googleLoginSuccess}
