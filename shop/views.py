@@ -13,7 +13,7 @@ from django.contrib.auth.hashers import make_password
 from django.core.exceptions import ObjectDoesNotExist
 from rest_framework import viewsets, status
 from rest_framework.views import APIView 
-from rest_framework.permissions import BasePermission, AllowAny
+from rest_framework.permissions import BasePermission, AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework_simplejwt.tokens import RefreshToken
@@ -176,6 +176,33 @@ def auth_google(request, *args, **kwargs):
         
         return HttpResponse(json.dumps(response))
 
+def completeOrder(request, *args, **kwargs):
+    if request.method == 'POST':
+        payload = json.loads(request.body.decode('utf-8'))
+        
+        user_access_token = AccessToken(payload['userAccessToken'])
+            
+        try:
+            print('-----------------------------------')
+            purchaserDetail = CustomUser.objects.get(id=user_access_token['user_id'])
+            
+            newOrder = Order()
+            newOrder.purchaser = purchaserDetail
+            newOrder.price = payload['price']
+            newOrder.discount = payload['discount']
+            
+            final_list = ''
+            for item in payload['purchased_items']:
+                itemTitle = Product.objects.get(id=item['id']).title
+                final_list += f' | {itemTitle} => {item["count"]} | '
+            
+            newOrder.purchased_items = final_list
+            newOrder.save()
+                        
+            return HttpResponse('order completed successfully')
+        except Exception as e:
+            return HttpResponse(e)
+
 def coupon(request, *args, **kwargs):
     if request.method == 'POST':
         payload = json.loads(request.body.decode('utf-8'))
@@ -201,3 +228,9 @@ class ProductView(viewsets.ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
     filterset_class = ProductFilter
+    
+class OrderView(viewsets.ModelViewSet):
+    permission_classes = (IsAuthenticated, )
+    queryset = Order.objects.all()
+    serializer_class = OrderSerializer
+    filterset_class = OrderFilter

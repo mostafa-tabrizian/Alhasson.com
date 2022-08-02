@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import axios from 'axios'
+import debounce from 'lodash.debounce'
 
 import ProductCard from '../components/order/productCard'
 import { log } from '../../../frontend/src/components/base'
@@ -11,15 +12,19 @@ const Index = () => {
         grabData()
     }, [])
 
-    const grabData = async () => {
-        await axios.get(`/api/productView/?limit=8&public=true`)
-            .then(res => {
-                setProduct_new(res.data.results)
-            })
-            .catch(err => {
-                log(err.response)
-            })
-    }
+    const grabData = useCallback(
+        debounce(
+            async () => {
+                await axios.get(`/api/productView/?limit=8&public=true`)
+                    .then(res => {
+                        setProduct_new(res.data.results)
+                    })
+                    .catch(err => {
+                        log(err.response)
+                    })
+            }
+        )
+    )
     
     return (
         <React.Fragment>

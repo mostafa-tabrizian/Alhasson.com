@@ -1,3 +1,4 @@
+from csv import list_dialects
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from .models import *
@@ -32,6 +33,12 @@ class ProductAdmin(admin.ModelAdmin):
     list_filter = ('public', 'created_at')
     search_fields = ['title', 'slug', 'description']
     
+@admin.register(Order)
+class OrderAdmin(admin.ModelAdmin):
+    list_display = ('id', 'purchaser', 'status', 'created_at', 'price')
+    list_filter = ('purchaser', 'created_at', 'status')
+    search_fields = ['purchaser', 'id']
+        
 @admin.register(Coupon)
 class CouponAdmin(admin.ModelAdmin):
     list_display =('code', 'active', 'created_at', 'expire_at', 'used_at')

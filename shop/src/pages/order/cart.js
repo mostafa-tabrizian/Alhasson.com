@@ -1,5 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef, useCallback } from 'react'
 import axios from 'axios'
+import debounce from 'lodash.debounce'
 import { Link } from 'react-router-dom'
 
 import CartStore from '../../store/cartStore'
@@ -26,16 +27,20 @@ const Cart = () => {
         setLoaded(true)
     }, [cartItems, allProductsData]);
 
-    const fetchData = async () => {
-        await axios.get('/api/productView/')
-            .then(res => {
-                setAllProductsData(res.data)
-                allProductsDataRef.current = res.data
-            })
-            .catch(err => {
-                log(err.response)
-            })
-    }
+    const fetchData = useCallback(
+        debounce(
+            async () => {
+                await axios.get('/api/productView/')
+                    .then(res => {
+                        setAllProductsData(res.data)
+                        allProductsDataRef.current = res.data
+                    })
+                    .catch(err => {
+                        log(err.response)
+                    })
+            }
+        )
+    )
 
     const calculatePrice = ()  => {
         let totalPrice = 0

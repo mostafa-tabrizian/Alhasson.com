@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import debounce from 'lodash.debounce'
+import { useCookies } from "react-cookie";
 
 import CartStore from '../../store/cartStore'
 import { log } from '../../../../frontend/src/components/base'
@@ -17,6 +18,8 @@ const PaymentMethod = () => {
     const [shippingCost, setShippingCost] = useState(15_000)
     const [allProductsData, setAllProductsData] = useState([])
     const [user, setUser] = useState(null)
+    
+    const [cookies, setCookie, removeCookie] = useCookies(['USER_ACCESS_TOKEN', 'USER_REFRESH_TOKEN']);
     
     const allProductsDataRef = useRef([])
     const couponCodeRef = useRef(null)
@@ -48,6 +51,23 @@ const PaymentMethod = () => {
             .then(res => {
                 setAllProductsData(res.data)
                 allProductsDataRef.current = res.data
+            })
+            .catch(err => {
+                log(err.response)
+            })
+    }
+
+    const completeOrder = async () => {
+        const payload = {
+            userAccessToken: cookies.USER_ACCESS_TOKEN,
+            purchased_items: cartItems.items,
+            price: totalPrice,
+            discount: totalDiscount,
+        }
+
+        await axiosInstance.post('/shop/api/order', payload)
+            .then(res => {
+                log(res)
             })
             .catch(err => {
                 log(err.response)
@@ -154,7 +174,7 @@ const PaymentMethod = () => {
                     </div>
     
                     <div className='flex justify-center'>
-                        <button className='bg-[#cfa278] w-full py-2 rounded-xl font-semibold'>
+                        <button onClick={completeOrder} className='bg-[#cfa278] w-full py-2 rounded-xl font-semibold'>
                             پرداخت
                         </button>
                     </div>

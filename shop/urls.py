@@ -9,6 +9,7 @@ urlpatterns = [
     path('api/user', user_data),
     path('api/google', auth_google),
     path("api/user/update", user_update),
+    path("api/order", completeOrder),
     path("api/coupon", coupon),
     path("api/recaptcha", verify_recaptcha),
     

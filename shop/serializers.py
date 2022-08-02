@@ -27,3 +27,8 @@ class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
         fields = ('id', 'public', 'available_count', 'title', 'slug', 'thumbnail', 'image', 'price', 'discount', 'description', 'views_total', 'views_monthly', 'sold_total', 'sold_monthly')
+        
+class OrderSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Order
+        fields = ("id", "purchaser", "purchased_items", "price", "discount", "created_at", "status")
