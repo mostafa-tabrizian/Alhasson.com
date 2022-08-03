@@ -4,9 +4,11 @@ import { Link } from 'react-router-dom'
 
 import { log, takeParameterFromUrl, priceWithDiscount } from '../../../../frontend/src/components/base'
 import CartStore from '../../store/cartStore'
+import LoadingScreen from '../../../../frontend/src/components/loadingScreen'
 
 const Product = () => {
     const [productDetail, setProductDetail] = useState()
+    const [loading, setLoading] = useState(true)
 
     const [cartItems, cartActions] = CartStore()
 
@@ -14,6 +16,7 @@ const Product = () => {
         axios.get(`/api/productView/?slug=${takeParameterFromUrl('slug')}`)
             .then(res => {
                 setProductDetail(res.data[0])
+                setLoading(false)
             })
             .catch(err => {
                 log(err.response)
@@ -26,6 +29,8 @@ const Product = () => {
 
     return (
         <div className='mx-5 md:mx-[25rem] m-auto mb-20 space-y-10 relative'>
+            <LoadingScreen loading={loading} />
+
             <div className=''>
                 <Link to='/shop/'>
                     <svg class="h-6 w-6 text-[#cfa278] mr-auto" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z" />  <line x1="4" y1="12" x2="14" y2="12" />  <line x1="4" y1="12" x2="8" y2="16" />  <line x1="4" y1="12" x2="8" y2="8" />  <line x1="20" y1="4" x2="20" y2="20" /></svg>

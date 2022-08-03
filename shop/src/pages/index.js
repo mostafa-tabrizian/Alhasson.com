@@ -4,11 +4,14 @@ import debounce from 'lodash.debounce'
 
 import ProductCard from '../components/order/productCard'
 import { log } from '../../../frontend/src/components/base'
+import LoadingScreen from '../../../frontend/src/components/loadingScreen'
 
 const Index = () => {
     const [product_new, setProduct_new] = useState([])
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
+        setLoading(true)
         grabData()
     }, [])
 
@@ -18,6 +21,7 @@ const Index = () => {
                 await axios.get(`/api/productView/?limit=8&public=true`)
                     .then(res => {
                         setProduct_new(res.data.results)
+                        setLoading(false)
                     })
                     .catch(err => {
                         log(err.response)
@@ -28,12 +32,12 @@ const Index = () => {
     
     return (
         <React.Fragment>
+            <LoadingScreen loading={loading} />
+            
             <section className='bg-gradient-to-b py-10 wrapper from-[#0d0735] to-[#070515]'>
                 <div className="grid grid-cols-2 gap-2">
                     <ProductCard products={product_new} />
                 </div>
-            </section>
-            <section className='bg-gradient-to-b py-10 wrapper from-[#070515] to-[#0d0735]'>
             </section>
         </React.Fragment>
     );

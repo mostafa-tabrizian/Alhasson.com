@@ -1,8 +1,6 @@
 import React, { Suspense, lazy, useState } from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import { Spin } from 'antd'
-import { LoadingOutlined } from '@ant-design/icons'
 
 import { log } from '../../frontend/src/components/base'
 
@@ -23,20 +21,10 @@ const Header = lazy(() => import('./components/header'))
 const Navbar = lazy(() => import('./components/navbar'))
 const Footer = lazy(() => import('./components/footer'))
 
-const antIcon = <LoadingOutlined style={{ fontSize: 150, color: 'white' }} spin />;
-
-const loadingScreen = (
-    <div className={`fixed grid justify-center items-center h-screen w-screen bg-gradient-to-b from-[#0d0735] to-[#070515]`}>
-        <div className='space-y-5 top-1/2'>
-            <Spin indicator={antIcon} />
-        </div>
-    </div>
-)
-
 const App = () => {
     return (
         <React.Fragment>
-            <Suspense fallback={loadingScreen}>
+            <Suspense>  
                 <Router>
                     <Header />
                     <Navbar />
