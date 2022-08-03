@@ -13,6 +13,9 @@ urlpatterns = [
     path("api/coupon", coupon),
     path("api/recaptcha", verify_recaptcha),
     
+    # path('api/zarinpal/request/', send_request, name='request'),
+    # path('api/zarinpal/verify/', verify , name='verify'),
+    
     path('', index),
     path('login/', index),
     path('cart/', index),

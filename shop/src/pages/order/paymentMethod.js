@@ -67,9 +67,19 @@ const PaymentMethod = () => {
 
         await axiosInstance.post('/shop/api/order', payload)
             .then(res => {
-                log(res)
+                if (res.data = "order completed successfully") {
+                    message.success('خرید شما با موفقیت ثبت شد')
+                    // reset the cart
+                    // redirect to order info in history
+                    // send us a message for noticing the order
+                } else {
+                    log('its res')
+                    log(res)
+                    message.error('خطایی رخ داده است. لطفا بعدا تلاش کنید.')
+                }
             })
             .catch(err => {
+                message.error('خطایی رخ داده است. لطفا بعدا تلاش کنید.')
                 log(err.response)
             })
     }
