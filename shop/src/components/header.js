@@ -76,8 +76,8 @@ removeCookie('USER_REFRESH_TOKEN', {path: '/'})
     };
 
     return (
-        <header>
-            <div className="relative justify-between m-8 flex">
+        <header className='h-[7rem] '>
+            <div className="fixed justify-between flex bg-[#0d0735] pt-8 pb-4 pr-4 pl-[100%] z-10">
                 <div className='items-center hidden space-x-10 space-x-reverse md:flex'>
                     <img className='w-12' src="/static/img/inTheNameOfGod.png" alt="الدکتور-الشیخ-علاء-الحسّون" />
                     <a href="/">

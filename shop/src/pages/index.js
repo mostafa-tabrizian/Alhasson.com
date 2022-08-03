@@ -34,11 +34,9 @@ const Index = () => {
         <React.Fragment>
             <LoadingScreen loading={loading} />
             
-            <section className='bg-gradient-to-b py-10 wrapper from-[#0d0735] to-[#070515]'>
-                <div className="grid grid-cols-2 gap-2">
-                    <ProductCard products={product_new} />
-                </div>
-            </section>
+            <div className="grid grid-cols-2 gap-2 py-10 wrapper">
+                <ProductCard products={product_new} />
+            </div>
         </React.Fragment>
     );
 }

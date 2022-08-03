@@ -10,10 +10,18 @@ body, html {
   -webkit-transition: all .3s ease-in-out;
   transition: all .3s ease-in-out;
   color: white;
+  scroll-behavior: smooth;
+}
+
+#background {
   background: -webkit-gradient(linear, left top, left bottom, from(0), color-stop(#070515), to(#0d0735));
   background: linear-gradient(0, #070515, #0d0735);
-  height: auto;
-  scroll-behavior: smooth;
+  height: 100vh;
+  width: 100vw;
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 body::-webkit-scrollbar {

@@ -7,7 +7,7 @@ const ProductCard = (props) => {
     return (
         props.products.map((product) => {
             return (
-                <article className='m-auto'>
+                <article className=''>
 
                     <Link
                         to={`/shop/${replaceFunction(product.title, ' ', '-')}?slug=${product.slug}`}
@@ -16,10 +16,8 @@ const ProductCard = (props) => {
                         <div className=''>
                             <img
                                 src={product.thumbnail}
-                                width={200}
-                                height={200}
                                 alt={`${product.title}`}
-                                className='object-cover rounded-md'
+                                className='object-cover h-[16rem] rounded-lg'
                             />
                         </div>
                         <div className='my-3'>
@@ -29,7 +27,7 @@ const ProductCard = (props) => {
                             `}>
                                 {product.title}
                             </h2>
-                            <div className='flex justify-between w-full mt-3'>
+                            <div className='flex space-x-3 space-x-reverse w-full mt-3'>
                                 <span className={`
                                     flex text-left font-semibold
                                     text-sm md:w-52 md:text-base

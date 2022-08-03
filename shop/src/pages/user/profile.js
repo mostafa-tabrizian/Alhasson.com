@@ -70,7 +70,7 @@ const Profile = () => {
 
             <LoadingScreen loading={loading} />
             
-            <div className='mx-4 h-screen space-y-10 md:mx-auto md:w-4/5'>
+            <div className='mx-4 space-y-10 md:mx-auto md:w-4/5'>
                 <div className='relative'>
                     <h1 className='text-center font-bold'>پروفایل</h1>
                     <div className='absolute top-0 left-0'>
