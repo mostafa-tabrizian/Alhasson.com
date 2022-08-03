@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useRef, useCallback } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
@@ -34,9 +35,7 @@ const PaymentMethod = () => {
     }, []);
     
     useEffect(() => {
-        setLoading(true)
         calculatePrice()
-        setLoading(false)
     }, [cartItems, allProductsData]);
 
     const ifNotLoggedInRedirectToLoginPage = async () => {
@@ -69,9 +68,13 @@ const PaymentMethod = () => {
         await axiosInstance.post('/shop/api/order', payload)
             .then(res => {
                 if (res.data = "order completed successfully") {
+                    setLoading(true)
                     message.success('خرید شما با موفقیت ثبت شد')
-                    // reset the cart
-                    // redirect to order info in history
+                    setTimeout(() => {
+                        cartActions.resetCart()
+                        window.location.reload()
+                        // redirect to order info in history
+                    }, 1000);
                     // send us a message for noticing the order
                 } else {
                     log('its res')
@@ -81,6 +84,7 @@ const PaymentMethod = () => {
             })
             .catch(err => {
                 message.error('خطایی رخ داده است. لطفا بعدا تلاش کنید.')
+                log(err)
                 log(err.response)
             })
     }
@@ -131,7 +135,7 @@ const PaymentMethod = () => {
         <React.Fragment>
             <LoadingScreen loading={loading} />
 
-            <div className='mx-5 md:mx-[25rem] m-auto mb-20 space-y-10'>
+            <div className='mx-5 md:mx-[25rem] m-auto pb-20 space-y-10'>
                 <div className='relative'>
                     <h1 className='text-center font-bold'>روش پرداخت</h1>
                     <div className='absolute top-0 left-0'>
@@ -141,10 +145,11 @@ const PaymentMethod = () => {
                     </div>
                 </div>
 
-                <div className='grid grid-cols-3 gap-6'>
+                <div className='flex justify-center'>
                     {/* <div className='px-2 py-5 shadow-primary rounded-lg flex justify-center text-center items-center'>درگاه پرداخت بانک سامان</div> */}
-                    <div className='px-2 py-5 shadow-light rounded-lg flex justify-center text-center items-center'>زرین پال</div>
-                    {/* <div className='px-2 py-5 shadow-light rounded-lg flex justify-center text-center items-center'>پرداخت درب منزل</div> */}
+                    {/* <div className='px-3 py-4 shadow-light rounded-lg flex justify-center text-center items-center'>زرین پال</div> */}
+                    {/* <div className='px-3 py-4 shadow-light rounded-lg flex justify-center text-center items-center'>پرداخت درب منزل</div> */}
+                    <div className='px-3 py-4 shadow-light rounded-lg flex justify-center text-center items-center'>در حال حاضر درگاه پرداخت آنلاین غیرفعال می‌باشد، پرداخت از درب منزل انجام می‌گردد</div>
                 </div>
 
                 <hr />
@@ -186,7 +191,8 @@ const PaymentMethod = () => {
 
                 <div className='flex justify-center'>
                     <button onClick={completeOrder} className='bg-[#cfa278] w-full py-2 rounded-xl font-semibold'>
-                        پرداخت
+                        {/* پرداخت */}
+                        ثبت نهایی سفارش
                     </button>
                 </div>
             </div>

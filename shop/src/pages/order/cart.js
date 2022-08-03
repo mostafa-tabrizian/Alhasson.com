@@ -63,7 +63,7 @@ const Cart = () => {
     }
 
     return (
-        <div className='mx-5 md:mx-[25rem] m-auto mb-20 space-y-10'>
+        <div className='mx-5 md:mx-[25rem] m-auto pb-24 space-y-10'>
             <div className='relative'>
                 <h1 className='font-bold text-center'>سبد خرید</h1>
                 <div className='absolute top-0 left-0'>

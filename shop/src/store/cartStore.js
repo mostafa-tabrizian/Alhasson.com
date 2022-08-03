@@ -39,7 +39,7 @@ const CartStore = createStore({
                         const nextCount = each.count--
                         
                         if (nextCount == 1) {
-                            currentItems = []
+                            currentItems.splice(index, 1)
                         } else {
                             return {...each, count: nextCount}
                         }
@@ -49,6 +49,14 @@ const CartStore = createStore({
                 localStorage.setItem('cartStore', JSON.stringify({items: [...currentItems]}))
                 setState({items: [...currentItems]});
             },
+
+        resetCart:
+            () =>
+            ({ setState}) => {
+                let currentItems = []
+                localStorage.setItem('cartStore', JSON.stringify({items: [...currentItems]}))
+                setState({items: [...currentItems]});
+            }
     },
     name: 'items',
 });

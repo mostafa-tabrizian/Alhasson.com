@@ -65,7 +65,7 @@ const LoginForm = (props) => {
         notification.open({
             message: 'این کاربر مسدود شده است',
             description:
-                'برای اطلاعات بیشتر با پشتیبانی کوییزلند تماس بگیرید quizzland.net@gmail.com',
+                'برای اطلاعات بیشتر با پشتیبانی الحسون تماس بگیرید quizzland.net@gmail.com',
             duration: 5,
             style: {
                 'font-size': '25px',

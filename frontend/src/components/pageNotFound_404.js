@@ -15,17 +15,17 @@ const PageNotFound_404 = () => {
         <React.Fragment>
 
             <Helmet>
-                <title>صفحه مورد نظر پیدا نشد |‌ کوییزلند</title>
+                <title>صفحه مورد نظر پیدا نشد |‌ الحسون</title>
                 <meta name="description" content="صفحه مورد نظر پیدا نشد" />
-                <meta name="keywords" content="کوییزلند" />
+                <meta name="keywords" content="الحسون" />
                 <meta name="robots" content="noindex"></meta>
             </Helmet>
     
             <div className="relative basicPage wrapper-sm center" style={{background: '#0000008c', backdropFilter: 'blur(15px)', boxShadow: 'none', zIndex: '1'}}>
                 <h1> 🤔 صفحه‌ی مورد نظر پیدا نشد </h1>
                 <div className="space-sm">
-                    <p>💖 اگه فکر میکنی اشتباهی پیش اومدی ممنون میشیم برامون به<a href="mailto:support@quizzland.net?subject= در سایت کوییزلند به یه مشکلی برخوردم"> این ایمیل</a> پیام بدی</p>
-                    <a href="mailto:support@quizzland.net?subject= در سایت کوییزلند به یه مشکلی برخوردم" target="_blank" rel="noreferrer">support@quizzland.net</a>
+                    <p>💖 اگه فکر میکنی اشتباهی پیش اومدی ممنون میشیم برامون به<a href="mailto:support@quizzland.net?subject= در سایت الحسون به یه مشکلی برخوردم"> این ایمیل</a> پیام بدی</p>
+                    <a href="mailto:support@quizzland.net?subject= در سایت الحسون به یه مشکلی برخوردم" target="_blank" rel="noreferrer">support@quizzland.net</a>
                 </div>
             </div>
 

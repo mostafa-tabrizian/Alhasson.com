@@ -26,7 +26,9 @@ class Product(models.Model):
     price = models.IntegerField(blank=False, help_text='قیمت')
     discount = models.IntegerField(default=0, blank=False, help_text='تخفیف')
     
-    description = RichTextField(blank=False, help_text='توضیحات')
+    description = RichTextField(blank=False, help_text='توضیحات و درباره کتاب')
+    weight = models.IntegerField(blank=False, help_text='وزن به گرم')
+    pages = models.IntegerField(blank=False, help_text='تعداد صفحات')
     
     views_total = models.IntegerField(default=0, blank=False)
     views_monthly = models.IntegerField(default=0, blank=False)

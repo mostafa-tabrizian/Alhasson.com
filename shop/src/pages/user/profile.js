@@ -64,7 +64,7 @@ const Profile = () => {
         <React.Fragment>
 
             <Helmet>
-                <title>کوییزلند | پروفایل</title>
+                <title>الحسون | پروفایل</title>
                 <link rel='canonical' to={`https://www.quizzland.net/profile/${user?.username}`} />
             </Helmet>
 

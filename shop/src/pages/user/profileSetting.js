@@ -111,7 +111,7 @@ const ProfileSetting = () => {
             <LoadingScreen loading={loading} />
 
             <Helmet>
-                <title>کوییزلند | پروفایل</title>
+                <title>الحسون | پروفایل</title>
                 <link rel='canonical' to='https://www.quizzland.net/setting' />
             </Helmet>
 

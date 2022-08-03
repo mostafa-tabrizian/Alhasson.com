@@ -30,6 +30,18 @@ from django.shortcuts import redirect
 # mobile = '09123456789'  # Optional
 # CallbackURL = config('BASE_URL')+'/verify/'
 
+class ProductView(viewsets.ModelViewSet):
+    permission_classes = (BasePermission, )
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+    filterset_class = ProductFilter
+    
+class OrderView(viewsets.ModelViewSet):
+    permission_classes = (IsAuthenticated, )
+    queryset = Order.objects.all()
+    serializer_class = OrderSerializer
+    filterset_class = OrderFilter
+
 class ObtainTokenPairWithColorView(TokenObtainPairView):
     permission_classes = (AllowAny,)
     serializer_class = MyTokenObtainPairSerializer
@@ -293,16 +305,3 @@ def coupon(request, *args, **kwargs):
 
 def handler404(request, exception):
     return render(request, 'shop/index.html', status=404)
-
-
-class ProductView(viewsets.ModelViewSet):
-    permission_classes = (BasePermission, )
-    queryset = Product.objects.all()
-    serializer_class = ProductSerializer
-    filterset_class = ProductFilter
-    
-class OrderView(viewsets.ModelViewSet):
-    permission_classes = (IsAuthenticated, )
-    queryset = Order.objects.all()
-    serializer_class = OrderSerializer
-    filterset_class = OrderFilter

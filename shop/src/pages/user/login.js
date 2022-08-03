@@ -11,9 +11,9 @@ const Login = () => {
     return (
         <React.Fragment>
             <Helmet>
-                <title>ورود | ‌کوییزلند</title>
-                {/* <meta name="description" content="تماس با پشتیبانی کوییزلند" />
-                <meta name="keywords" content="پشتیبانی کوییزلند" /> */}
+                <title>ورود | ‌الحسون</title>
+                {/* <meta name="description" content="تماس با پشتیبانی الحسون" />
+                <meta name="keywords" content="پشتیبانی الحسون" /> */}
             </Helmet>
 
             <div className='w-screen h-screen'>
