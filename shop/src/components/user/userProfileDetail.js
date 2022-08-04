@@ -24,13 +24,12 @@ const UserProfileDetail = () => {
 
     const fetchUserProfile = async () => {
         const localAccessToken = getCookie('USER_ACCESS_TOKEN')
-        const now = new Date().getTime()
         if (localAccessToken) {
             const payload = {
                 access_token: localAccessToken,
             }
             
-            return await axiosInstance.post(`/shop/api/user?timestamp=${now}`, payload)
+            return await axiosInstance.post(`/shop/api/user`, payload)
                 .then (res => {
                     if (res.data.is_active) {
                         return res.data

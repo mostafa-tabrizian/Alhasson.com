@@ -103,10 +103,11 @@ def verify_recaptcha(res):
     return HttpResponse((json.loads(req.content))['success'])
     
 def user_update(request, *args, **kwargs):
+    print('--------------------------------')
     if request.method == 'PATCH':
         payload = json.loads(request.body.decode('utf-8'))
         
-        access_token = AccessToken(payload['accessToken'])
+        access_token = AccessToken(payload['access_token'])
             
         try:
             user = CustomUser.objects.get(id=access_token['user_id'])
@@ -122,19 +123,16 @@ def user_update(request, *args, **kwargs):
             elif username_length != 0:
                 return HttpResponse('username too short')
             
-            first_name = payload['firstName']
+            first_name = payload['first_name']
             if len(first_name):
                 user.first_name = first_name
-            last_name = payload['lastName']
+            last_name = payload['last_name']
             if len(last_name):
                 user.last_name = last_name
-            order_history = payload['order_history']
-            if len(order_history):
-                user.order_history = order_history
             address = payload['address']
             if len(address):
                 user.address = address
-            postal_code = payload['postalCode']
+            postal_code = payload['postal_code']
             if len(postal_code):
                 user.postal_code = postal_code
             phone_number = payload['phone_number']
@@ -145,7 +143,8 @@ def user_update(request, *args, **kwargs):
             return HttpResponse('success')
         
         except Exception as e:
-            return HttpResponse('error: ' + e)
+            print(e)
+            return HttpResponse(e)
     
 def auth_google(request, *args, **kwargs):
     payload = json.loads(request.body.decode('utf-8'))

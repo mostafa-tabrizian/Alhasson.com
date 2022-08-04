@@ -18,7 +18,7 @@ class Product(models.Model):
     available_count = models.IntegerField(blank=False, help_text='موجود در انبار')
         
     title = models.CharField(max_length=200, blank=False, help_text='عنوان برای نمایش')
-    slug = models.CharField(max_length=200, blank=False, null=False, help_text='- عنوان به انگلیسی با فاصله -')
+    slug = models.CharField(max_length=200, blank=False, null=False, help_text='عنوان به شکل های دیگر برای انواع جستجو ها با فاصله | میان هر شکل. برای مثال:‌تنمیة |‌ تنمیه')
     
     thumbnail = models.ImageField(blank=False, upload_to='product/thumbnail/', help_text='تصویر کوچک محصول')
     image = models.ImageField(blank=False, upload_to='product/images/', help_text='تصویر بزرگ محصول')

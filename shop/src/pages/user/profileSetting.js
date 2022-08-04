@@ -21,8 +21,8 @@ const ProfileSetting = () => {
     const firstNameRef = useRef()
     const lastNameRef = useRef()
     const addressRef  = useRef()
-    const postal_codeRef = useRef()
-    const phone_numberRef = useRef()
+    const postalCodeRef = useRef()
+    const phoneNumberRef = useRef()
 
     const [cookies] = useCookies(['USER_ACCESS_TOKEN']);
 
@@ -43,7 +43,7 @@ const ProfileSetting = () => {
 
     const checkRecaptcha = async () => {
         if (reCaptchaResponse.current !== null) {
-            return await axiosInstance.get(`/api/recaptcha?r=${reCaptchaResponse.current}`,)
+            return await axiosInstance.get(`/shop/api/recaptcha?r=${reCaptchaResponse.current}`,)
                 .then(res => {
                     return res.data
                 })
@@ -57,29 +57,33 @@ const ProfileSetting = () => {
     }
 
     const saveSetting = async () => {
-        const updatedUsername =  usernameRef.current.value
-        const updatedFirstName = firstNameRef.current.value
-        const updatedLastName = lastNameRef.current.value
-
-        if (!updatedUsername.length && !updatedFirstName.length && !updatedLastName.length) {
+        if (!(usernameRef.current.value).length &&
+            !(firstNameRef.current.value).length &&
+            !(lastNameRef.current.value).length &&
+            !(addressRef.current.value).length &&
+            !(postalCodeRef.current.value).length &&
+            !(phoneNumberRef.current.value).length) {
             return message.warning('برای ذخیره، حداقل یک ورودی را تغییر دهید.')
         }
 
-        debouncePatchUserSetting(updatedUsername, updatedFirstName, updatedLastName)
+        debouncePatchUserSetting()
     }
     
     const debouncePatchUserSetting = useCallback(
         debounce(
-            async (updatedUsername, updatedFirstName, updatedLastName) => {
-                if (await checkRecaptcha()) {
+            async () => {
+                // if (await checkRecaptcha()) {
                     const payload = {
-                        accessToken: cookies.USER_ACCESS_TOKEN,
-                        username: updatedUsername,
-                        firstName: updatedFirstName,
-                        lastName: updatedLastName,
+                        access_token: cookies.USER_ACCESS_TOKEN,
+                        username: usernameRef.current.value,
+                        first_name: firstNameRef.current.value,
+                        last_name: lastNameRef.current.value,
+                        address: addressRef.current.value,
+                        postal_code: postalCodeRef.current.value,
+                        phone_number: phoneNumberRef.current.value,
                     }
                     
-                    await axiosInstance.patch(`/api/user/update`, payload)
+                    await axiosInstance.patch(`/shop/api/user/update`, payload)
                         .then(res => {
                             if (res.data == 'success') {
                                 message.success('اطلاعات شما با موفقیت تغییر یافت.')
@@ -100,7 +104,7 @@ const ProfileSetting = () => {
                                 window.location.reload()
                             }, 10_000);
                         })
-                }
+                // }
             }
         , 1000), []
     );
@@ -126,7 +130,7 @@ const ProfileSetting = () => {
                         </div>
                     </div>
                     <div className='py-2 px-2 space-y-5 rounded'>
-                        <div className=''>
+                        <div className=''> 
                             <div className=''>
                                 <h4>نام کاربری</h4>
                                 <input className='placeholder:text-gray-500 bg-transparent border-b border-b-yellow-500' type="text" placeholder={user?.username} ref={usernameRef} />
@@ -148,21 +152,22 @@ const ProfileSetting = () => {
                         </div>
                         <div>
                             <h4>کدپستی</h4>
-                            <input className='placeholder:text-gray-500 bg-transparent border-b border-b-yellow-500' type="text" placeholder={user?.postal_code} ref={postal_codeRef} />
+                            <input className='placeholder:text-gray-500 bg-transparent border-b border-b-yellow-500' type="text" placeholder={user?.postal_code} ref={postalCodeRef} />
                         </div>
-                        <div>
+   N                   <div>
                             <h4>شماره تماس</h4>
-                            <input className='placeholder:text-gray-500 bg-transparent border-b border-b-yellow-500' type="text" placeholder={user?.phone_number} ref={phone_numberRef} />
+                            <input className='placeholder:text-gray-500 bg-transparent border-b border-b-yellow-500' type="text" placeholder={user?.phone_number} ref={phoneNumberRef} />
                         </div>
-                        <div className='justify-end w-full md:flex'>
-                            <ReCAPTCHA
-                                sitekey="6LeeCDchAAAAABN_9QhE42c0NXdyMyg5n-Mysh6Q"
-                                theme='dark'
-                                onChange={res => reCaptchaResponse.current = res}
-                            />
-                            <button onClick={saveSetting} className='px-6 py-2 my-auto mt-4 mr-4 border-2 border-green-600 h-fit rounded-xl'>‌ذخیره</button>
-                        </div>
-                    </div>
+
+                        <button onClick={saveSetting} className='px-6 py-2 mt-4 border-2 border-green-600 h-fit rounded-xl'>‌ذخیره</button>
+
+                        {/* <ReCAPTCHA
+                            sitekey="6LeeCDchAAAAABN_9QhE42c0NXdyMyg5n-Mysh6Q"
+                            theme='dark'
+                            onChange={res => reCaptchaResponse.current = res}
+                            className=''
+                        /> */}
+                    </div>               
                 </div>
             </div>
 

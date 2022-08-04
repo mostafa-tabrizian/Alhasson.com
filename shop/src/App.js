@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { log } from '../../frontend/src/components/base'
 
 const Index   = lazy(() => import('./pages/index'))
+const Search   = lazy(() => import('./pages/search'))
 
 const Login   = lazy(() => import('./pages/user/login'))
 
@@ -30,7 +31,8 @@ const App = () => {
                     
                     <Switch>
                         <Route path='/shop/' exact component={Index} />
-                        <Route path='/shop/login' exact component={Login} />
+                        <Route path='/shop/search/' exact component={Search} />
+                        <Route path='/shop/login/' exact component={Login} />
 
                         <Route path='/shop/checkout/cart/' exact component={Cart} />
                         <Route path='/shop/checkout/payment/' exact component={Payment} />
@@ -38,7 +40,7 @@ const App = () => {
                         <Route path='/shop/profile/' exact component={Profile} />
                         <Route path='/shop/profile/orders/' exact component={Orders} />
                         <Route path='/shop/profile/setting/' exact component={ProfileSetting} />
-                        
+
                         <Route path='/shop/:product_slug/' exact component={Product} />
                     </Switch>
 

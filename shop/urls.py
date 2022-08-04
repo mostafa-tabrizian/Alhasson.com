@@ -22,6 +22,7 @@ urlpatterns = [
     # path('api/zarinpal/verify/', verify , name='verify'),
     
     path('', index),
+    path('search/', index), 
     path('login/', index),
     
     path('checkout/cart/', index),
