@@ -30,7 +30,9 @@ const Cart = () => {
     const fetchData = useCallback(
         debounce(
             async () => {
-                await axios.get('/api/productView/')
+                const now = new Date().getTime()
+
+                await axios.get(`/api/productView/?timestamp=${now}`)
                     .then(res => {
                         setAllProductsData(res.data)
                         allProductsDataRef.current = res.data
@@ -100,7 +102,7 @@ const Cart = () => {
             </div>
 
             <div className='flex justify-center bg-[#cfa278] w-full py-2 rounded-xl font-semibold'>
-                <Link to='/shop/payment-method/'>
+                <Link to='/shop/checkout/payment/'>
                     ادامه فرایند خرید
                 </Link>
             </div>

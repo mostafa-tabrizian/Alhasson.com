@@ -89,9 +89,8 @@ const Profile = () => {
                 </div>
                 <div>
                     <ul className='flex flex-col text-center space-y-3'>
-                        <li><Link to='/shop/setting/'>اطلاعات حساب کاربری</Link></li>
-                        <li><Link to='/shop/order-history/'>سفارش ها</Link></li>
-                        <li><Link to='/shop/messages/'>پیغام ها</Link></li>
+                        <li><Link to='/shop/profile/setting/'>اطلاعات حساب کاربری</Link></li>
+                        <li><Link to='/shop/profile/orders/'>سفارش ها</Link></li>
                         <li><button onClick={handleLogout}>خروج</button></li>
                     </ul>
                 </div>

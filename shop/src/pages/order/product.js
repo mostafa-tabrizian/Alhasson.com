@@ -16,7 +16,9 @@ const Product = () => {
     }, []);
     
     const fetchProductDetail = () => {
-        axios.get(`/api/productView/?slug=${takeParameterFromUrl('slug')}`)
+        const now = new Date().getTime()
+
+        axios.get(`/api/productView/?slug=${takeParameterFromUrl('slug')}&timestamp=${now}`)
             .then(res => {
                 setProductDetail(res.data[0])
                 setLoading(false)

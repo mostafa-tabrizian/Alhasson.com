@@ -1,4 +1,5 @@
 import datetime, json, requests, random
+import re
 from tokenize import String
 from decouple import config
 
@@ -19,6 +20,7 @@ from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.tokens import AccessToken
 from django.shortcuts import redirect
+from django.core.serializers.json import DjangoJSONEncoder
 
 # MERCHANT = config('ZARINPAL_MERCHANT')
 # ZP_API_REQUEST = "https://api.zarinpal.com/pg/v4/payment/request.json"
@@ -35,12 +37,6 @@ class ProductView(viewsets.ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
     filterset_class = ProductFilter
-    
-class OrderView(viewsets.ModelViewSet):
-    permission_classes = (IsAuthenticated, )
-    queryset = Order.objects.all()
-    serializer_class = OrderSerializer
-    filterset_class = OrderFilter
 
 class ObtainTokenPairWithColorView(TokenObtainPairView):
     permission_classes = (AllowAny,)
@@ -260,7 +256,23 @@ def auth_google(request, *args, **kwargs):
 #     else:
 #         return HttpResponse('Transaction failed or canceled by user')
 
-def completeOrder(request, *args, **kwargs):
+def coupon(request, *args, **kwargs):
+    if request.method == 'POST':
+        payload = json.loads(request.body.decode('utf-8'))
+        
+        try:
+            entered_code = payload['code']
+            enteredCouponCode = Coupon.objects.get(code=entered_code)
+            
+            return HttpResponse(enteredCouponCode.discount_amount)
+        
+        except Coupon.DoesNotExist:
+            return HttpResponse('کد تخفیف وجود ندارد')
+        
+        except Exception as e:
+            return HttpResponse('error: ' + e)
+        
+def order_submit(request, *args, **kwargs):
     if request.method == 'POST':
         payload = json.loads(request.body.decode('utf-8'))
         
@@ -286,22 +298,37 @@ def completeOrder(request, *args, **kwargs):
             return HttpResponse('order completed successfully')
         except Exception as e:
             return HttpResponse(e)
+        
+def user_orders(request, *args, **kwargs):
+    payload = json.loads(request.body.decode('utf-8'))
+        
+    user_access_token = AccessToken(payload['userAccessToken'])
+        
+    try:
+        print('-----------------------------------')
+        purchaserDetail = CustomUser.objects.get(id=user_access_token['user_id'])
+        
+        userOrders = Order.objects.filter(purchaser=purchaserDetail)
 
-def coupon(request, *args, **kwargs):
-    if request.method == 'POST':
-        payload = json.loads(request.body.decode('utf-8'))
+        values = []
+
+        for order in userOrders:
+            values.append(
+                {
+                    'id': order.id,
+                    # 'purchased_items': order.purchased_items,
+                    'price': order.price,
+                    'discount': order.discount,
+                    'created_at': order.created_at,
+                    'status': order.status
+                }
+            )
         
-        try:
-            entered_code = payload['code']
-            enteredCouponCode = Coupon.objects.get(code=entered_code)
-            
-            return HttpResponse(enteredCouponCode.discount_amount)
-        
-        except Coupon.DoesNotExist:
-            return HttpResponse('کد تخفیف وجود ندارد')
-        
-        except Exception as e:
-            return HttpResponse('error: ' + e)
+        return HttpResponse(json.dumps(list(values), cls=DjangoJSONEncoder))
+    
+    except Exception as e:
+        print('error----------------------------------------------------------------')
+        return HttpResponse(e)
 
 def handler404(request, exception):
     return render(request, 'shop/index.html', status=404)

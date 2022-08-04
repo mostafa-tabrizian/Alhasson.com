@@ -9,10 +9,9 @@ const Index   = lazy(() => import('./pages/index'))
 const Login   = lazy(() => import('./pages/user/login'))
 
 const Cart              = lazy(() => import('./pages/order/cart'))
-const PaymentMethod     = lazy(() => import('./pages/order/paymentMethod'))
+const Payment     = lazy(() => import('./pages/order/payment'))
 const Product           = lazy(() => import('./pages/order/product'))
-const OrderHistory      = lazy(() => import('./pages/order/orderHistory'))
-const userMessages      = lazy(() => import('./pages/user/messages'))
+const Orders      = lazy(() => import('./pages/order/orders'))
 
 const Profile           = lazy(() => import('./pages/user/profile'))
 const ProfileSetting       = lazy(() => import('./pages/user/profileSetting'))
@@ -32,12 +31,14 @@ const App = () => {
                     <Switch>
                         <Route path='/shop/' exact component={Index} />
                         <Route path='/shop/login' exact component={Login} />
-                        <Route path='/shop/order-history/' exact component={OrderHistory} />
-                        <Route path='/shop/cart/' exact component={Cart} />
-                        <Route path='/shop/payment-method/' exact component={PaymentMethod} />
+
+                        <Route path='/shop/checkout/cart/' exact component={Cart} />
+                        <Route path='/shop/checkout/payment/' exact component={Payment} />
+
                         <Route path='/shop/profile/' exact component={Profile} />
-                        <Route path='/shop/setting/' exact component={ProfileSetting} />
-                        <Route path='/shop/messages/' exact component={userMessages} />
+                        <Route path='/shop/profile/orders/' exact component={Orders} />
+                        <Route path='/shop/profile/setting/' exact component={ProfileSetting} />
+                        
                         <Route path='/shop/:product_slug/' exact component={Product} />
                     </Switch>
 
