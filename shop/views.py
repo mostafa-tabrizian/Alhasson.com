@@ -328,6 +328,3 @@ def user_orders(request, *args, **kwargs):
     except Exception as e:
         print('error----------------------------------------------------------------')
         return HttpResponse(e)
-
-def handler404(request, exception):
-    return render(request, 'shop/index.html', status=404)

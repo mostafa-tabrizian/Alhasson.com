@@ -17,4 +17,5 @@ urlpatterns = [
     path('المحاضرات', index),
     path('الصور', index),
     path('بحث', index),
+    path('404', index),
 ]

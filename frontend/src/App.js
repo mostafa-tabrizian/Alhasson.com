@@ -17,23 +17,12 @@ const aboutHadithProject = lazy(() => import( './pages/aboutHadithProject'))
 const clips = lazy(() => import( './pages/clips'))
 const album = lazy(() => import( './pages/album'))
 const search = lazy(() => import( './pages/search.js'))
-
-// const pageNotFound_404  = lazy(() => import('./components/pageNotFound_404'))
-
-const antIcon = <LoadingOutlined style={{ fontSize: 150, color: 'white' }} spin />;
-
-const loadingScreen = (
-    <div className={`fixed grid justify-center items-center h-screen w-screen bg-gradient-to-b from-[#0d0735] to-[#070515]`}>
-        <div className='space-y-5 top-1/2'>
-            <Spin indicator={antIcon} />
-        </div>
-    </div>
-)
+const pageNotFound_404  = lazy(() => import('./components/pageNotFound_404'))
 
 const App = () => {
     return (
         <React.Fragment>
-            <Suspense fallback={loadingScreen}>
+            <Suspense>
                 <Router>
                     <ScrollToTop />
                     <Header />
@@ -47,7 +36,9 @@ const App = () => {
                         <Route path='/المحاضرات' exact component={clips} />
                         <Route path='/الصور' exact component={album} />
                         <Route path='/بحث' exact component={search} />
-                        {/* <Route component={pageNotFound_404} /> */}
+
+                        <Route path='/404/' exact component={pageNotFound_404} />
+                        <Route component={pageNotFound_404} />
                     </Switch>
 
                     <Footer />

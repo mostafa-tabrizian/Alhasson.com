@@ -33,4 +33,5 @@ urlpatterns = [
     path('profile/orders/', index),
     
     path('<product_slug>', index),
+    path('404', index),
 ]
