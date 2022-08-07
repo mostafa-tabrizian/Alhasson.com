@@ -8,7 +8,7 @@ import { useGoogleLogout } from 'react-google-login'
 
 import { log } from '../../../../frontend/src/components/base'
 import LoadingScreen from '../../../../frontend/src/components/loadingScreen'
-import UserProfileDetail from '../../components/user/userProfileDetail';
+import UserStore from '../../store/userStore';
 
 const Profile = () => {
     const [user, setUser] = useState(null)
@@ -16,17 +16,18 @@ const Profile = () => {
 
     const [cookies, setCookie, removeCookie] = useCookies(['USER_ACCESS_TOKEN', 'USER_REFRESH_TOKEN']);
     
+    const [userProfile, userActions] = UserStore()
+
     const location = useLocation()
 
     useEffect(() => {
         getUserDetail()
         setLoading(false)
-    }, [location])
+    }, [location, userProfile])
 
     const getUserDetail = async () => {
-        const userDetail = await UserProfileDetail()
-        if (userDetail) {
-            setUser(userDetail)
+        if (userProfile.userDetail) {
+            setUser(userProfile.userDetail)
         } else {
             window.location.href = '/shop/login/'
         }
@@ -72,7 +73,7 @@ const Profile = () => {
             
             <div className='mx-4 space-y-10 md:mx-auto md:w-4/5'>
                 <div className='relative'>
-                    <h1 className='text-center font-bold'>پروفایل</h1>
+                    <h1 className='font-bold text-center'>پروفایل</h1>
                     <div className='absolute top-0 left-0'>
                         <Link to='/shop/'>
                             <svg class="h-6 w-6 text-[#cfa278]"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <line x1="4" y1="12" x2="14" y2="12" />  <line x1="4" y1="12" x2="8" y2="16" />  <line x1="4" y1="12" x2="8" y2="8" />  <line x1="20" y1="4" x2="20" y2="20" /></svg>
@@ -81,14 +82,14 @@ const Profile = () => {
                 </div>
                 <div className={`space-y-5 py-8 px-4 mb-20`}>
                     <div>
-                        <div className="text-center mb-5">
+                        <div className="mb-5 text-center">
                             <h2>{user?.first_name }&nbsp;{user?.last_name}</h2>
                             <h5>{user?.phone_number}</h5>
                         </div>
                     </div>
                 </div>
                 <div>
-                    <ul className='flex flex-col text-center space-y-3'>
+                    <ul className='flex flex-col space-y-3 text-center'>
                         <li><Link to='/shop/profile/setting/'>اطلاعات حساب کاربری</Link></li>
                         <li><Link to='/shop/profile/orders/'>سفارش ها</Link></li>
                         <li><button onClick={handleLogout}>خروج</button></li>

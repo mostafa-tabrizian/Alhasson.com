@@ -40,6 +40,8 @@ const UserProfileDetail = () => {
                 .catch(err => {
                     refreshToken()
                 })
+        } else {
+            return false
         }
     }
 

@@ -6,10 +6,12 @@ import { useCookies } from "react-cookie";
 
 import axiosInstance from '../axiosApi';;
 import { log, replaceFunction } from '../../../../frontend/src/components/base'
-import userProfileDetail from "./userProfileDetail";
+import UserCart from '../../store/userStore'
 
 const LoginForm = (props) => {
     const [cookies, setCookie, removeCookie] = useCookies(['USER_ACCESS_TOKEN', 'USER_REFRESH_TOKEN']);
+
+    const [userProfile, userActions] = UserCart()
 
     const { signOut } = useGoogleLogout({
         clientId: process.env.GOOGLE_LOGIN_CLIENT,
@@ -18,9 +20,12 @@ const LoginForm = (props) => {
     })
     
     useEffect(() => {
-        checkIfLoggedIn()
         gapiLoad()
     }, [])
+
+    useEffect(() => {
+        checkIfLoggedIn()
+    }, [userProfile]);
 
     const gapiLoad = () => {
         const startGapiClient = () => {
@@ -54,9 +59,7 @@ const LoginForm = (props) => {
     };
 
     const checkIfLoggedIn = async () => {
-        const userProfile = await userProfileDetail()
-        
-        if (userProfile !== undefined && window.location.pathname == '/shop/login/') {
+        if (userProfile.userDetail) {
             window.location.href = '/shop/'
         }
     }
@@ -79,9 +82,7 @@ const LoginForm = (props) => {
     }
 
     const googleLoginSuccess = async (res) => {
-        const userProfile = await userProfileDetail()
-        
-        if (userProfile == undefined) {
+        if (userProfile.userDetail == false) {
             const accessToken = res.accessToken
             const username = replaceFunction(res.profileObj.name, ' ', '')
             const email = res.profileObj.email

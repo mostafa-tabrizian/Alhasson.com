@@ -7,18 +7,10 @@ import { message } from 'antd'
 
 import userProfileDetail from './user/userProfileDetail'
 import { log } from '../../../frontend/src/components/base'
+import userStore from '../../src/store/userStore'
 
 const Header = () => {
-    const [profileSubMenu, setProfileSubMenu] = useState(false)
-    const [userProfile, setUserProfile] = useState(null)
-
-    const [cookies, setCookie, removeCookie] = useCookies(['USER_ACCESS_TOKEN', 'USER_REFRESH_TOKEN']);
-
-    const { signOut } = useGoogleLogout({
-        clientId: process.env.GOOGLE_LOGIN_CLIENT,
-        onLogoutSuccess: () => {log('google 1')},
-        onFailure: () => {log('google 2')},
-    })
+    const [userProfile, userActions] = userStore()
 
     useEffect(() => {
         gapiLoad()
@@ -34,46 +26,11 @@ const Header = () => {
         }
         gapi.load('client:auth2', startGapiClient)
     }
-
+    
     const getUserData = async () => {
         const userProfileDetailData = await userProfileDetail()
-        if (userProfileDetailData !== undefined) {
-            if (userProfileDetailData == 'inactive') {
-                handleLogout()
-            } else {
-                setUserProfile(userProfileDetailData)
-            }
-        }
+        userActions.setUser(userProfileDetailData)
     }
-
-    const handleLogout = async () => {
-        message.loading('در حال خارج شدن ...')
-        
-        try {
-            signOut()
-        }
-        catch (e) {
-            log('signOut google error')
-            log(e)
-        }
-        
-        try {
-            
-            await axiosInstance.post('/api/blacklist/', {
-                "refresh_token": cookies.USER_REFRESH_TOKEN,
-            });
-            
-            removeCookie('USER_ACCESS_TOKEN')
-            removeCookie('USER_ACCESS_TOKEN', {path: '/'})
-            removeCookie('USER_REFRESH_TOKEN', {path: '/'})
-            
-            axiosInstance.defaults.headers['Authorization'] = null;
-            window.location.reload()
-        }
-        catch (e) {
-            console.log(e);
-        }
-    };
 
     return (
         <header className='h-[7rem] '>

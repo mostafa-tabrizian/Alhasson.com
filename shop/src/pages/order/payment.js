@@ -10,7 +10,7 @@ import { log } from '../../../../frontend/src/components/base'
 import LoadingScreen from '../../../../frontend/src/components/loadingScreen'
 import axiosInstance from '../../components/axiosApi'
 import { message } from 'antd'
-import UserProfileDetail from '../../components/user/userProfileDetail'
+import UserStore from '../../store/userStore';
 
 const Payment = () => {
     const [loading, setLoading] = useState(true)
@@ -26,22 +26,24 @@ const Payment = () => {
     const couponCodeRef = useRef(null)
 
     const [cartItems, cartActions] = CartStore()
+    const [userProfile, userActions] = UserStore()
 
     useEffect(() => {
         setLoading(true)
         fetchData()
-        ifNotLoggedInRedirectToLoginPage()
         setLoading(false)
     }, []);
+
+    useEffect(() => {
+        ifNotLoggedInRedirectToLoginPage()
+    }, [userProfile])
     
     useEffect(() => {
         calculatePrice()
     }, [cartItems, allProductsData]);
 
     const ifNotLoggedInRedirectToLoginPage = async () => {
-        const userDetail = await UserProfileDetail()
-        
-        if (!userDetail) {
+        if (!userProfile.userDetail) {
             window.location.href = '/shop/login/'
         }
     }
@@ -139,7 +141,7 @@ const Payment = () => {
 
             <div className='mx-5 md:mx-[25rem] m-auto pb-20 space-y-10'>
                 <div className='relative'>
-                    <h1 className='text-center font-bold'>روش پرداخت</h1>
+                    <h1 className='font-bold text-center'>روش پرداخت</h1>
                     <div className='absolute top-0 left-0'>
                         <Link to='/shop/checkout/cart/'>
                             <svg class="h-6 w-6 text-[#cfa278]"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <line x1="4" y1="12" x2="14" y2="12" />  <line x1="4" y1="12" x2="8" y2="16" />  <line x1="4" y1="12" x2="8" y2="8" />  <line x1="20" y1="4" x2="20" y2="20" /></svg>
@@ -148,10 +150,10 @@ const Payment = () => {
                 </div>
 
                 <div className='flex justify-center'>
-                    {/* <div className='px-2 py-5 shadow-primary rounded-lg flex justify-center text-center items-center'>درگاه پرداخت بانک سامان</div> */}
-                    {/* <div className='px-3 py-4 shadow-light rounded-lg flex justify-center text-center items-center'>زرین پال</div> */}
-                    {/* <div className='px-3 py-4 shadow-light rounded-lg flex justify-center text-center items-center'>پرداخت درب منزل</div> */}
-                    <div className='px-3 py-4 shadow-light rounded-lg flex justify-center text-center items-center'>در حال حاضر درگاه پرداخت آنلاین غیرفعال می‌باشد، پرداخت از درب منزل انجام می‌گردد</div>
+                    {/* <div className='flex items-center justify-center px-2 py-5 text-center rounded-lg shadow-primary'>درگاه پرداخت بانک سامان</div> */}
+                    {/* <div className='flex items-center justify-center px-3 py-4 text-center rounded-lg shadow-light'>زرین پال</div> */}
+                    {/* <div className='flex items-center justify-center px-3 py-4 text-center rounded-lg shadow-light'>پرداخت درب منزل</div> */}
+                    <div className='flex items-center justify-center px-3 py-4 text-center rounded-lg shadow-light'>در حال حاضر درگاه پرداخت آنلاین غیرفعال می‌باشد، پرداخت از درب منزل انجام می‌گردد</div>
                 </div>
 
                 <hr />
@@ -159,7 +161,7 @@ const Payment = () => {
                 <div className='flex justify-between'>
                     <div>کد تخفیف</div>
                     <div className='flex'>
-                        <input type="text" ref={couponCodeRef}  className='rounded-lg ltr pl-3 text-black border ml-3' />
+                        <input type="text" ref={couponCodeRef}  className='pl-3 ml-3 text-black border rounded-lg ltr' />
                         <button onClick={checkCouponCode}>
                             <svg class="h-6 w-6 text-[#cfa278]"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />  <line x1="12" y1="8" x2="12" y2="16" />  <line x1="8" y1="12" x2="16" y2="12" /></svg>
                         </button>

@@ -6,7 +6,6 @@ import persianDate from 'persian-date'
 persianDate.toLocale('fa');
 
 import axiosInstance from '../../components/axiosApi'
-import userProfileDetail from '../../components/user/userProfileDetail'
 import LoadingScreen from '../../../../frontend/src/components/loadingScreen'
 import { log } from '../../../../frontend/src/components/base'
 
@@ -100,6 +99,9 @@ const Orders = () => {
 
     return (
         <div className='mx-5 md:mx-[25rem] m-auto pb-24 space-y-10'>
+
+            <LoadingScreen loading={loading} />
+            
             <div className='relative'>
                 <h1 className='font-bold text-center'>تاریخچه سفارشات</h1>
                 <div className='absolute top-0 left-0'>

@@ -8,15 +8,14 @@ import { Link } from 'react-router-dom'
 
 import axiosInstance from '../../components/axiosApi';
 import { log } from '../../../../frontend/src/components/base'
-import userProfileDetail from '../../components/user/userProfileDetail'
 import LoadingScreen from '../../../../frontend/src/components/loadingScreen'
+import userStore from '../../store/userStore';
 
 const ProfileSetting = () => {
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
 
     const reCaptchaResponse = useRef(null)
-    
     const usernameRef = useRef()
     const firstNameRef = useRef()
     const lastNameRef = useRef()
@@ -24,12 +23,21 @@ const ProfileSetting = () => {
     const postalCodeRef = useRef()
     const phoneNumberRef = useRef()
 
+    const [userProfile, userActions] = userStore()
+
     const [cookies] = useCookies(['USER_ACCESS_TOKEN']);
 
     useEffect(() => {
-        checkIfLoggedIn_setUser()
         setLoading(false)
     }, [])
+
+    useEffect(() => {
+        if (userProfile.userDetail) {
+            setUser(userProfile.userDetail)
+        } else if (userProfile.userDetail == false) {
+            window.location.href = '/shop/login/'
+        }
+    }, [userProfile]);
 
     const checkIfLoggedIn_setUser = async () => {
         const userProfile = await userProfileDetail()
@@ -119,44 +127,44 @@ const ProfileSetting = () => {
                 <link rel='canonical' to='https://www.quizzland.net/setting' />
             </Helmet>
 
-            <div className='mx-4 h-screen md:mx-auto md:w-4/5'>
+            <div className='h-screen mx-4 md:mx-auto md:w-4/5'>
                 <div className='relative'>
                     <div className="relative">
-                        <h1 className='text-center font-bold'>اطلاعات پروفایل</h1>
+                        <h1 className='font-bold text-center'>اطلاعات پروفایل</h1>
                         <div className='absolute top-0 left-0'>
                             <Link to='/shop/profile/'>
                                 <svg class="h-6 w-6 text-[#cfa278]"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <line x1="4" y1="12" x2="14" y2="12" />  <line x1="4" y1="12" x2="8" y2="16" />  <line x1="4" y1="12" x2="8" y2="8" />  <line x1="20" y1="4" x2="20" y2="20" /></svg>
                             </Link>
                         </div>
                     </div>
-                    <div className='py-2 px-2 space-y-5 rounded'>
+                    <div className='px-2 py-2 space-y-5 rounded'>
                         <div className=''> 
                             <div className=''>
                                 <h4>نام کاربری</h4>
-                                <input className='placeholder:text-gray-500 bg-transparent border-b border-b-yellow-500' type="text" placeholder={user?.username} ref={usernameRef} />
+                                <input className='bg-transparent border-b placeholder:text-gray-500 border-b-yellow-500' type="text" placeholder={user?.username} ref={usernameRef} />
                             </div>
                         </div>
                         <div className='space-y-5 md:grid md:grid-cols-2'>
                             <div>
                                 <h4>نام</h4>
-                                <input className='placeholder:text-gray-500 bg-transparent border-b border-b-yellow-500' type="text" placeholder={user?.first_name} ref={firstNameRef} />
+                                <input className='bg-transparent border-b placeholder:text-gray-500 border-b-yellow-500' type="text" placeholder={user?.first_name} ref={firstNameRef} />
                             </div>
                             <div>
                                 <h4>نام خانوادگی</h4>
-                                <input className='placeholder:text-gray-500 bg-transparent border-b border-b-yellow-500' type="text" placeholder={user?.last_name} ref={lastNameRef} />
+                                <input className='bg-transparent border-b placeholder:text-gray-500 border-b-yellow-500' type="text" placeholder={user?.last_name} ref={lastNameRef} />
                             </div>
                         </div>
                         <div>
                             <h4>آدرس</h4>
-                            <textarea rows='3' className='placeholder:text-gray-500 bg-transparent border-b border-b-yellow-500' type="text" placeholder={user?.address} ref={addressRef} />
+                            <textarea rows='3' className='bg-transparent border-b placeholder:text-gray-500 border-b-yellow-500' type="text" placeholder={user?.address} ref={addressRef} />
                         </div>
                         <div>
                             <h4>کدپستی</h4>
-                            <input className='placeholder:text-gray-500 bg-transparent border-b border-b-yellow-500' type="text" placeholder={user?.postal_code} ref={postalCodeRef} />
+                            <input className='bg-transparent border-b placeholder:text-gray-500 border-b-yellow-500' type="text" placeholder={user?.postal_code} ref={postalCodeRef} />
                         </div>
    N                   <div>
                             <h4>شماره تماس</h4>
-                            <input className='placeholder:text-gray-500 bg-transparent border-b border-b-yellow-500' type="text" placeholder={user?.phone_number} ref={phoneNumberRef} />
+                            <input className='bg-transparent border-b placeholder:text-gray-500 border-b-yellow-500' type="text" placeholder={user?.phone_number} ref={phoneNumberRef} />
                         </div>
 
                         <button onClick={saveSetting} className='px-6 py-2 mt-4 border-2 border-green-600 h-fit rounded-xl'>‌ذخیره</button>
