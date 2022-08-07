@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 import CartStore from '../../store/cartStore'
 import ProductCart from '../../components/order/productCart'
 import { log } from '../../../../frontend/src/components/base'
+import EmptyCart from '../../components/order/emptyCart'
 
 const Cart = () => {
     const [loadState, setLoaded] = useState(false)
@@ -75,37 +76,44 @@ const Cart = () => {
                 </div>
             </div>
 
-            <div className='border border-[#cfa278] rounded-lg px-3 py-2 text-center'>
-                شما {cartItems.items.length} کتاب در سبد خود دارید.
-            </div>
+            {
+                cartItems.items.length ?
+                <div className='space-y-10 '>
+                    <div className='border border-[#cfa278] rounded-lg px-3 py-2 text-center'>
+                        شما {cartItems.items.length} کتاب در سبد خود دارید.
+                    </div>
 
-            <div className='space-y-4'>
-                <ProductCart allProducts={allProductsData} />
-            </div>
+                    <div className='space-y-4'>
+                        <ProductCart allProducts={allProductsData} />
+                    </div>
 
-            <div className='space-y-5'>
-                <div className='flex justify-between'>
-                    <div className='text-zinc-400'>تخفیف کالا ها</div>
-                    <div className='font-semibold text-red-400'>{totalDiscount} تومان</div>
+                    <div className='space-y-5'>
+                        <div className='flex justify-between'>
+                            <div className='text-zinc-400'>تخفیف کالا ها</div>
+                            <div className='font-semibold text-red-400'>{totalDiscount} تومان</div>
+                        </div>
+                        <div className='flex justify-between'>
+                            <div className='text-zinc-400'>قیمت کالا ها</div>
+                            <div className='font-semibold'>{totalPrice} تومان</div>
+                        </div>
+
+                        <hr />
+
+                        <div className='flex justify-between'>
+                            <div className='text-zinc-400'>جمع کل</div>
+                            <div className='font-semibold'>{totalPrice - totalDiscount} تومان</div>
+                        </div>
+                    </div>
+
+                    <div className='flex justify-center bg-[#cfa278] w-full py-2 rounded-xl font-semibold'>
+                        <Link to='/shop/checkout/payment/'>
+                            ادامه فرایند خرید
+                        </Link>
+                    </div>
                 </div>
-                <div className='flex justify-between'>
-                    <div className='text-zinc-400'>قیمت کالا ها</div>
-                    <div className='font-semibold'>{totalPrice} تومان</div>
-                </div>
-
-                <hr />
-
-                <div className='flex justify-between'>
-                    <div className='text-zinc-400'>جمع کل</div>
-                    <div className='font-semibold'>{totalPrice - totalDiscount} تومان</div>
-                </div>
-            </div>
-
-            <div className='flex justify-center bg-[#cfa278] w-full py-2 rounded-xl font-semibold'>
-                <Link to='/shop/checkout/payment/'>
-                    ادامه فرایند خرید
-                </Link>
-            </div>
+                :
+                <EmptyCart />
+            }
         </div>
     );
 }

@@ -11,6 +11,7 @@ import LoadingScreen from '../../../../frontend/src/components/loadingScreen'
 import axiosInstance from '../../components/axiosApi'
 import { message } from 'antd'
 import UserStore from '../../store/userStore';
+import EmptyCart from '../../components/order/emptyCart';
 
 const Payment = () => {
     const [loading, setLoading] = useState(true)
@@ -139,67 +140,72 @@ const Payment = () => {
         <React.Fragment>
             <LoadingScreen loading={loading} />
 
-            <div className='mx-5 md:mx-[25rem] m-auto pb-20 space-y-10'>
-                <div className='relative'>
-                    <h1 className='font-bold text-center'>روش پرداخت</h1>
-                    <div className='absolute top-0 left-0'>
-                        <Link to='/shop/checkout/cart/'>
-                            <svg class="h-6 w-6 text-[#cfa278]"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <line x1="4" y1="12" x2="14" y2="12" />  <line x1="4" y1="12" x2="8" y2="16" />  <line x1="4" y1="12" x2="8" y2="8" />  <line x1="20" y1="4" x2="20" y2="20" /></svg>
-                        </Link>
+            {
+                cartItems.items.length ?
+                <div className='mx-5 md:mx-[25rem] m-auto pb-20 space-y-10'>
+                    <div className='relative'>
+                        <h1 className='font-bold text-center'>روش پرداخت</h1>
+                        <div className='absolute top-0 left-0'>
+                            <Link to='/shop/checkout/cart/'>
+                                <svg class="h-6 w-6 text-[#cfa278]"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <line x1="4" y1="12" x2="14" y2="12" />  <line x1="4" y1="12" x2="8" y2="16" />  <line x1="4" y1="12" x2="8" y2="8" />  <line x1="20" y1="4" x2="20" y2="20" /></svg>
+                            </Link>
+                        </div>
                     </div>
-                </div>
 
-                <div className='flex justify-center'>
-                    {/* <div className='flex items-center justify-center px-2 py-5 text-center rounded-lg shadow-primary'>درگاه پرداخت بانک سامان</div> */}
-                    {/* <div className='flex items-center justify-center px-3 py-4 text-center rounded-lg shadow-light'>زرین پال</div> */}
-                    {/* <div className='flex items-center justify-center px-3 py-4 text-center rounded-lg shadow-light'>پرداخت درب منزل</div> */}
-                    <div className='flex items-center justify-center px-3 py-4 text-center rounded-lg shadow-light'>در حال حاضر درگاه پرداخت آنلاین غیرفعال می‌باشد، پرداخت از درب منزل انجام می‌گردد</div>
-                </div>
-
-                <hr />
-
-                <div className='flex justify-between'>
-                    <div>کد تخفیف</div>
-                    <div className='flex'>
-                        <input type="text" ref={couponCodeRef}  className='pl-3 ml-3 text-black border rounded-lg ltr' />
-                        <button onClick={checkCouponCode}>
-                            <svg class="h-6 w-6 text-[#cfa278]"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />  <line x1="12" y1="8" x2="12" y2="16" />  <line x1="8" y1="12" x2="16" y2="12" /></svg>
-                        </button>
+                    <div className='flex justify-center'>
+                        {/* <div className='flex items-center justify-center px-2 py-5 text-center rounded-lg shadow-primary'>درگاه پرداخت بانک سامان</div> */}
+                        {/* <div className='flex items-center justify-center px-3 py-4 text-center rounded-lg shadow-light'>زرین پال</div> */}
+                        {/* <div className='flex items-center justify-center px-3 py-4 text-center rounded-lg shadow-light'>پرداخت درب منزل</div> */}
+                        <div className='flex items-center justify-center px-3 py-4 text-center rounded-lg shadow-light'>در حال حاضر درگاه پرداخت آنلاین غیرفعال می‌باشد، پرداخت از درب منزل انجام می‌گردد</div>
                     </div>
-                </div>
 
-                <hr />
-
-                <div className='space-y-5'>
-                    <div className='flex justify-between'>
-                        <div className='text-zinc-400'>تخفیف کالا ها</div>
-                        <div className='font-semibold text-red-400'>{totalDiscount + couponDiscount} تومان</div>
-                    </div>
-                    <div className='flex justify-between'>
-                        <div className='text-zinc-400'>قیمت کالا ها</div>
-                        <div className='font-semibold'>{totalPrice} تومان</div>
-                    </div>
-                    
                     <hr />
 
                     <div className='flex justify-between'>
-                        <div className='text-zinc-400'>هزینه ارسال</div>
-                        <div className='font-semibold'>{shippingCost} تومان</div>
+                        <div>کد تخفیف</div>
+                        <div className='flex'>
+                            <input type="text" ref={couponCodeRef}  className='pl-3 ml-3 text-black border rounded-lg ltr' />
+                            <button onClick={checkCouponCode}>
+                                <svg class="h-6 w-6 text-[#cfa278]"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />  <line x1="12" y1="8" x2="12" y2="16" />  <line x1="8" y1="12" x2="16" y2="12" /></svg>
+                            </button>
+                        </div>
                     </div>
 
-                    <div className='flex justify-between'>
-                        <div className='text-zinc-400'>مبلغ قابل پرداخت</div>
-                        <div className='font-semibold'>{(totalPrice - (totalDiscount + couponDiscount)) + shippingCost} تومان</div>
+                    <hr />
+
+                    <div className='space-y-5'>
+                        <div className='flex justify-between'>
+                            <div className='text-zinc-400'>تخفیف کالا ها</div>
+                            <div className='font-semibold text-red-400'>{totalDiscount + couponDiscount} تومان</div>
+                        </div>
+                        <div className='flex justify-between'>
+                            <div className='text-zinc-400'>قیمت کالا ها</div>
+                            <div className='font-semibold'>{totalPrice} تومان</div>
+                        </div>
+                        
+                        <hr />
+
+                        <div className='flex justify-between'>
+                            <div className='text-zinc-400'>هزینه ارسال</div>
+                            <div className='font-semibold'>{shippingCost} تومان</div>
+                        </div>
+
+                        <div className='flex justify-between'>
+                            <div className='text-zinc-400'>مبلغ قابل پرداخت</div>
+                            <div className='font-semibold'>{(totalPrice - (totalDiscount + couponDiscount)) + shippingCost} تومان</div>
+                        </div>
+                    </div>
+
+                    <div className='flex justify-center'>
+                        <button onClick={completeOrder} className='bg-[#cfa278] w-full py-2 rounded-xl font-semibold'>
+                            {/* پرداخت */}
+                            ثبت نهایی سفارش
+                        </button>
                     </div>
                 </div>
-
-                <div className='flex justify-center'>
-                    <button onClick={completeOrder} className='bg-[#cfa278] w-full py-2 rounded-xl font-semibold'>
-                        {/* پرداخت */}
-                        ثبت نهایی سفارش
-                    </button>
-                </div>
-            </div>
+                :
+                <EmptyCart />
+            }
         </React.Fragment>
     );
 }
