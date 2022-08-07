@@ -15,10 +15,10 @@ const Product = () => {
         fetchProductDetail()
     }, []);
     
-    const fetchProductDetail = () => {
+    const fetchProductDetail = async () => {
         const now = new Date().getTime()
 
-        axios.get(`/api/productView/?slug=${takeParameterFromUrl('slug')}&timestamp=${now}`)
+        await axios.get(`/api/productView/?slug=${takeParameterFromUrl('slug')}&timestamp=${now}`)
             .then(res => {
                 setProductDetail(res.data[0])
                 setLoading(false)
@@ -109,7 +109,7 @@ const Product = () => {
                     <button  className='w-full'>
                         <div className='bg-[#cfa278] justify-between rounded-3xl mx-2 my-5 flex px-7 py-3'>
                             <div className='font-semibold text-black'><span>افزودن به سبد خرید</span></div>
-                                <div className='space-x-3 space-x-reverse text-xl flex'>
+                                <div className='flex space-x-3 space-x-reverse text-xl'>
                                     <button onClick={() => cartActions.addOrIncreaseItem(productDetail)}><svg class="h-5 w-5 text-white"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <line x1="12" y1="5" x2="12" y2="19" />  <line x1="5" y1="12" x2="19" y2="12" /></svg></button>
                                     <span>{cartItems.items.find(item => productDetail?.id == item.id)?.count}</span>
                                     {

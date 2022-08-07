@@ -16,7 +16,7 @@ const CartStore = createStore({
 
                 if (exist) {
                     currentItems.map(each => {
-                        if (itemData.id == each.id) {
+                        if (itemData.id == each.id && itemData.available_count !== each.count) {
                             return {...each, count: each.count++}
                         }
                     })
