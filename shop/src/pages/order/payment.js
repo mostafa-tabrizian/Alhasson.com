@@ -7,6 +7,7 @@ import { useCookies } from "react-cookie";
 
 import CartStore from '../../store/cartStore'
 import { log } from '../../../../frontend/src/components/base'
+import { currencyFormat } from '../../components/base'
 import LoadingScreen from '../../../../frontend/src/components/loadingScreen'
 import axiosInstance from '../../components/axiosApi'
 import { message } from 'antd'
@@ -176,23 +177,23 @@ const Payment = () => {
                     <div className='space-y-5'>
                         <div className='flex justify-between'>
                             <div className='text-zinc-400'>تخفیف کالا ها</div>
-                            <div className='font-semibold text-red-400'>{totalDiscount + couponDiscount} تومان</div>
+                            <div className='font-semibold text-red-400'>{currencyFormat(totalDiscount + couponDiscount)} تومان</div>
                         </div>
                         <div className='flex justify-between'>
                             <div className='text-zinc-400'>قیمت کالا ها</div>
-                            <div className='font-semibold'>{totalPrice} تومان</div>
+                            <div className='font-semibold'>{currencyFormat(totalPrice)} تومان</div>
                         </div>
                         
                         <hr />
 
                         <div className='flex justify-between'>
                             <div className='text-zinc-400'>هزینه ارسال</div>
-                            <div className='font-semibold'>{shippingCost} تومان</div>
+                            <div className='font-semibold'>{currencyFormat(shippingCost)} تومان</div>
                         </div>
 
                         <div className='flex justify-between'>
                             <div className='text-zinc-400'>مبلغ قابل پرداخت</div>
-                            <div className='font-semibold'>{(totalPrice - (totalDiscount + couponDiscount)) + shippingCost} تومان</div>
+                            <div className='font-semibold'>{currencyFormat((totalPrice - (totalDiscount + couponDiscount)) + shippingCost)} تومان</div>
                         </div>
                     </div>
 

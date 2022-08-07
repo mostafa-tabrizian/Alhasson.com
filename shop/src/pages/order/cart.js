@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 import CartStore from '../../store/cartStore'
 import ProductCart from '../../components/order/productCart'
 import { log } from '../../../../frontend/src/components/base'
+import { currencyFormat } from '../../components/base'
 import EmptyCart from '../../components/order/emptyCart'
 
 const Cart = () => {
@@ -90,18 +91,18 @@ const Cart = () => {
                     <div className='space-y-5'>
                         <div className='flex justify-between'>
                             <div className='text-zinc-400'>تخفیف کالا ها</div>
-                            <div className='font-semibold text-red-400'>{totalDiscount} تومان</div>
+                            <div className='font-semibold text-red-400'>{currencyFormat(totalDiscount)} تومان</div>
                         </div>
                         <div className='flex justify-between'>
                             <div className='text-zinc-400'>قیمت کالا ها</div>
-                            <div className='font-semibold'>{totalPrice} تومان</div>
+                            <div className='font-semibold'>{currencyFormat(totalPrice)} تومان</div>
                         </div>
 
                         <hr />
 
                         <div className='flex justify-between'>
                             <div className='text-zinc-400'>جمع کل</div>
-                            <div className='font-semibold'>{totalPrice - totalDiscount} تومان</div>
+                            <div className='font-semibold'>{currencyFormat(totalPrice - totalDiscount)} تومان</div>
                         </div>
                     </div>
 

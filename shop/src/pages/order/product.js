@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 
-import { log, takeParameterFromUrl, priceWithDiscount } from '../../../../frontend/src/components/base'
+import { log, takeParameterFromUrl } from '../../../../frontend/src/components/base'
+import { priceWithDiscount, currencyFormat } from '../../components/base'
 import CartStore from '../../store/cartStore'
 import LoadingScreen from '../../../../frontend/src/components/loadingScreen'
 
@@ -65,7 +66,7 @@ const Product = () => {
                                         text-[1rem] md:w-52 md:text-base
                                     `}
                                 >
-                                    {priceWithDiscount(productDetail?.price, productDetail?.discount)}   تومان
+                                    {currencyFormat(priceWithDiscount(productDetail?.price, productDetail?.discount))}   تومان
                                 </span>
                                 {
                                     productDetail?.discount !== 0 &&
@@ -73,7 +74,7 @@ const Product = () => {
                                         flex justify-start font-semibold
                                         text-[.9rem] text-gray-400 decoration-slice
                                     `}>
-                                        {productDetail?.price}
+                                        {currencyFormat(productDetail?.price)}
                                         {/* before discount */}
                                     </s>
                                 }

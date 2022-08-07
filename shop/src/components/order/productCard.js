@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
-import { log, replaceFunction, priceWithDiscount } from '../../../../frontend/src/components/base'
+import { log, replaceFunction } from '../../../../frontend/src/components/base'
+import { priceWithDiscount, currencyFormat } from '../base'
 
 const ProductCard = (props) => {
     return (
@@ -27,12 +28,12 @@ const ProductCard = (props) => {
                             `}>
                                 {product.title}
                             </h2>
-                            <div className='flex space-x-3 space-x-reverse w-full mt-3'>
+                            <div className='flex w-full mt-3 space-x-3 space-x-reverse'>
                                 <span className={`
                                     flex text-left font-semibold
                                     text-sm md:w-52 md:text-base
                                 `}>
-                                    {priceWithDiscount(product.price, product.discount)}   تومان
+                                    {currencyFormat(priceWithDiscount(product.price, product.discount))}   تومان
                                     {/* after discount */}
                                 </span>
                                 {
@@ -51,7 +52,7 @@ const ProductCard = (props) => {
                                     flex justify-start font-semibold
                                     text-[.7rem] text-gray-400 decoration-slice
                                 `}>
-                                    {product.price}
+                                    {currencyFormat(product.price)}
                                     {/* before discount */}
                                 </s>
                             }

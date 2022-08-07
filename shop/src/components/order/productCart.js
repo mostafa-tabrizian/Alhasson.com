@@ -4,13 +4,11 @@ import { Link } from 'react-router-dom'
 import CartStore from '../../store/cartStore'
 
 import { log, replaceFunction } from '../../../../frontend/src/components/base'
+import { priceWithDiscount, currencyFormat } from '../base'
 
 const ProductCart = (props) => {
     const [cartItems, cartActions] = CartStore()
 
-    const priceWithDiscount = (price, discount) => {
-        return price - ((price * discount) / 100)
-    }
     
     return (
         cartItems.items.map((product) => {
@@ -55,7 +53,7 @@ const ProductCart = (props) => {
                                     flex text-left font-semibold
                                     text-sm md:w-52 md:text-base
                                 `}>
-                                    {priceWithDiscount(productData?.price, productData?.discount) * product.count}   تومان
+                                    {currencyFormat(priceWithDiscount(productData?.price, productData?.discount) * product.count)}   تومان
                                 </span>
             
                                 <div className='flex'>
