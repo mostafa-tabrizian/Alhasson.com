@@ -5,27 +5,57 @@ import { Empty } from 'antd';
 
 import { log, takeParameterFromUrl, replaceFunction } from '../../../frontend/src/components/base'
 import ProductCard from '../components/order/productCard';
+import ExcludeWordsToSearch from '../components/order/excludeWordsToSearch'
 
 const Search = () => {
-    const [searchResult, setSearchResult] = useState()
+    const [searchResult, setSearchResult] = useState([])
 
     useEffect(() => {
-        searchQuery()
+        searchAlgorithm()
     }, [])
 
     const query = takeParameterFromUrl('q')
 
-    const searchQuery = async () => {
-        await axios.get(`/api/productView/?slug__icontains=${query}`)
-            .then(res => {
-                setSearchResult(res.data)
+    const searchAlgorithm = async () => {  
+        const allProducts = await axios.get(`/api/productView/`)
+    
+        const searchedValue = query?.toLowerCase().split(' ')
+        const rankResults = []
+
+        let filteredSearchValue = []
+
+        searchedValue.map(value => {
+            if (!ExcludeWordsToSearch().includes(value.toLowerCase())) {
+                filteredSearchValue.push(value)
+            }
+        })
+
+        allProducts.data.map(item => {
+            let itemScore = 0
+
+            filteredSearchValue.map(value => {
+                if (
+                    item.title.toLowerCase().split(' ').includes(value)||
+                    item.slug.toLowerCase().split(' ').includes(value)
+                ){
+                    itemScore += 1
+                }
             })
+
+            if (itemScore !== 0) {
+                rankResults.push({itemDetail: item, score: itemScore})
+            }
+        })
+
+        const sliceSortResult = rankResults.slice(0, 100).sort((a, b) => b.score - a.score)
+        
+        setSearchResult(Object.keys(sliceSortResult).map(key => sliceSortResult[key].itemDetail))
     }
 
     return (
         <React.Fragment>
-            <div className='wrapper pb-20'>
-                <h1 className='title title-center mb-5'>
+            <div className='pb-20 wrapper'>
+                <h1 className='mb-5 title title-center'>
                     جستجوی عبارت " {query} "
                 </h1>
                 
