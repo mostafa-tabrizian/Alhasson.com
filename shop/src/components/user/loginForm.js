@@ -138,15 +138,15 @@ const LoginForm = (props) => {
     }
 
     return (
-            <GoogleLogin
-                clientId="687160730568-s62liqkremb5stf1q3gobiso529n7upv.apps.googleusercontent.com"
-                className='ltr'  // w-[90%] flex justify-center
-                buttonText="ورود/ثبت نام با حساب گوگل"
-                onSuccess={googleLoginSuccess}
-                onFailure={googleLoginFailure}
-                cookiePolicy={'single_host_origin'}
-                isSignedIn={true}
-            />
+        <GoogleLogin
+            clientId="687160730568-s62liqkremb5stf1q3gobiso529n7upv.apps.googleusercontent.com"
+            className='ltr'  // w-[90%] flex justify-center
+            buttonText="ورود/ثبت نام با حساب گوگل"
+            onSuccess={googleLoginSuccess}
+            onFailure={googleLoginFailure}
+            cookiePolicy={'single_host_origin'}
+            isSignedIn={true}
+        />
     );
 }
 

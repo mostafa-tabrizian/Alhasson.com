@@ -9,10 +9,12 @@ import { useGoogleLogout } from 'react-google-login'
 import { log } from '../../../../frontend/src/components/base'
 import LoadingScreen from '../../../../frontend/src/components/loadingScreen'
 import UserStore from '../../store/userStore';
+import LoginForm from '../../components/user/loginForm';
 
 const Profile = () => {
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
+    const [loggedIn, setLoginState] = useState(true)
 
     const [cookies, setCookie, removeCookie] = useCookies(['USER_ACCESS_TOKEN', 'USER_REFRESH_TOKEN']);
     
@@ -29,7 +31,7 @@ const Profile = () => {
         if (userProfile.userDetail) {
             setUser(userProfile.userDetail)
         } else {
-            window.location.href = '/shop/login/'
+            setLoginState(false)
         }
     }
 
@@ -71,47 +73,55 @@ const Profile = () => {
 
             <LoadingScreen loading={loading} />
             
-            <div className='mx-4 space-y-10 md:mx-auto md:w-4/5'>
-                <div className='relative'>
-                    <h1 className='font-bold text-center'>پروفایل</h1>
-                    <div className='absolute top-0 left-0'>
-                        <Link to='/shop/'>
-                            <svg class="h-6 w-6 text-[#cfa278]"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <line x1="4" y1="12" x2="14" y2="12" />  <line x1="4" y1="12" x2="8" y2="16" />  <line x1="4" y1="12" x2="8" y2="8" />  <line x1="20" y1="4" x2="20" y2="20" /></svg>
-                        </Link>
-                    </div>
-                </div>
-                <div className={`space-y-5 py-8 px-4 mb-20`}>
-                    <div>
-                        <div className="mb-5 text-center">
-                            <h2>{user?.first_name }&nbsp;{user?.last_name}</h2>
-                            <h5>{user?.phone_number}</h5>
+            {
+                loggedIn ?
+                <div className='mx-4 space-y-10 md:mx-auto md:w-4/5'>
+                    <div className='relative'>
+                        <h1 className='font-bold text-center'>پروفایل</h1>
+                        <div className='absolute top-0 left-0'>
+                            <Link to='/shop/'>
+                                <svg class="h-6 w-6 text-[#cfa278]"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <line x1="4" y1="12" x2="14" y2="12" />  <line x1="4" y1="12" x2="8" y2="16" />  <line x1="4" y1="12" x2="8" y2="8" />  <line x1="20" y1="4" x2="20" y2="20" /></svg>
+                            </Link>
                         </div>
                     </div>
-                </div>
-                <div>
-                    <ul className='flex flex-col space-y-3 text-center'>
-                        <li><Link to='/shop/profile/setting/'>اطلاعات حساب کاربری</Link></li>
-                        <li><Link to='/shop/profile/orders/'>سفارش ها</Link></li>
-                        <li><button onClick={handleLogout}>خروج</button></li>
-                    </ul>
-                </div>
-                {/* <div className='space-y-5 py-8 px-4 shadow-[0_1px_10px_#690D11] border-4 bg-[#0e0202d4] border-[#690D11] rounded-lg'>
-                    <div className="flex justify-between">
-                        <h2>کوییز های منتشرشده</h2>
-                        <Link aria-label="کوییز های منتشرشده" to={`/post/${user?.uesrname}`}>
-                            ⬅
-                        </Link>
+                    <div className={`space-y-5 py-8 px-4 mb-20`}>
+                        <div>
+                            <div className="mb-5 text-center">
+                                <h2>{user?.first_name }&nbsp;{user?.last_name}</h2>
+                                <h5>{user?.phone_number}</h5>
+                            </div>
+                        </div>
                     </div>
-                </div> */}
-                {/* <div className='space-y-5 py-8 px-4 shadow-[0_1px_10px_#690D11] border-4 bg-[#0e0202d4] border-[#690D11] rounded-lg'>
-                    <div className="flex justify-between">
-                        <h2>جوایز</h2>
-                        <Link aria-label="دیدن تمام جوایز" to={`/trophies/${user?.uesrname}`}>
-                            ⬅
-                        </Link>
+                    <div>
+                        <ul className='flex flex-col space-y-3 text-center'>
+                            <li><Link to='/shop/profile/setting/'>اطلاعات حساب کاربری</Link></li>
+                            <li><Link to='/shop/profile/orders/'>سفارش ها</Link></li>
+                            <li><button onClick={handleLogout}>خروج</button></li>
+                        </ul>
                     </div>
-                </div> */}
-            </div>
+                    {/* <div className='space-y-5 py-8 px-4 shadow-[0_1px_10px_#690D11] border-4 bg-[#0e0202d4] border-[#690D11] rounded-lg'>
+                        <div className="flex justify-between">
+                            <h2>کوییز های منتشرشده</h2>
+                            <Link aria-label="کوییز های منتشرشده" to={`/post/${user?.uesrname}`}>
+                                ⬅
+                            </Link>
+                        </div>
+                    </div> */}
+                    {/* <div className='space-y-5 py-8 px-4 shadow-[0_1px_10px_#690D11] border-4 bg-[#0e0202d4] border-[#690D11] rounded-lg'>
+                        <div className="flex justify-between">
+                            <h2>جوایز</h2>
+                            <Link aria-label="دیدن تمام جوایز" to={`/trophies/${user?.uesrname}`}>
+                                ⬅
+                            </Link>
+                        </div>
+                    </div> */}
+                </div>
+                :
+                <div className='space-y-5 text-center'>
+                    <h1>برای نمایش پروفایل خود، ابتدا می‌بایست وارد شوید</h1>
+                    <LoginForm />
+                </div>
+            }
 
         </React.Fragment>
     );

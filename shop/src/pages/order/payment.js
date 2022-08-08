@@ -13,9 +13,11 @@ import axiosInstance from '../../components/axiosApi'
 import { message } from 'antd'
 import UserStore from '../../store/userStore';
 import EmptyCart from '../../components/order/emptyCart';
+import LoginForm from '../../components/user/loginForm';
 
 const Payment = () => {
     const [loading, setLoading] = useState(true)
+    const [loggedIn, setLoginState] = useState(true)
     const [totalPrice, setTotalPrice] = useState(0)
     const [totalDiscount, setTotalDiscount] = useState(0)
     const [couponDiscount, setCouponDiscount] = useState(0)
@@ -46,7 +48,7 @@ const Payment = () => {
 
     const ifNotLoggedInRedirectToLoginPage = async () => {
         if (!userProfile.userDetail) {
-            window.location.href = '/shop/login/'
+            setLoginState(false)
         }
     }
 
@@ -141,6 +143,8 @@ const Payment = () => {
             <LoadingScreen loading={loading} />
 
             {
+                loggedIn ?
+                
                 cartItems.items.length ?
                 <div className='mx-5 md:mx-[25rem] m-auto pb-20 space-y-10'>
                     <div className='relative'>
@@ -205,7 +209,13 @@ const Payment = () => {
                 </div>
                 :
                 <EmptyCart />
+                :
+                <div className='space-y-5 text-center'>
+                    <h1>برای پرداخت شما ابتدا می‌بایست وارد شوید</h1>
+                    <LoginForm />
+                </div>
             }
+
         </React.Fragment>
     );
 }
