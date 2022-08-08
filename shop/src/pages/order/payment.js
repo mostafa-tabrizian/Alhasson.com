@@ -88,10 +88,26 @@ const Payment = () => {
         })
     }
 
+    const userProfileComplete = () => {
+        if (
+            userProfile.userDetail?.address?.length > 0 &&
+            userProfile.userDetail?.postal_code?.length > 0 &&
+            userProfile.userDetail?.phone_number?.length > 0   
+        ) {
+            return true
+        } else {
+            message.info('لطفا قبل از نهایی سازی سفارش، اطلاعات پروفایل خود را تکمیل کنید. انتقال به پروفایل...', 7)
+            setTimeout(() => {
+                window.location.href = '/shop/profile/setting/'
+            }, 7000)
+        }
+    }
+
     const completeOrder = async () => {
-        const itsAvailable = await itemsAreAvailableInStore()
+        const profileComplete = userProfileComplete()
+        const itemsAvailable = await itemsAreAvailableInStore()
         
-        if (!itsAvailable[0]) {
+        if (!itemsAvailable[0] || !profileComplete) {
             return
         }
         

@@ -65,12 +65,12 @@ const ProfileSetting = () => {
     }
 
     const saveSetting = async () => {
-        if (!(usernameRef.current.value).length &&
-            !(firstNameRef.current.value).length &&
-            !(lastNameRef.current.value).length &&
-            !(addressRef.current.value).length &&
-            !(postalCodeRef.current.value).length &&
-            !(phoneNumberRef.current.value).length) {
+        if (!(usernameRef.current.value)?.length &&
+            !(firstNameRef.current.value)?.length &&
+            !(lastNameRef.current.value)?.length &&
+            !(addressRef.current.value)?.length &&
+            !(postalCodeRef.current.value)?.length &&
+            !(phoneNumberRef.current.value)?.length) {
             return message.warning('برای ذخیره، حداقل یک ورودی را تغییر دهید.')
         }
 
@@ -117,6 +117,14 @@ const ProfileSetting = () => {
         , 1000), []
     );
 
+    const allInputsAreFilled = () => {
+        return (
+            user?.address?.length > 0 &&
+            user?.postal_code?.length > 0 &&
+            user?.phone_number?.length > 0
+        )
+    }
+
     return (
         <React.Fragment>
 
@@ -137,6 +145,10 @@ const ProfileSetting = () => {
                             </Link>
                         </div>
                     </div>
+                    {
+                        allInputsAreFilled() ?
+                        '':<h4 className="text-center">لطفا اطلاعات پروفایل خود را تکمیل کنید ✏️</h4>
+                    }
                     <div className='px-2 py-2 space-y-5 rounded'>
                         <div className=''> 
                             <div className=''>
@@ -162,7 +174,7 @@ const ProfileSetting = () => {
                             <h4>کدپستی</h4>
                             <input className='bg-transparent border-b placeholder:text-gray-500 border-b-yellow-500' type="text" placeholder={user?.postal_code} ref={postalCodeRef} />
                         </div>
-   N                   <div>
+                        <div>
                             <h4>شماره تماس</h4>
                             <input className='bg-transparent border-b placeholder:text-gray-500 border-b-yellow-500' type="text" placeholder={user?.phone_number} ref={phoneNumberRef} />
                         </div>
