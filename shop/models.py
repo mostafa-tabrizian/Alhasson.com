@@ -51,12 +51,11 @@ status = (
 class Order(models.Model):
     id = models.AutoField(primary_key=True)
     purchaser = models.ForeignKey(CustomUser, on_delete=models.CASCADE, blank=False)
-    purchased_text = models.TextField(blank=False)
-    purchase = models.ManyToManyField(Product, blank=False)
+    purchased = models.TextField(blank=False)
     price = models.IntegerField(blank=False)
     discount = models.IntegerField(blank=False)
     created_at = models.DateTimeField(default=datetime.datetime.now, blank=False)
-    status = models.CharField(choices=status, default='pending', blank=False, max_length=30)
+    status = models.CharField(choices=status, default='در حال بررسی', blank=False, max_length=30)
     
     def __str__(self):
         return f'{self.id}/{self.status}/{self.created_at}'

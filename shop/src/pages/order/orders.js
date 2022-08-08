@@ -41,6 +41,17 @@ const Orders = () => {
         )
     )
 
+    const purchasedItems = (order) => {
+        const purchasedToObj = JSON.parse(order.purchased)
+        let finalView = ''
+        
+        Object.keys(purchasedToObj).forEach((title, index) => {
+            finalView += `${title} تعداد  ${purchasedToObj[title]} | `
+        })
+
+        return finalView
+    }
+
     const returnUserOrders = () => {
         return (
             userOrders.reverse().map(order => {
@@ -75,7 +86,7 @@ const Orders = () => {
                         <div>
                             <h4 className='text-gray-500'>عناوین خریداری شده:</h4>
                             <div className='flex space-x-3 space-x-reverse'>
-                                item item
+                                {purchasedItems(order)}
                             </div>
                         </div>
                         <div className=''>

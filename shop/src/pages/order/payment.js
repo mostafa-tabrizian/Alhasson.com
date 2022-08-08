@@ -66,7 +66,7 @@ const Payment = () => {
     const completeOrder = async () => {
         const payload = {
             userAccessToken: cookies.USER_ACCESS_TOKEN,
-            purchased_text: cartItems.items,
+            purchased: cartItems.items,
             price: totalPrice,
             discount: totalDiscount,
         }
@@ -79,7 +79,6 @@ const Payment = () => {
                     setTimeout(() => {
                         cartActions.resetCart()
                         window.location.href = '/shop/profile/orders/'
-                        // redirect to order info in history
                     }, 1000);
                     // send us a message for noticing the order
                 } else {

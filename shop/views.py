@@ -286,13 +286,12 @@ def order_submit(request, *args, **kwargs):
             newOrder.discount = payload['discount']
             newOrder.save()
             
-            final_list = ''
-            for item in payload['purchased_text']:
+            final_list = {}
+            for item in payload['purchased']:
                 itemDetail = Product.objects.get(id=item['id'])
-                final_list += f' | {itemDetail.title} => {item["count"]} | '
-                newOrder.purchase.add(itemDetail)
+                final_list[itemDetail.title] = item["count"]
                 
-            newOrder.purchased_text = final_list
+            newOrder.purchased = str(final_list).replace("'", '"')
             newOrder.save()
                         
             return HttpResponse('order completed successfully')
@@ -305,7 +304,6 @@ def user_orders(request, *args, **kwargs):
     user_access_token = AccessToken(payload['userAccessToken'])
         
     try:
-        print('-----------------------------------')
         purchaserDetail = CustomUser.objects.get(id=user_access_token['user_id'])
         
         userOrders = Order.objects.filter(purchaser=purchaserDetail)
@@ -316,7 +314,7 @@ def user_orders(request, *args, **kwargs):
             values.append(
                 {
                     'id': order.id,
-                    # 'purchased_text': order.purchased_text,
+                    'purchased': order.purchased,
                     'price': order.price,
                     'discount': order.discount,
                     'created_at': order.created_at,

@@ -33,19 +33,11 @@ class ProductAdmin(admin.ModelAdmin):
     list_filter = ('public', 'created_at')
     search_fields = ['title', 'slug', 'description']
     
-class OrderPurchase(admin.TabularInline):
-    model = Order.purchase.through
-    
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
     list_display = ('id', 'purchaser', 'status', 'created_at', 'price')
     list_filter = ('purchaser', 'created_at', 'status')
     search_fields = ['purchaser', 'id']
-    exclude = ['purchase', ]
-    
-    inlines = [
-        OrderPurchase,    
-    ]
         
 @admin.register(Coupon)
 class CouponAdmin(admin.ModelAdmin):
