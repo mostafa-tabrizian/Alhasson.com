@@ -65,7 +65,36 @@ const Payment = () => {
             })
     }
 
+    const itemsAreAvailableInStore = async () => {
+        await fetchData()
+        return cartItems.items.map(item => {
+            const productData = allProductsDataRef.current.find((each) => each.id === item.id)
+            if (item.count > productData.available_count) {
+                message.info('موجودی برخی از کتاب های افزوده شده به سبد خرید شما تغییر کرده است.', 2.5)
+                setTimeout(() => {
+                    message.loading('بازگشت به سبد خرید', 1.5)
+                }, [2500])
+                setTimeout(() => {
+                    cartActions.changeCount(item, productData.available_count)
+                    window.location.href = '/shop/checkout/cart/'
+                }, [4000])
+
+                //? tell us
+                
+                return false
+            } else {
+                return true
+            }
+        })
+    }
+
     const completeOrder = async () => {
+        const itsAvailable = await itemsAreAvailableInStore()
+        
+        if (!itsAvailable[0]) {
+            return
+        }
+        
         const payload = {
             userAccessToken: cookies.USER_ACCESS_TOKEN,
             purchased: cartItems.items,
@@ -82,7 +111,7 @@ const Payment = () => {
                         cartActions.resetCart()
                         window.location.href = '/shop/profile/orders/'
                     }, 1000);
-                    // send us a message for noticing the order
+                    //? send us a message for noticing the order
                 } else {
                     log('its res')
                     log(res)

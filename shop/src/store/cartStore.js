@@ -16,7 +16,7 @@ const CartStore = createStore({
 
                 if (exist) {
                     currentItems.map(each => {
-                        if (itemData.id == each.id && itemData.available_count !== each.count) {
+                        if (itemData.id == each.id && itemData.available_count > each.count) {
                             return {...each, count: each.count++}
                         }
                     })
@@ -38,7 +38,7 @@ const CartStore = createStore({
                     if (itemData.id == each.id) {
                         const nextCount = each.count--
                         
-                        if (nextCount == 1) {
+                        if (nextCount <= 1) {
                             currentItems.splice(index, 1)
                         } else {
                             return {...each, count: nextCount}
@@ -52,10 +52,34 @@ const CartStore = createStore({
 
         resetCart:
             () =>
-            ({ setState}) => {
+            ({ setState }) => {
                 let currentItems = []
                 localStorage.setItem('cartStore', JSON.stringify({items: [...currentItems]}))
                 setState({items: [...currentItems]});
+            },
+
+        changeCount:
+            (itemData, changeCountTo) =>
+            ({ setState, getState }) => {
+                let currentItems = getState().items
+
+                const newItems = currentItems.map((each, index) => {
+                    if (itemData.id == each.id) {
+                        if (changeCountTo <= 1) {
+                            currentItems.splice(index, 1)
+                        } else {
+                            return {...each, count: changeCountTo}
+                        }
+                    }
+                })
+
+                if (changeCountTo <= 1) {
+                    localStorage.setItem('cartStore', JSON.stringify({items: [...currentItems]}))
+                    setState({items: [...currentItems]});
+                } else {
+                    localStorage.setItem('cartStore', JSON.stringify({items: [...newItems]}))
+                    setState({items: [...newItems]});
+                }
             }
     },
     name: 'items',
