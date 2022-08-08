@@ -43,7 +43,7 @@ const Orders = () => {
 
     const returnUserOrders = () => {
         return (
-            userOrders.map(order => {
+            userOrders.reverse().map(order => {
                 return (
                     <div>
                         <div className='flex justify-between'>

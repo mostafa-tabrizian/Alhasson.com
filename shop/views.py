@@ -278,20 +278,21 @@ def order_submit(request, *args, **kwargs):
         user_access_token = AccessToken(payload['userAccessToken'])
             
         try:
-            print('-----------------------------------')
             purchaserDetail = CustomUser.objects.get(id=user_access_token['user_id'])
             
             newOrder = Order()
             newOrder.purchaser = purchaserDetail
             newOrder.price = payload['price']
             newOrder.discount = payload['discount']
+            newOrder.save()
             
             final_list = ''
-            for item in payload['purchased_items']:
-                itemTitle = Product.objects.get(id=item['id']).title
-                final_list += f' | {itemTitle} => {item["count"]} | '
-            
-            newOrder.purchased_items = final_list
+            for item in payload['purchased_text']:
+                itemDetail = Product.objects.get(id=item['id'])
+                final_list += f' | {itemDetail.title} => {item["count"]} | '
+                newOrder.purchase.add(itemDetail)
+                
+            newOrder.purchased_text = final_list
             newOrder.save()
                         
             return HttpResponse('order completed successfully')
@@ -315,7 +316,7 @@ def user_orders(request, *args, **kwargs):
             values.append(
                 {
                     'id': order.id,
-                    # 'purchased_items': order.purchased_items,
+                    # 'purchased_text': order.purchased_text,
                     'price': order.price,
                     'discount': order.discount,
                     'created_at': order.created_at,

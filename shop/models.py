@@ -43,15 +43,16 @@ class Product(models.Model):
         return f'{self.title}'
     
 status = (
-    ('pending', 'در حال بررسی'),
-    ('preparing', 'در حال آماده سازی و ارسال'),
-    ('delivered', 'تحویل پست گردید')           
+    ('در حال بررسی', 'در حال بررسی'),
+    ('در حال آماده سازی و ارسال', 'در حال آماده سازی و ارسال'),
+    ('تحویل پست گردید', 'تحویل پست گردید')
 )    
 
 class Order(models.Model):
     id = models.AutoField(primary_key=True)
     purchaser = models.ForeignKey(CustomUser, on_delete=models.CASCADE, blank=False)
-    purchased_items = models.TextField(blank=False)
+    purchased_text = models.TextField(blank=False)
+    purchase = models.ManyToManyField(Product, blank=False)
     price = models.IntegerField(blank=False)
     discount = models.IntegerField(blank=False)
     created_at = models.DateTimeField(default=datetime.datetime.now, blank=False)
