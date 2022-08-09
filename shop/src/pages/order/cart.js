@@ -32,9 +32,7 @@ const Cart = () => {
     const fetchData = useCallback(
         debounce(
             async () => {
-                const now = new Date().getTime()
-
-                await axios.get(`/api/productView/?timestamp=${now}`)
+                await axios.get(`/api/productView/`)
                     .then(res => {
                         setAllProductsData(res.data)
                         allProductsDataRef.current = res.data

@@ -18,9 +18,7 @@ const Index = () => {
     const grabData = useCallback(
         debounce(
             async () => {
-                const now = new Date().getTime()
-
-                await axios.get(`/api/productView/?timestamp=${now}&limit=8&public=true`)
+                await axios.get(`/api/productView/?limit=8&public=true`)
                     .then(res => {
                         setProduct_new(res.data.results)
                         setLoading(false)

@@ -66,9 +66,9 @@ const LoginForm = (props) => {
 
     const showInActiveNotification = () => {
         notification.open({
-            message: 'این کاربر مسدود شده است',
+            message: 'حساب شما غیرفعال شده است',
             description:
-                'برای اطلاعات بیشتر با پشتیبانی الحسون تماس بگیرید quizzland.net@gmail.com',
+                'لطفا در صورت مغایرت با پشتیبانی تماس بگیرید',
             duration: 5,
             style: {
                 'font-size': '25px',
@@ -103,8 +103,8 @@ const LoginForm = (props) => {
             await axiosInstance.post(`/shop/api/google`, payload)
                 .then(res => {
                     if (res.data == 'inactive') {
+                        showInActiveNotification()
                         if ((cookies.USER_ACCESS_TOKEN == accessToken || cookies.USER_ACCESS_TOKEN == 'undefined')) {
-                            showInActiveNotification()
                             logout()
                         }
                         return 

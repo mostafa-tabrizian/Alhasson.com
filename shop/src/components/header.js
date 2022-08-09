@@ -12,6 +12,8 @@ import userStore from '../../src/store/userStore'
 const Header = () => {
     const [userProfile, userActions] = userStore()
 
+    const [cookies, setCookie, removeCookie] = useCookies(['USER_ACCESS_TOKEN', 'USER_REFRESH_TOKEN']);
+
     useEffect(() => {
         gapiLoad()
         getUserData()
@@ -29,7 +31,13 @@ const Header = () => {
     
     const getUserData = async () => {
         const userProfileDetailData = await userProfileDetail()
-        userActions.setUser(userProfileDetailData)
+        if (userProfileDetailData == 'inactive') {
+            removeCookie('USER_ACCESS_TOKEN', {path: '/'})
+            removeCookie('USER_REFRESH_TOKEN', {path: '/'})
+            message.error('اکانت شما غیرفعال شده است. لطفا با پشتیبانی تماس بگیرید.')
+        } else {
+            userActions.setUser(userProfileDetailData)
+        }
     }
 
     return (

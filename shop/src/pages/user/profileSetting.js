@@ -45,8 +45,13 @@ const ProfileSetting = () => {
         if (userProfile == null) {
             window.location.href = '/shop/login/'
         }
+
+        if (userProfileDetailData == 'inactive') {
+            message.error('اکانت شما غیرفعال شده است. لطفا با پشتیبانی تماس بگیرید.')
+        } else {
+            setUser(userProfile)
+        }
         
-        setUser(userProfile)
     }
 
     const checkRecaptcha = async () => {

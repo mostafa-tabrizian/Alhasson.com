@@ -24,8 +24,10 @@ const CartStore = createStore({
                     localStorage.setItem('cartStore', JSON.stringify({items: [...currentItems]}))
                     setState({items: [...currentItems]});
                 } else {
-                    localStorage.setItem('cartStore', JSON.stringify({items: [...currentItems, {id: itemData.id, count: 1}]}))
-                    setState({items: [...currentItems, {id: itemData.id, count: 1}]})
+                    if (itemData.available_count !== 0) {
+                        localStorage.setItem('cartStore', JSON.stringify({items: [...currentItems, {id: itemData.id, count: 1}]}))
+                        setState({items: [...currentItems, {id: itemData.id, count: 1}]})
+                    }
                 }
             },
 
