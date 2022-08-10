@@ -103,7 +103,6 @@ def verify_recaptcha(res):
     return HttpResponse((json.loads(req.content))['success'])
     
 def user_update(request, *args, **kwargs):
-    print('--------------------------------')
     if request.method == 'PATCH':
         payload = json.loads(request.body.decode('utf-8'))
         
@@ -325,5 +324,4 @@ def user_orders(request, *args, **kwargs):
         return HttpResponse(json.dumps(list(values), cls=DjangoJSONEncoder))
     
     except Exception as e:
-        print('error----------------------------------------------------------------')
         return HttpResponse(e)

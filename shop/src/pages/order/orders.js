@@ -17,7 +17,6 @@ const Orders = () => {
 
     useEffect(() => {
         fetchUserOrders()
-        setLoading(false)
     }, []);
 
     const fetchUserOrders = useCallback(
@@ -32,6 +31,7 @@ const Orders = () => {
                 await axiosInstance.post(`/shop/api/user/orders?timestamp=${now}`, payload)
                     .then(res => {
                         setUserOrders(res.data)
+                        setLoading(false)
                     })
                     .catch(err => {
                         log(err)
@@ -124,7 +124,20 @@ const Orders = () => {
 
             <div>
                 {
+                    userOrders.length ?
                     returnUserOrders()
+                    :
+                    <div className='mx-auto space-y-10 text-center'>
+                        <img src="/static/img/emptyCart.svg" className='mx-auto' alt="سبد خرید شما خالی است!" />
+                        <div>
+                            <h2>
+                                شما تا این لحظه هیچ خریدی انجام نداده اید!
+                            </h2>
+                            <Link to='/shop/'>
+                                بازگشت به فروشگاه
+                            </Link>
+                        </div>
+                    </div>
                 }
             </div>
         </div>

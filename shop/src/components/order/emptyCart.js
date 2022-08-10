@@ -5,9 +5,9 @@ const EmptyCart = () => {
         <div className='mx-auto space-y-10 text-center'>
             <img src="/static/img/emptyCart.svg" className='mx-auto' alt="سبد خرید شما خالی است!" />
             <div>
-                <h1>
+                <h2>
                     سبد خرید شما خالی است!
-                </h1>
+                </h2>
                 <Link to='/shop/'>
                     بازگشت به فروشگاه
                 </Link>

@@ -79,6 +79,7 @@ const ProfileSetting = () => {
             return message.warning('برای ذخیره، حداقل یک ورودی را تغییر دهید.')
         }
 
+        setLoading(true)
         debouncePatchUserSetting()
     }
     
@@ -106,9 +107,11 @@ const ProfileSetting = () => {
                             }
                             else if (res.data == 'username already exists') {
                                 message.error('نام کاربری دیگری انتخاب کنید')
+                                setLoading(false)
                             }
                             else if (res.data == 'username too short') {
                                 message.error('نام کاربری می‌بایست بیش از ۳ کارکتر باشد.')
+                                setLoading(false)
                             }
                         })
                         .catch(err => {
