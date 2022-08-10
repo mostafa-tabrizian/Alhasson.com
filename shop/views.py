@@ -310,9 +310,10 @@ def user_orders(request, *args, **kwargs):
         values = []
 
         for order in userOrders:
+            print('--------------------------------')
             values.append(
                 {
-                    'id': order.id,
+                    'id': '0173' + str(order.id),
                     'purchased': order.purchased,
                     'price': order.price,
                     'discount': order.discount,

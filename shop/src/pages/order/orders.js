@@ -31,7 +31,7 @@ const Orders = () => {
     
                     await axiosInstance.post(`/shop/api/user/orders?timestamp=${now}`, payload)
                         .then(res => {
-                            setUserOrders(res.data)
+                            setUserOrders(res.data.reverse())
                             setLoading(false)
                         })
                         .catch(err => {
@@ -58,7 +58,7 @@ const Orders = () => {
 
     const returnUserOrders = () => {
         return (
-            userOrders.reverse().map(order => {
+            userOrders.map(order => {
                 return (
                     <div>
                         <div className='flex justify-between'>
