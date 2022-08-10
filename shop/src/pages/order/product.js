@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 import { log, takeParameterFromUrl } from '../../../../frontend/src/components/base'
 import { priceWithDiscount, currencyFormat } from '../../components/base'
@@ -35,10 +37,11 @@ const Product = () => {
 
             <div>
                 <div className='flex justify-center mb-10 w-[90vw] h-full'>
-                    <img
+                    <LazyLoadImage
                         src={productDetail?.image}
                         alt={`${productDetail?.slug}-${productDetail?.title}`}
                         className='rounded-md'
+                        effect="blur"
                     />
                 </div>
 

@@ -8,4 +8,4 @@ Disallow: /private/
 Disallow: /junk/
 Disallow: /search
 
-Sitemap: https://www.quizzland.net/sitemap.xml
+Sitemap: https://www.alhsson.com/sitemap.xml

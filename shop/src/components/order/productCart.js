@@ -1,8 +1,9 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 import CartStore from '../../store/cartStore'
-
 import { log, replaceFunction } from '../../../../frontend/src/components/base'
 import { priceWithDiscount, currencyFormat } from '../base'
 
@@ -20,10 +21,11 @@ const ProductCart = (props) => {
                         className='flex flex-col'
                     >
                         <div className='w-[6rem] h-auto ml-5'>
-                            <img
+                            <LazyLoadImage
                                 src={productData?.image}
                                 alt={productData?.title}
                                 className='rounded-md'
+                                effect="blur"
                             />
                         </div>
                     </Link>

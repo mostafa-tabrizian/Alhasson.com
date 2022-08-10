@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 import { log, replaceFunction } from '../../../../frontend/src/components/base'
 import { priceWithDiscount, currencyFormat } from '../base'
@@ -15,10 +17,11 @@ const ProductCard = (props) => {
                         className='flex flex-col'
                     >
                         <div className=''>
-                            <img
+                            <LazyLoadImage
                                 src={product.thumbnail}
                                 alt={`${product.title}`}
                                 className='object-cover h-[16rem] rounded-lg'
+                                effect="blur"
                             />
                         </div>
                         <div className='my-3'>
