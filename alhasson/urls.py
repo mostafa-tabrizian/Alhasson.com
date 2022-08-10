@@ -12,6 +12,7 @@ from .sitemaps import *
 
 sitemaps = {
     'book':BookSitemap,
+    'product':ProductSitemap,
 }
  
 router = routers.DefaultRouter()

@@ -11,7 +11,7 @@ const ProductCard = (props) => {
                 <article className=''>
 
                     <Link
-                        to={`/shop/${replaceFunction(product.title, ' ', '-')}?slug=${product.slug}`}
+                        to={`/shop/${replaceFunction(product.title, ' ', '-')}?id=${product.id}`}
                         className='flex flex-col'
                     >
                         <div className=''>

@@ -16,7 +16,7 @@ const ProductCart = (props) => {
             return (
                 <div className='flex'>
                     <Link
-                        to={`/shop/${productData && replaceFunction(productData?.title, ' ', '-')}?slug=${productData?.slug}`}
+                        to={`/shop/${productData && replaceFunction(productData?.title, ' ', '-')}?id=${productData?.id}`}
                         className='flex flex-col'
                     >
                         <div className='w-[6rem] h-auto ml-5'>

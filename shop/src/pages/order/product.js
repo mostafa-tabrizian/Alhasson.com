@@ -19,7 +19,7 @@ const Product = () => {
     const fetchProductDetail = async () => {
         const now = new Date().getTime()
 
-        await axios.get(`/api/productView/?slug=${takeParameterFromUrl('slug')}&timestamp=${now}`)
+        await axios.get(`/api/productView/?id=${takeParameterFromUrl('id')}&timestamp=${now}`)
             .then(res => {
                 setProductDetail(res.data[0])
                 setLoading(false)
