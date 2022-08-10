@@ -22,21 +22,25 @@ const Orders = () => {
     const fetchUserOrders = useCallback(
         debounce(
             async () => {
-                const payload = {
-                    userAccessToken: cookies.USER_ACCESS_TOKEN
+                if (cookies.USER_ACCESS_TOKEN) {
+                    const payload = {
+                        userAccessToken: cookies.USER_ACCESS_TOKEN
+                    }
+    
+                    const now = new Date().getTime()
+    
+                    await axiosInstance.post(`/shop/api/user/orders?timestamp=${now}`, payload)
+                        .then(res => {
+                            setUserOrders(res.data)
+                            setLoading(false)
+                        })
+                        .catch(err => {
+                            log(err)
+                            log(err.response)
+                        })
+                } else {
+                    window.location.href = '/shop/login/'
                 }
-
-                const now = new Date().getTime()
-
-                await axiosInstance.post(`/shop/api/user/orders?timestamp=${now}`, payload)
-                    .then(res => {
-                        setUserOrders(res.data)
-                        setLoading(false)
-                    })
-                    .catch(err => {
-                        log(err)
-                        log(err.response)
-                    })
             }
         )
     )
