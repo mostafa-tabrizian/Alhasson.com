@@ -96,7 +96,7 @@ const Payment = () => {
         } else {
             message.info('لطفا قبل از نهایی سازی سفارش، اطلاعات پروفایل خود را تکمیل کنید. انتقال به پروفایل...', 7)
             setTimeout(() => {
-                window.location.href = '/shop/profile/setting/'
+                window.location.href = '/shop/profile/edit/'
             }, 7000)
         }
     }

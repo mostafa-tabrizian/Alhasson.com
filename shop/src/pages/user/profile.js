@@ -94,7 +94,7 @@ const Profile = () => {
                     </div>
                     <div>
                         <ul className='flex flex-col space-y-3 text-center'>
-                            <li><Link to='/shop/profile/setting/'>اطلاعات حساب کاربری</Link></li>
+                            <li><Link to='/shop/profile/edit/'>اطلاعات حساب کاربری</Link></li>
                             <li><Link to='/shop/profile/orders/'>سفارش ها</Link></li>
                             <li><button onClick={handleLogout}>خروج</button></li>
                         </ul>

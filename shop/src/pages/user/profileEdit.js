@@ -11,7 +11,7 @@ import { log } from '../../../../frontend/src/components/base'
 import LoadingScreen from '../../../../frontend/src/components/loadingScreen'
 import userStore from '../../store/userStore';
 
-const ProfileSetting = () => {
+const ProfileEdit = () => {
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
 
@@ -140,7 +140,7 @@ const ProfileSetting = () => {
 
             <Helmet>
                 <title>الحسون | پروفایل</title>
-                <link rel='canonical' to='https://www.quizzland.net/setting' />
+                <link rel='canonical' to='https://www.quizzland.net/edit/' />
             </Helmet>
 
             <div className='h-screen mx-4 md:mx-auto md:w-4/5'>
@@ -203,4 +203,4 @@ const ProfileSetting = () => {
     );
 }
  
-export default ProfileSetting;
+export default ProfileEdit;

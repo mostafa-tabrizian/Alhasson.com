@@ -15,7 +15,7 @@ const Product           = lazy(() => import('./pages/order/product'))
 const Orders      = lazy(() => import('./pages/order/orders'))
 
 const Profile           = lazy(() => import('./pages/user/profile'))
-const ProfileSetting       = lazy(() => import('./pages/user/profileSetting'))
+const ProfileEdit       = lazy(() => import('./pages/user/profileEdit'))
 
 const Header = lazy(() => import('./components/header'))
 const Navbar = lazy(() => import('./components/navbar'))
@@ -24,7 +24,7 @@ const Footer = lazy(() => import('./components/footer'))
 const App = () => {
     return (
         <React.Fragment>
-            <Suspense>  
+            <Suspense fallback=''>  
                 <Router>
                     <Header />
                     <Navbar />
@@ -39,7 +39,7 @@ const App = () => {
 
                         <Route path='/shop/profile/' exact component={Profile} />
                         <Route path='/shop/profile/orders/' exact component={Orders} />
-                        <Route path='/shop/profile/setting/' exact component={ProfileSetting} />
+                        <Route path='/shop/profile/edit/' exact component={ProfileEdit} />
 
                         <Route path='/shop/:product_slug/' exact component={Product} />
                     </Switch>

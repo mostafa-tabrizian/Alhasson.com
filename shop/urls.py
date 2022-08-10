@@ -29,7 +29,7 @@ urlpatterns = [
     path('checkout/payment/', index),
     
     path('profile/', index),
-    path('profile/setting/', index),
+    path('profile/edit/', index),
     path('profile/orders/', index),
     
     path('<product_slug>', index),

@@ -22,7 +22,7 @@ const pageNotFound_404  = lazy(() => import('./components/pageNotFound_404'))
 const App = () => {
     return (
         <React.Fragment>
-            <Suspense>
+            <Suspense fallback=''>
                 <Router>
                     <ScrollToTop />
                     <Header />
