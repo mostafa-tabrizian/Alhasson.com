@@ -8,6 +8,7 @@ persianDate.toLocale('fa');
 import axiosInstance from '../../components/axiosApi'
 import LoadingScreen from '../../../../frontend/src/components/loadingScreen'
 import { log } from '../../../../frontend/src/components/base'
+import { currencyFormat } from '../../components/base'
 
 const Orders = () => {
     const [loading, setLoading] = useState(true)
@@ -99,7 +100,7 @@ const Orders = () => {
                                     مبلغ مرسوله: 
                                 </span>
                                 <span>
-                                    {order.price}
+                                    {currencyFormat(order.price)} تومان
                                 </span>
                             </h4>
                         </div>

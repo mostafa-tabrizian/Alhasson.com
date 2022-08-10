@@ -1001,6 +1001,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-bottom-left-radius: 0.5rem;
 }
 
+.rounded-t-lg {
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
 .rounded-bl-lg {
   border-bottom-left-radius: 0.5rem;
 }
@@ -1097,6 +1102,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .bg-transparent {
   background-color: transparent;
+}
+
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
 .bg-gradient-to-tr {
