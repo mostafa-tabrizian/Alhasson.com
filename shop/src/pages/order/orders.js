@@ -51,7 +51,7 @@ const Orders = () => {
         let finalView = ''
         
         Object.keys(purchasedToObj).forEach((title, index) => {
-            finalView += `${title} تعداد  ${purchasedToObj[title]} | `
+            finalView += ` | ${title}  ${purchasedToObj[title]}x `
         })
 
         return finalView
@@ -61,25 +61,23 @@ const Orders = () => {
         return (
             userOrders.map(order => {
                 return (
-                    <div>
-                        <div className='flex justify-between'>
-                            <h4 className='space-x-3 space-x-reverse'>
-                                <span className='text-gray-500'>
-                                    کد پیگیری سفارش:
-                                </span>
-                                <span>
-                                    {order.id}
-                                </span>
-                            </h4>
-                            <h4 className='space-x-3 space-x-reverse'>
-                                <span className='text-gray-500'>
-                                    وضعیت سفارش:
-                                </span>
-                                <span>
-                                    {order.status}
-                                </span>
-                            </h4>
-                        </div>
+                    <div className='p-4 mb-8 rounded-lg shadow-[0_4px_10px_#535372]'>
+                        <h4 className='space-x-3 space-x-reverse'>
+                            <span className='text-gray-500'>
+                                کد پیگیری سفارش:
+                            </span>
+                            <span>
+                                {order.id}
+                            </span>
+                        </h4>
+                        <h4 className='space-x-3 space-x-reverse'>
+                            <span className='text-gray-500'>
+                                وضعیت سفارش:
+                            </span>
+                            <span>
+                                {order.status}
+                            </span>
+                        </h4>
                         <h4 className='space-x-3 space-x-reverse'>
                             <span className='text-gray-500'>
                                 تاریخ ثبت سفارش:
@@ -105,7 +103,7 @@ const Orders = () => {
                             </h4>
                         </div>
 
-                        <hr />
+                        {/* <hr /> */}
                     </div>
 
                 )
