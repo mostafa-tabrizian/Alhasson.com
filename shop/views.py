@@ -253,21 +253,21 @@ def auth_google(request, *args, **kwargs):
 #     else:
 #         return HttpResponse('Transaction failed or canceled by user')
 
-def coupon(request, *args, **kwargs):
-    if request.method == 'POST':
-        payload = json.loads(request.body.decode('utf-8'))
+# def coupon(request, *args, **kwargs):
+#     if request.method == 'POST':
+#         payload = json.loads(request.body.decode('utf-8'))
         
-        try:
-            entered_code = payload['code']
-            enteredCouponCode = Coupon.objects.get(code=entered_code)
+#         try:
+#             entered_code = payload['code']
+#             enteredCouponCode = Coupon.objects.get(code=entered_code)
             
-            return HttpResponse(enteredCouponCode.discount_amount)
+#             return HttpResponse(enteredCouponCode.discount_amount)
         
-        except Coupon.DoesNotExist:
-            return HttpResponse('کد تخفیف وجود ندارد')
+#         except Coupon.DoesNotExist:
+#             return HttpResponse('کد تخفیف وجود ندارد')
         
-        except Exception as e:
-            return HttpResponse('error: ' + e)
+#         except Exception as e:
+#             return HttpResponse('error: ' + e)
         
 def order_submit(request, *args, **kwargs):
     if request.method == 'POST':

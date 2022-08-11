@@ -20,14 +20,14 @@ const Payment = () => {
     const [loggedIn, setLoginState] = useState(true)
     const [totalPrice, setTotalPrice] = useState(0)
     const [totalDiscount, setTotalDiscount] = useState(0)
-    const [couponDiscount, setCouponDiscount] = useState(0)
+    // const [couponDiscount, setCouponDiscount] = useState(0)
     // const [shippingCost, setShippingCost] = useState(15_000)
     const [allProductsData, setAllProductsData] = useState([])
     
     const [cookies, setCookie, removeCookie] = useCookies(['USER_ACCESS_TOKEN', 'USER_REFRESH_TOKEN']);
     
     const allProductsDataRef = useRef([])
-    const couponCodeRef = useRef(null)
+    // const couponCodeRef = useRef(null)
 
     const [cartItems, cartActions] = CartStore()
     const [userProfile, userActions] = UserStore()
@@ -159,27 +159,27 @@ const Payment = () => {
         setTotalDiscount(totalDiscount)
     }
 
-    const checkCouponCode = useCallback(
-        debounce(
-            async () => {
-                const couponCode =  couponCodeRef.current.value
+    // const checkCouponCode = useCallback(
+    //     debounce(
+    //         async () => {
+    //             const couponCode =  couponCodeRef.current.value
         
-                const payload = {
-                    code: couponCode,
-                }
+    //             const payload = {
+    //                 code: couponCode,
+    //             }
         
-                await axiosInstance.post('/shop/api/coupon', payload)
-                    .then(res => {
-                        if (res.data == 'کد تخفیف وجود ندارد') {
-                            message.error('کد تخفیف وجود ندارد')
-                        } else {
-                            const discountAmount = res.data
-                            setCouponDiscount(((totalPrice - totalDiscount) * discountAmount) / 100)
-                        }
-                    })
-            }
-        )
-    )
+    //             await axiosInstance.post('/shop/api/coupon', payload)
+    //                 .then(res => {
+    //                     if (res.data == 'کد تخفیف وجود ندارد') {
+    //                         message.error('کد تخفیف وجود ندارد')
+    //                     } else {
+    //                         const discountAmount = res.data
+    //                         setCouponDiscount(((totalPrice - totalDiscount) * discountAmount) / 100)
+    //                     }
+    //                 })
+    //         }
+    //     )
+    // )
 
     return (
         <React.Fragment>
@@ -208,7 +208,7 @@ const Payment = () => {
 
                     <hr />
 
-                    <div className='flex justify-between'>
+                    {/* <div className='flex justify-between'>
                         <div>کد تخفیف</div>
                         <div className='flex'>
                             <input type="text" ref={couponCodeRef}  className='pl-3 ml-3 text-black border rounded-lg ltr' />
@@ -218,12 +218,12 @@ const Payment = () => {
                         </div>
                     </div>
 
-                    <hr />
+                    <hr /> */}
 
                     <div className='space-y-5'>
                         <div className='flex justify-between'>
                             <div className='text-zinc-400'>تخفیف کالا ها</div>
-                            <div className='font-semibold text-red-400'>{currencyFormat(totalDiscount + couponDiscount)} تومان</div>
+                            <div className='font-semibold text-red-400'>{currencyFormat(totalDiscount)} تومان</div>  {/* + couponDiscount */}
                         </div>
                         <div className='flex justify-between'>
                             <div className='text-zinc-400'>قیمت کالا ها</div>
@@ -239,7 +239,7 @@ const Payment = () => {
 
                         <div className='flex justify-between'>
                             <div className='text-zinc-400'>مبلغ قابل پرداخت</div>
-                            <div className='font-semibold'>{currencyFormat((totalPrice - (totalDiscount + couponDiscount)))} تومان</div>  {/*  + shippingCost */}
+                            <div className='font-semibold'>{currencyFormat((totalPrice - (totalDiscount)))} تومان</div>  {/*  + shippingCost  |   + couponDiscount */}
                         </div>
                     </div>
 

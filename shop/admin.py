@@ -29,7 +29,7 @@ admin.site.register(CustomUser, CustomUserAdmin)
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ('title', 'public', 'available_count', 'price', 'discount', 'views_monthly', 'sold_monthly', 'created_at')
+    list_display = ('title', 'public', 'available_count', 'price', 'discount', 'views_total', 'sold_total', 'created_at')
     list_filter = ('public', 'created_at')
     search_fields = ['title', 'slug', 'description']
     
@@ -39,8 +39,8 @@ class OrderAdmin(admin.ModelAdmin):
     list_filter = ('purchaser', 'created_at', 'status')
     search_fields = ['purchaser', 'id']
         
-@admin.register(Coupon)
-class CouponAdmin(admin.ModelAdmin):
-    list_display =('code', 'active', 'created_at', 'expire_at', 'used_at')
-    list_filter = ('active', 'created_at', 'expire_at', 'used_at')
-    search_fields = ('id' ,'code')
+# @admin.register(Coupon)
+# class CouponAdmin(admin.ModelAdmin):
+#     list_display =('code', 'active', 'number', 'created_at', 'expire_at')
+#     list_filter = ('active', 'created_at', 'expire_at')
+#     search_fields = ('id' ,'code')

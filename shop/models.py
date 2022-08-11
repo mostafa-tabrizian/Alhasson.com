@@ -56,14 +56,14 @@ class Order(models.Model):
     def __str__(self):
         return f'{self.id}/{self.status}/{self.created_at}'
     
-class Coupon(models.Model):
-    id = models.AutoField(primary_key=True, help_text='آیدی')
-    active = models.BooleanField(default=True, help_text='فعال')
-    code = models.CharField(max_length=255, blank=False, help_text='کد تخفیف')
-    discount_amount = models.IntegerField(blank=False, help_text='مقدار درصد تخفیف')
-    expire_at = models.DateTimeField(blank=True, null=True, help_text='تاریخ انقضا کد')
-    created_at = models.DateTimeField(default=datetime.datetime.now, blank=False, help_text='تاریخ ایجاد کد')
-    used_at = models.DateTimeField(blank=True, null=True, help_text='تاریخ استفاده کردن از کد')
+# class Coupon(models.Model):
+#     id = models.AutoField(primary_key=True, help_text='آیدی')
+#     active = models.BooleanField(default=True, help_text='فعال')
+#     code = models.CharField(max_length=255, blank=False, help_text='کد تخفیف')
+#     discount_amount = models.IntegerField(blank=False, help_text='مقدار درصد تخفیف')
+#     expire_at = models.DateTimeField(blank=True, null=True, help_text='تاریخ انقضا کد')
+#     number = models.IntegerField(blank=False, null=False, help_text='مرتبه استفاده کردن از کد: ۱- به معنی نامحدود بودن است')
+#     created_at = models.DateTimeField(default=datetime.datetime.now, blank=False, help_text='تاریخ ایجاد کد')
     
-    def __str__(self):
-        return f'{self.code}:{self.discount_amount}%'
+#     def __str__(self):
+#         return f'{self.code}:{self.discount_amount}%'
