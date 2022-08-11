@@ -4,16 +4,16 @@ from ckeditor.fields import RichTextField
 from django.contrib.auth.models import AbstractUser
 
 class CustomUser(AbstractUser):
-    blocked = models.BooleanField(default=False)
-    order_history = models.TextField(blank=True, null=True, default='_0', max_length=9000)
-    address = models.TextField(blank=True, null=True, max_length=255)
-    postal_code = models.CharField(blank=True, null=True, max_length=20)
-    phone_number = models.CharField(blank=True, null=True, max_length=15)
+    order_history = models.TextField(blank=True, null=True, default='_0', max_length=9000, help_text='تاریخچه خرید')
+    address = models.TextField(blank=True, null=True, max_length=255, help_text='آدرس')
+    postal_code = models.CharField(blank=True, null=True, max_length=20, help_text='کد پستی')
+    phone_number = models.CharField(blank=True, null=True, max_length=15, help_text='شماره تماس')
     
     def __str__(self):
         return f'{self.username} / {self.last_name} {self.first_name}'
+    
 class Product(models.Model):
-    id = models.AutoField(primary_key=True)
+    id = models.AutoField(primary_key=True, help_text='آیدی')
     public = models.BooleanField(default=True, blank=False, help_text='به نمایش کشیده شود')
     available_count = models.IntegerField(blank=False, help_text='موجود در انبار')
         
@@ -30,14 +30,10 @@ class Product(models.Model):
     weight = models.IntegerField(blank=False, help_text='وزن به گرم')
     pages = models.IntegerField(blank=False, help_text='تعداد صفحات')
     
-    views_total = models.IntegerField(default=0, blank=False)
-    views_monthly = models.IntegerField(default=0, blank=False)
-    
-    sold_total = models.IntegerField(default=0, blank=False)
-    sold_monthly = models.IntegerField(default=0, blank=False)
+    views_total = models.IntegerField(default=0, blank=False, help_text='تعداد بازدید')
+    sold_total = models.IntegerField(default=0, blank=False, help_text='تعداد فروش')
 
-    created_at = models.DateTimeField(default=datetime.datetime.now, blank=False)
-    updated_at = models.DateTimeField(default=datetime.datetime.now, blank=False)
+    created_at = models.DateTimeField(default=datetime.datetime.now, blank=False, help_text='ایجاد شده در تاریخ')
     
     def __str__(self):
         return f'{self.title}'
@@ -49,19 +45,19 @@ status = (
 )    
 
 class Order(models.Model):
-    id = models.AutoField(primary_key=True)
-    purchaser = models.ForeignKey(CustomUser, on_delete=models.CASCADE, blank=False)
-    purchased = models.TextField(blank=False)
-    price = models.IntegerField(blank=False)
-    discount = models.IntegerField(blank=False)
-    created_at = models.DateTimeField(default=datetime.datetime.now, blank=False)
-    status = models.CharField(choices=status, default='در حال بررسی', blank=False, max_length=30)
+    id = models.AutoField(primary_key=True, help_text='آیدی')
+    purchaser = models.ForeignKey(CustomUser, on_delete=models.CASCADE, blank=False, help_text='خریدار')
+    purchased = models.TextField(blank=False, help_text='عناوین خریداری شده')
+    price = models.IntegerField(blank=False, help_text='مبلغ پرداخت شده')
+    discount = models.IntegerField(blank=False, help_text='تخفیف دریافت شده')
+    created_at = models.DateTimeField(default=datetime.datetime.now, blank=False, help_text='خرید در تاریخ')
+    status = models.CharField(choices=status, default='در حال بررسی', blank=False, max_length=30, help_text='وضعیت خرید')
     
     def __str__(self):
         return f'{self.id}/{self.status}/{self.created_at}'
     
 class Coupon(models.Model):
-    id = models.AutoField(primary_key=True)
+    id = models.AutoField(primary_key=True, help_text='آیدی')
     active = models.BooleanField(default=True, help_text='فعال')
     code = models.CharField(max_length=255, blank=False, help_text='کد تخفیف')
     discount_amount = models.IntegerField(blank=False, help_text='مقدار درصد تخفیف')
@@ -70,4 +66,4 @@ class Coupon(models.Model):
     used_at = models.DateTimeField(blank=True, null=True, help_text='تاریخ استفاده کردن از کد')
     
     def __str__(self):
-        return f'Code:{self.code} Amount:{self.discount_amount}%'
+        return f'{self.code}:{self.discount_amount}%'

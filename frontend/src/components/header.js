@@ -38,8 +38,8 @@ const Header = ({ history }) => {
                     <Link className='hover:text-[#4e3faa]' to="/الصور" alt="الصور">
                         الصور
                     </Link>
-                    <a href="/shop/" alt="المتجر">
-                        المتجر  
+                    <a href="/shop/" alt="شراء الکتب">
+                        شراء الکتب  
                     </a>
                 </div>
                 <div className='flex items-center'>
@@ -88,7 +88,7 @@ const Header = ({ history }) => {
                                 الصور
                             </Link> */}
                             <a href="/shop/" alt="shop">
-                                المتجر  
+                                شراء الکتب    
                             </a>
                         </div>
                     </div>

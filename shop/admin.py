@@ -7,7 +7,7 @@ admin.site.site_header = "Quizzland Admin Panel"
 
 class CustomUserAdmin(UserAdmin):
     list_display = ('username', 'email', 'last_name', 'first_name')
-    list_filter = ('blocked', )
+    # list_filter = ()
     search_fields = ['username', 'email', 'last_name', 'first_name']
     
     fieldsets = (

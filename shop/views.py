@@ -73,7 +73,6 @@ def user_data(request, *args, **kwargs):
                         'username': user.username,
                         'first_name': user.first_name,
                         'last_name': user.last_name,
-                        'blocked': user.blocked,
                         "order_history": user.order_history,
                         "address": user.address,
                         "postal_code": user.postal_code,

@@ -21,7 +21,7 @@ const Payment = () => {
     const [totalPrice, setTotalPrice] = useState(0)
     const [totalDiscount, setTotalDiscount] = useState(0)
     const [couponDiscount, setCouponDiscount] = useState(0)
-    const [shippingCost, setShippingCost] = useState(15_000)
+    // const [shippingCost, setShippingCost] = useState(15_000)
     const [allProductsData, setAllProductsData] = useState([])
     
     const [cookies, setCookie, removeCookie] = useCookies(['USER_ACCESS_TOKEN', 'USER_REFRESH_TOKEN']);
@@ -232,14 +232,14 @@ const Payment = () => {
                         
                         <hr />
 
-                        <div className='flex justify-between'>
+                        {/* <div className='flex justify-between'>
                             <div className='text-zinc-400'>هزینه ارسال</div>
                             <div className='font-semibold'>{currencyFormat(shippingCost)} تومان</div>
-                        </div>
+                        </div> */}
 
                         <div className='flex justify-between'>
                             <div className='text-zinc-400'>مبلغ قابل پرداخت</div>
-                            <div className='font-semibold'>{currencyFormat((totalPrice - (totalDiscount + couponDiscount)) + shippingCost)} تومان</div>
+                            <div className='font-semibold'>{currencyFormat((totalPrice - (totalDiscount + couponDiscount)))} تومان</div>  {/*  + shippingCost */}
                         </div>
                     </div>
 
