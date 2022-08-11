@@ -20,15 +20,33 @@ const Product = () => {
     
     const fetchProductDetail = async () => {
         const now = new Date().getTime()
+        const productId = takeParameterFromUrl('id')
 
-        await axios.get(`/api/productView/?id=${takeParameterFromUrl('id')}&timestamp=${now}`)
+        await axios.get(`/api/productView/?id=${productId}&timestamp=${now}`)
             .then(res => {
                 setProductDetail(res.data[0])
+                addViews(productId)
                 setLoading(false)
             })
             .catch(err => {
                 log(err.response)
             })
+    }
+
+    const addViews = (productId) => {
+        const locationBeforeAddingView = window.location.href
+        setTimeout(async () => {
+            const locationWhileAddingView = window.location.href
+            if (locationBeforeAddingView == locationWhileAddingView) {
+                await axios.patch('/shop/api/product/views', {productId: productId})
+                    .then(res => {
+                        log(res)
+                    })
+                    .catch(err => {
+                        log(err.response)
+                    })
+            }
+        }, 5000);
     }
 
     return (

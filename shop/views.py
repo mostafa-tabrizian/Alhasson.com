@@ -1,6 +1,4 @@
-import datetime, json, requests, random
-import re
-from tokenize import String
+import json, requests, random, time
 from decouple import config
 
 from .models import *
@@ -19,7 +17,6 @@ from rest_framework.response import Response
 from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.tokens import AccessToken
-from django.shortcuts import redirect
 from django.core.serializers.json import DjangoJSONEncoder
 
 # MERCHANT = config('ZARINPAL_MERCHANT')
@@ -58,8 +55,22 @@ class LogoutAndBlacklistRefreshTokenForUserView(APIView):
 def index(request, *args, **kwargs):
     return render(request, "shop/index.html")
 
+def product_add_view(request, *args, **kwargs):
+    if request.method == 'PATCH':
+        product_id = json.loads(request.body.decode('utf-8'))['productId']
+
+        try:
+            product = Product.objects.get(id=product_id)
+            product.views_total += 1
+            product.save()
+            return HttpResponse('success')
+        
+        except Exception as e:
+            print(e)
+            return HttpResponse(e)
+        
 def user_data(request, *args, **kwargs):
-    if request.method == 'POST':
+    if request.method == 'POST' and request.user.is_authenticated:
         access_token = json.loads(request.body.decode('utf-8'))['access_token']
         userObject = AccessToken(access_token)
         
@@ -102,7 +113,7 @@ def verify_recaptcha(res):
     return HttpResponse((json.loads(req.content))['success'])
     
 def user_update(request, *args, **kwargs):
-    if request.method == 'PATCH':
+    if request.method == 'PATCH' and request.user.is_authenticated:
         payload = json.loads(request.body.decode('utf-8'))
         
         access_token = AccessToken(payload['access_token'])
@@ -270,7 +281,7 @@ def auth_google(request, *args, **kwargs):
 #             return HttpResponse('error: ' + e)
         
 def order_submit(request, *args, **kwargs):
-    if request.method == 'POST':
+    if request.method == 'POST' and request.user.is_authenticated:
         payload = json.loads(request.body.decode('utf-8'))
         
         user_access_token = AccessToken(payload['userAccessToken'])

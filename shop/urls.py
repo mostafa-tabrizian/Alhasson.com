@@ -16,6 +16,8 @@ urlpatterns = [
     
     path("api/order/submit", order_submit),
     
+    path('api/product/views', product_add_view),
+    
     # path("api/coupon", coupon),
     
     # path('api/zarinpal/request/', send_request, name='request'),
@@ -33,5 +35,6 @@ urlpatterns = [
     path('profile/orders/', index),
     
     path('<product_slug>', index),
+    
     path('404', index),
 ]
