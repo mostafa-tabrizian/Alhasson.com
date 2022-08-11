@@ -298,7 +298,9 @@ def order_submit(request, *args, **kwargs):
             final_list = {}
             for item in payload['purchased']:
                 itemDetail = Product.objects.get(id=item['id'])
-                itemDetail.available_count -= int(item["count"])
+                itemCount = int(item["count"])
+                itemDetail.available_count -= itemCount
+                itemDetail.sold_total += itemCount
                 itemDetail.save()
                 
                 final_list[itemDetail.title] = item["count"]
