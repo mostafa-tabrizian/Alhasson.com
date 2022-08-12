@@ -3,6 +3,8 @@ import { Helmet } from "react-helmet";
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { Skeleton } from 'antd'
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 import { log, replaceFunction } from '../components/base'
 
@@ -79,11 +81,18 @@ const Book = () => {
                     <Skeleton active={true} loading={true} />
                     :
                     <React.Fragment>
-                        <div className="max-w-[15rem] md:max-w-none">
-                            <img className='w-[40rem] rounded md:sticky top-8 mb-5 md:mb-0' alt={bookDetail?.title} src={bookDetail?.cover} />
+                        <div className='flex justify-center mb-10 mt-12 md:mt-0 w-[90vw] md:w-auto h-full'>
+                            <a href={bookDetail?.cover} target="_blank">
+                                <LazyLoadImage
+                                    src={bookDetail?.cover}
+                                    alt={bookDetail?.title}
+                                    className='rounded-md'
+                                    effect="blur"
+                                />
+                            </a>
                         </div>
                         <div className="md:w-[50rem] md:mr-8 mx-4">
-                            <h1 className="mt-0 title"> {bookDetail?.title} </h1>
+                            <h1 className="mb:mb-6 title"> {bookDetail?.title} </h1>
                             <div className="flex space-x-20 space-x-reverse">
                                 <div>
                                     <h5 className="">الناشر:</h5>

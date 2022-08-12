@@ -133,7 +133,7 @@ const landPage = () => {
             <section className='bg-gradient-to-b to-[#070515] from-[#0d0735] pb-20 flex justify-center'>
                 <div className="grid space-y-10 md:flex wrapper-p">
                     <div className="flex justify-center ml-5 ">
-                        <img className="w-[15rem] md:w-[80rem] rounded-lg" src="/static/img/marefe.jpg" alt="الدکتور-الشیخ-علاء-الحسّون" />
+                        <img className="w-[15rem] md:w-[60rem] rounded-lg" src="/static/img/marefe.jpg" alt="الدکتور-الشیخ-علاء-الحسّون" />
                     </div>
                     <div className="">
                         <div className='rightBorder'>

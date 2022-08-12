@@ -46,8 +46,11 @@ const Header = () => {
         <header className='h-[7rem] '>
             <div className="fixed justify-between flex bg-[#0d0735] pt-8 pb-4 pr-4 pl-[100%] md:w-full md:pl-4 z-10">
                 <div className='flex items-center space-x-5 space-x-reverse'>
+                    <a href="/" className='w-20'>
+                        صفحه اصلی
+                    </a>
                     <Link to="/shop/" className='hidden md:block'>
-                        الصفحة الرئیسیة
+                        صفحه فروشگاه
                     </Link>
                     <div className='flex items-center'>
                         <svg className="absolute w-6 h-6 mr-2 text-blue-900"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <circle cx="10" cy="10" r="7" />  <line x1="21" y1="21" x2="15" y2="15" /></svg>

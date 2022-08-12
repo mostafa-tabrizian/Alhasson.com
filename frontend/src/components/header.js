@@ -29,18 +29,18 @@ const Header = ({ history }) => {
                     <Link to="/المؤلفات" alt="المؤلفات">
                         المؤلفات 
                     </Link>
-                    <Link to="/موسوعة-حدیث-أهل-البیت" alt="موسوعة-حدیث-أهل-البیت">
-                        موسوعة حدیث أهل البیت
-                    </Link>
-                    <Link to="/المحاضرات" alt="المحاضرات">
-                        المحاضرات
-                    </Link>
-                    <Link className='hover:text-[#4e3faa]' to="/الصور" alt="الصور">
-                        الصور
-                    </Link>
                     <a href="/shop/" alt="شراء الکتب">
                         شراء الکتب  
                     </a>
+                    <Link to="/المحاضرات" alt="المحاضرات">
+                        المحاضرات
+                    </Link>
+                    <Link to="/موسوعة-حدیث-أهل-البیت" alt="موسوعة-حدیث-أهل-البیت">
+                        موسوعة حدیث أهل البیت
+                    </Link>
+                    {/* <Link className='hover:text-[#4e3faa]' to="/الصور" alt="الصور">
+                        الصور
+                    </Link> */}
                 </div>
                 <div className='flex items-center'>
                     <svg className="absolute w-6 h-6 mr-2 text-blue-900"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <circle cx="10" cy="10" r="7" />  <line x1="21" y1="21" x2="15" y2="15" /></svg>
@@ -78,6 +78,9 @@ const Header = ({ history }) => {
                             <Link className='hover:text-[#4e3faa]' to="/المؤلفات" alt="المؤلفات">
                                 المؤلفات 
                             </Link>
+                            <a href="/shop/" alt="shop">
+                                شراء الکتب    
+                            </a>
                             <Link className='hover:text-[#4e3faa]' to="/المحاضرات" alt="المحاضرات">
                                 المحاضرات 
                             </Link>
@@ -87,9 +90,6 @@ const Header = ({ history }) => {
                             {/* <Link className='hover:text-[#4e3faa]' to="/الصور" alt="الصور">
                                 الصور
                             </Link> */}
-                            <a href="/shop/" alt="shop">
-                                شراء الکتب    
-                            </a>
                         </div>
                     </div>
                 </div>
