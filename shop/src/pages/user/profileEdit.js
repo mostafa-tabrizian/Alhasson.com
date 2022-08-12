@@ -139,8 +139,7 @@ const ProfileEdit = () => {
             <LoadingScreen loading={loading} />
 
             <Helmet>
-                <title>الحسون | پروفایل</title>
-                <link rel='canonical' to='https://www.quizzland.net/edit/' />
+                <title>‌الحسون | اطلاعات پروفایل</title>
             </Helmet>
 
             <div className='h-screen mx-4 md:mx-auto md:w-4/5'>

@@ -1,19 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Helmet } from "react-helmet";
 import { Link } from 'react-router-dom'
 
 import { log } from '../../../../frontend/src/components/base'
 import LoginForm from "../../components/user/loginForm";
 
-const pathRed = '/static/img/bubbles.webp'
-
 const Login = () => {
     return (
         <React.Fragment>
             <Helmet>
-                <title>ورود | ‌الحسون</title>
-                {/* <meta name="description" content="تماس با پشتیبانی الحسون" />
-                <meta name="keywords" content="پشتیبانی الحسون" /> */}
+                <title>‌الحسون | ورود</title>
             </Helmet>
 
             <div className='w-screen h-screen'>

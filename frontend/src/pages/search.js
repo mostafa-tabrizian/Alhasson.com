@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { Empty } from 'antd';
+import { Helmet } from "react-helmet";
 
 import { log, takeParameterFromUrl, replaceFunction } from '../components/base'
 
@@ -63,9 +64,12 @@ const Search = () => {
 
     return (
         <React.Fragment>
+            <Helmet>
+                <title>‌الحسون |  بحث عن "{query}"</title>
+            </Helmet>
             <div className='pb-20 wrapper'>
                 <h1 className='title title-center'>
-                    بحث عن " {query} "
+                    بحث عن "{query}"
                 </h1>
                 
                 {

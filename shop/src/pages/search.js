@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { Empty } from 'antd';
+import { Helmet } from "react-helmet";
 
-import { log, takeParameterFromUrl, replaceFunction } from '../../../frontend/src/components/base'
+import { log, takeParameterFromUrl } from '../../../frontend/src/components/base'
 import ProductCard from '../components/order/productCard';
 import ExcludeWordsToSearch from '../components/order/excludeWordsToSearch'
 
@@ -54,9 +54,13 @@ const Search = () => {
 
     return (
         <React.Fragment>
+            <Helmet>
+                <title>‌الحسون | جستجوی عبارت "{query}"</title>
+            </Helmet>
+            
             <div className='pb-20 wrapper'>
                 <h1 className='mb-5 title title-center'>
-                    جستجوی عبارت " {query} "
+                    جستجوی عبارت "{query}"
                 </h1>
                 
                 {

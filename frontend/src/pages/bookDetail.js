@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { Helmet } from "react-helmet";
-import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { Skeleton } from 'antd'
 import { LazyLoadImage } from 'react-lazy-load-image-component';
@@ -34,7 +33,7 @@ const Book = () => {
     return (
         <React.Fragment>
             <Helmet>
-                <title>{bookDetail?.title}</title>
+                <title>‌الحسون | {bookDetail?.title}</title>
                 <meta name="description" content={bookDetail?.description} />
                 <meta name="keywords" content={bookDetail?.title} />
                 <meta name="msapplication-TileImage" content={bookDetail?.cover} />

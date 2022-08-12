@@ -1,6 +1,7 @@
 import React, { useState, useEffect} from 'react';
 import axios from 'axios';
 import { Image } from 'antd';
+import { Helmet } from "react-helmet";
 
 import { log, isItMobile } from '../components/base'
 
@@ -39,9 +40,12 @@ const Album = () => {
 
     return (
         <React.Fragment>
+            <Helmet>
+                <title>‌الحسون | البوم الصور</title>  
+            </Helmet>
             <div className='pb-20 wrapper'>
                 <h1 className="title title-center">
-                    الصور
+                    البوم الصور
                 </h1>
                 <div className='z-0 flex flex-wrap justify-center p-4 pt-10 space-x-5 space-x-reverse rounded-lg bg-slate-200 md:p-20 shadow-large'>
                     <Image.PreviewGroup>

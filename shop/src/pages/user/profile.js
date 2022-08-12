@@ -67,8 +67,7 @@ const Profile = () => {
         <React.Fragment>
 
             <Helmet>
-                <title>الحسون | پروفایل</title>
-                <link rel='canonical' to={`https://www.quizzland.net/profile/${user?.username}`} />
+                <title>‌الحسون | پروفایل</title>
             </Helmet>
 
             <LoadingScreen loading={loading} />

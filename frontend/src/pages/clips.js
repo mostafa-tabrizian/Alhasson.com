@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Helmet } from "react-helmet";
 
 import { log } from '../components/base'
 
@@ -42,14 +43,20 @@ const Clips = () => {
     }
 
     return (
-        <div className='pb-20 wrapper'>
-            <h1 className='title title-center'>
-                المحاضرات
-            </h1>
-            <div className='space-y-5'>
-                {returnClipData()}
+        <React.Fragment>
+            <Helmet>
+                <title>‌الحسون | المحاضرات</title>
+            </Helmet>
+            
+            <div className='pb-20 wrapper'>
+                <h1 className='title title-center'>
+                    المحاضرات
+                </h1>
+                <div className='space-y-5'>
+                    {returnClipData()}
+                </div>
             </div>
-        </div>
+        </React.Fragment>
     );
 }
  

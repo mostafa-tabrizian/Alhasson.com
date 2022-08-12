@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import axios from 'axios'
 import debounce from 'lodash.debounce'
+import { Helmet } from "react-helmet";
 
 import ProductCard from '../components/order/productCard'
 import { log } from '../../../frontend/src/components/base'
@@ -32,6 +33,10 @@ const Index = () => {
     
     return (
         <React.Fragment>
+            <Helmet>
+                <title>‌الحسون | صفحه فروشگاه</title>
+            </Helmet>
+            
             <LoadingScreen loading={loading} />
             
             <div className="grid grid-cols-2 gap-2 py-10 md:grid-cols-4 wrapper">

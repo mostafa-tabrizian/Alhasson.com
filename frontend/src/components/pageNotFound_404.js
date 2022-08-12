@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Helmet } from "react-helmet";
 import { Link } from 'react-router-dom'
 
-import { takeParameterFromUrl, log } from './base';
+import { log } from './base';
 
 const NotFound_404 = () => {
     log('not found this fucking page')
@@ -19,7 +19,7 @@ const NotFound_404 = () => {
 
             <div className="pageNotFound text-[18rem] h-[13rem] md:h-[34rem] md:absolute md:left-1/2 md:top-1/2 items-center flex md:text-[50rem]">404</div>
 
-            <div className="basicPage wrapper-sm relative" style={{ background: '#0000008c', backdropFilter: 'blur(15px)', boxShadow: 'none', zIndex: '1' }}>
+            <div className="relative basicPage wrapper-sm" style={{ background: '#0000008c', backdropFilter: 'blur(15px)', boxShadow: 'none', zIndex: '1' }}>
                 <h1> 🤔 صفحه مورد نظر پیدا نشد </h1>
                 <div class="mt-5">
                     <h2>

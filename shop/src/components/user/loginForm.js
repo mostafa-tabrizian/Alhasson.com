@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { message, notification } from 'antd';
 import { GoogleLogin, useGoogleLogout } from 'react-google-login';
 import { gapi } from 'gapi-script'

@@ -1,9 +1,9 @@
 
-import React, { useState, useEffect, useRef, useCallback } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-import debounce from 'lodash.debounce'
 import { useCookies } from "react-cookie";
+import { Helmet } from "react-helmet";
 
 import CartStore from '../../store/cartStore'
 import { log } from '../../../../frontend/src/components/base'
@@ -183,6 +183,11 @@ const Payment = () => {
 
     return (
         <React.Fragment>
+            
+            <Helmet>
+                <title>‌الحسون | روش پرداخت</title>
+            </Helmet>
+
             <LoadingScreen loading={loading} />
 
             {

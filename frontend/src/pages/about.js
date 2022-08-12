@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Helmet } from "react-helmet";
 
-import { log, fadeOut } from '../components/base'
+import { log } from '../components/base'
 
 const About = () => {
     const [selectedOption, setSelectedOption] = useState('a')
@@ -144,7 +144,7 @@ const About = () => {
     return (
         <React.Fragment>
             <Helmet>
-                <title>السیرة الذاتیة</title>
+                <title>‌الحسون | السیرة الذاتیة</title>
             </Helmet>
             
             <div className='min-h-screen mt-16'>
