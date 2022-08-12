@@ -34,7 +34,7 @@ const Index = () => {
         <React.Fragment>
             <LoadingScreen loading={loading} />
             
-            <div className="grid grid-cols-2 gap-2 py-10 wrapper">
+            <div className="grid grid-cols-2 gap-2 py-10 md:grid-cols-4 wrapper">
                 <ProductCard products={product_new} />
             </div>
         </React.Fragment>

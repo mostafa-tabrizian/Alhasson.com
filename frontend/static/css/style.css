@@ -78,6 +78,12 @@ p > a:hover {
   border-bottom: 1px solid #e0bd87;
 }
 
+@media (min-width: 69em) {
+  p {
+    font-size: 1.1rem;
+  }
+}
+
 li {
   font-size: 1.1rem;
 }

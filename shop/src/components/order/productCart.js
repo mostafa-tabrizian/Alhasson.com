@@ -33,30 +33,31 @@ const ProductCart = (props) => {
                         <div className='flex flex-col space-y-1'>
                             <h2 className={`
                                 flex
-                                text-base md:w-52 md:text-base
+                                text-base md:w-52 mb-3 md:text-base
                             `}>
                                 {productData?.title}
                             </h2>
                         </div>
                         
                         <div>
-                            {
-                                productData?.discount !== 0 &&
-                                <span className={`
-                                    flex text-left font-semibold w-fit bg-red-600 rounded-full px-2 text-white mb-3
-                                    text-[.7rem] md:w-52 md:text-base items-end
-                                `}>
-                                    {productData?.discount}%
-                                </span>
-                            }
-                            
-                            <div className='flex justify-between'>
-                                <span className={`
-                                    flex text-left font-semibold
-                                    text-sm md:w-52 md:text-base
-                                `}>
-                                    {currencyFormat(priceWithDiscount(productData?.price, productData?.discount) * product.count)}   تومان
-                                </span>
+                            <div className='flex items-center justify-between'>
+                                <div className='flex space-x-3 space-x-reverse'>
+                                    <span className={`
+                                        flex text-left font-semibold
+                                        text-sm md:text-base
+                                    `}>
+                                        {currencyFormat(priceWithDiscount(productData?.price, productData?.discount) * product.count)}   تومان
+                                    </span>
+                                    {
+                                        productData?.discount !== 0 &&
+                                        <span className={`
+                                            flex text-left font-semibold w-fit bg-red-600 rounded-full px-2 text-white mb-3
+                                            text-[.7rem] md:text-base items-end
+                                        `}>
+                                            {productData?.discount}%
+                                        </span>
+                                    }
+                                </div>
             
                                 <div className='flex'>
                                     <button onClick={() => cartActions.addOrIncreaseItem(productData)}>

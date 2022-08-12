@@ -67,6 +67,10 @@ p {
             border-bottom: 1px solid #e0bd87;
         }
     }
+
+    @include breakpoints-up(large) { 
+        font-size: 1.1rem;
+    }
 }
 
 li {

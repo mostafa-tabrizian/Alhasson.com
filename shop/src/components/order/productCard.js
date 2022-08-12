@@ -31,10 +31,10 @@ const ProductCard = (props) => {
                             `}>
                                 {product.title}
                             </h2>
-                            <div className='flex w-full mt-3 space-x-3 space-x-reverse'>
+                            <div className='flex w-full mt-3 space-x-3 space-x-reverse md:'>
                                 <span className={`
                                     flex text-left font-semibold
-                                    text-sm md:w-52 md:text-base
+                                    text-sm md:w-auto md:text-base
                                 `}>
                                     {currencyFormat(priceWithDiscount(product.price, product.discount))}   تومان
                                     {/* after discount */}
@@ -43,7 +43,7 @@ const ProductCard = (props) => {
                                     product.discount !== 0 &&
                                     <span className={`
                                         flex text-left font-semibold bg-red-600 rounded-full px-2 text-white
-                                        text-[.7rem] md:w-52 md:text-base items-center
+                                        text-[.7rem] md:w-auto md:text-base items-center
                                     `}>
                                         {product.discount}%
                                     </span>

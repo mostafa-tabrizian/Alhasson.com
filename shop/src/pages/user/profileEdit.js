@@ -164,7 +164,7 @@ const ProfileEdit = () => {
                                 <input className='bg-transparent border-b placeholder:text-gray-500 border-b-yellow-500' type="text" placeholder={user?.username} ref={usernameRef} />
                             </div>
                         </div>
-                        <div className='space-y-5 md:grid md:grid-cols-2'>
+                        <div className='items-baseline space-y-5 md:grid md:grid-cols-2'>
                             <div>
                                 <h4>نام</h4>
                                 <input className='bg-transparent border-b placeholder:text-gray-500 border-b-yellow-500' type="text" placeholder={user?.first_name} ref={firstNameRef} />
@@ -187,7 +187,7 @@ const ProfileEdit = () => {
                             <input className='bg-transparent border-b placeholder:text-gray-500 border-b-yellow-500' type="text" placeholder={user?.phone_number} ref={phoneNumberRef} />
                         </div>
 
-                        <button onClick={saveSetting} className='px-6 py-2 mt-4 border-2 border-green-600 h-fit rounded-xl'>‌ذخیره</button>
+                        <button onClick={saveSetting} className='absolute left-0 px-6 py-2 mt-4 border-2 border-green-600 h-fit rounded-xl'>‌ذخیره</button>
 
                         {/* <ReCAPTCHA
                             sitekey="6LeeCDchAAAAABN_9QhE42c0NXdyMyg5n-Mysh6Q"

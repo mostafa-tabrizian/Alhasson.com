@@ -61,7 +61,7 @@ const Orders = () => {
         return (
             userOrders.map(order => {
                 return (
-                    <div className='p-4 mb-8 rounded-lg shadow-[0_4px_10px_#535372]'>
+                    <div className='p-4 mb-8 rounded-lg shadow-[0_3px_10px_#535372]'>
                         <h4 className='space-x-3 space-x-reverse'>
                             <span className='text-gray-500'>
                                 کد پیگیری سفارش:
@@ -86,7 +86,7 @@ const Orders = () => {
                                 {new persianDate(order.created_at).format('DD MMMM YYYY')}
                             </span>
                         </h4>
-                        <div>
+                        <div className='md:flex md:space-x-3 md:space-x-reverse'>
                             <h4 className='text-gray-500'>عناوین خریداری شده:</h4>
                             <div className='flex space-x-3 space-x-reverse'>
                                 {purchasedItems(order)}
