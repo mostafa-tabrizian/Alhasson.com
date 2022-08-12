@@ -3,12 +3,15 @@ import { Link } from 'react-router-dom'
 
 const Footer = () => {
     return (
-        <footer className='pt-3 bg-[#e0bd87] text-[#0d0735] font-semibold'>
+        <footer className='pt-3 bg-[#e0bd87] text-[#0d0735] mt-[10rem] font-semibold'>
             <div className='grid grid-cols-2 text-center max-w-[70rem] px-[5rem] md:px-[10rem] m-auto pt-5'>
                 <div className='flex flex-col space-y-3 text-right'>
-                    <a href="/">
-                        الصفحة الرئیسیة
-                    </a>
+                    <Link to='/shop/'>صفحه فروشگاه</Link>
+                    <a href="/">صفحه اصلی</a>
+                    <Link to='/shop/profile/'>پروفایل</Link>
+                    <Link to='/shop/profile/edit/'>اطلاعات حساب کاربری</Link>
+                    <Link to='/shop/profile/orders/'>سفارش ها</Link>
+                    <Link to='/shop/checkout/cart/'>سبد خرید</Link>
                 </div>
 
                 <div className='flex space-x-5 space-x-reverse'>
@@ -28,7 +31,7 @@ const Footer = () => {
             </div>
 
             <h4 className="flex flex-col justify-center pb-5 mt-5 text-sm text-center text-black opacity-50 copyright">
-                Copyright © 2021 . All Rights Reserved
+                Copyright © 2022 . All Rights Reserved
                 <br />
                 For More Information Please <a target="_blank" href="mailto: tabrizian.codes@gmail.com" className='underline' style={{color: 'black !important'}}>Contact Us</a>
             </h4>

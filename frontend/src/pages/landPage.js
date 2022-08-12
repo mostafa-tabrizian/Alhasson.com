@@ -30,7 +30,7 @@ const landPage = () => {
                 return (
                     <article className="my-3 mr-5 hoverGold">
                         <Link to={`/المؤلفات/${replaceFunction(book.title, ' ', '-')}`}>
-                            <img className='rounded w-[11rem] md:w-[15rem] max-w-max' src={book?.thumbnail} alt={book?.title} />
+                            <img className='rounded w-[11rem] md:w-[15rem] max-w-max' type='image/webp' src={book?.thumbnail} alt={book?.title} />
                         </Link>
                     </article>
                 )

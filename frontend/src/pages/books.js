@@ -26,7 +26,7 @@ const Books = () => {
                 return (
                     <article className="hoverGold w-[11rem] md:w-[16rem] max-w-max md:mr-5 my-3">
                         <Link to={`/المؤلفات/${replaceFunction(book.title, ' ', '-')}`}>
-                            <img className='rounded' src={book?.cover} alt={book?.title} />
+                            <img type='image/webp' className='rounded' src={book?.cover} alt={book?.title} />
                         </Link>
                     </article> 
                 )
@@ -35,7 +35,7 @@ const Books = () => {
     }
 
     return (  
-        <div className='mb-20 mt-5'>
+        <div className='mt-5 mb-20'>
             <h1 className='title title-center'>
                 المؤلفات
             </h1>

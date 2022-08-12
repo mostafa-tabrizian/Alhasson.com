@@ -61,7 +61,7 @@ const App = () => {
                         <Route path='/shop/:product_slug/' exact component={Product} />
                     </Switch>
 
-                    {/* <Footer /> */}
+                    <Footer />
                     
                 </Router>
             </Suspense>

@@ -133,10 +133,10 @@ const Product = () => {
                                 {
                                     productDetail?.available_count ?
                                     <div className='flex items-center justify-between'>
-                                        <div className='font-semibold text-black'><span>افزودن به سبد خرید</span></div>
+                                        <div onClick={() => !cartItems.items.find(item => productDetail?.id == item.id)?.count && cartActions.addOrIncreaseItem(productDetail)} className='mr-2 font-semibold text-black'><span>افزودن به سبد خرید</span></div>
                                         <div className='flex space-x-3 space-x-reverse text-xl'>
                                             <button onClick={() => cartActions.addOrIncreaseItem(productDetail)}>
-                                            <svg class="h-6 w-6 text-black"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <circle cx="12" cy="12" r="10" />  <line x1="12" y1="8" x2="12" y2="16" />  <line x1="8" y1="12" x2="16" y2="12" /></svg>
+                                                <svg class="h-6 w-6 text-black"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <circle cx="12" cy="12" r="10" />  <line x1="12" y1="8" x2="12" y2="16" />  <line x1="8" y1="12" x2="16" y2="12" /></svg>
                                             </button>
                                             <span className='text-black'>{cartItems.items.find(item => productDetail?.id == item.id)?.count}</span>
                                             {

@@ -40,9 +40,9 @@ const About = () => {
             case 'c':
                 return(
                     <p className="rightBorder">
-                        واصل الشيخ علاء الحسّون دراسته الجامعية في مدينة قم المقدّسة تزامناً مع دراسته الحوزوية وفق المراحل التالية:
-                        <a href="https://iki.ac.ir/" target="_blank"> جامعة الإمام الخميني </a> البكالوريوس : حصل عام ١٤٣١هـ /٢٠١٠ م على شهادة البكالوريوس في العقائد والكلام من
-                        <a href="https://www.qhu.ac.ir/" target="_blank"> كلّية علوم الحديث </a>الماجستير: حصل عام ١٤٣٥هـ /٢٠١٤ م على شهادة الماجستير في علوم الحديث فرع العقائد والكلام من
+                        واصل الشيخ علاء الحسّون دراسته الجامعية في مدينة قم المقدّسة تزامناً مع دراسته الحوزوية وفق المراحل التالية:<br/>
+                        البكالوريوس : حصل عام ١٤٣١هـ /٢٠١٠ م على شهادة البكالوريوس في العقائد والكلام من <a href="https://iki.ac.ir/" target="_blank"> جامعة الإمام الخميني </a> <br/>
+                        الماجستير: حصل عام ١٤٣٥هـ /٢٠١٤ م على شهادة الماجستير في علوم الحديث فرع العقائد والكلام من <a href="https://www.qhu.ac.ir/" target="_blank"> كلّية علوم الحديث </a> <br/>
                         الدكتوراه: حصل عام ١٤٤٢هـ /٢٠٢٠ م على شهادة الدكتوراه في علوم الحديث فرع كلام الإماميّة من<a href="https://www.qhu.ac.ir/" target="_blank"> جامعة القرآن والحديث </a>
                     </p>
                 )
@@ -72,7 +72,7 @@ const About = () => {
                         <br/>٢ ـ مسؤوليّة لجنة الرقابة على الكتب الدينيّة ومنع الكتب المحذورة عقائدياً في <a href="https://www.tibf.ir/fa" target="_blank"> معرض كتاب طهران الدولي </a>  (١٤٢٨هـ).
                         <br/>٣ ـ مسؤوليّة لجنة تأسيس موقع المبلّغ على الانترنت، التابع ل<a href="http://icro.ir/" target="_blank">منظمة الثقافة والعلاقات الدوليّة </a> (١٤٢٧ ـ ١٤٢٨هـ).
                         <br/>٤ ـ مسؤوليّة قسم ردّ الشبهات الوهابيّة في ّ<a href="http://hzrc.ac.ir/" target="_blank"> مركز بحوث الحج </a> (١٤٣٠ ـ ١٤٣١هـ).
-                        <br/>٥ ـ مسؤوليّة قسم عقائد الأئمة الأطهار<a href="http://www.markazfeqhi.com/main/" target="_blank"> مركز فقه الأئمة الأطهار </a>  في <a href="http://www.markazfeqhi.com/main/" target="_blank"> مركز فقه الأئمة الأطهار </a> (١٤٣٢هـ ـ ١٤٣٥هـ)
+                        <br/>٥ ـ مسؤوليّة قسم عقائد الأئمة الأطهار في <a href="http://www.markazfeqhi.com/main/" target="_blank"> مركز فقه الأئمة الأطهار </a> (١٤٣٢هـ ـ ١٤٣٥هـ)
                         <br/>٦ ـ مدير <a href="http://alhasson.com/about/about_hadith" target="_blank"> مركز حديث أهل البيت </a> (علیه السلام) (١٤٣٥هـ ـ لحد الآن)
                     </p>
                 )
@@ -143,15 +143,15 @@ const About = () => {
 
     return (
         <React.Fragment>
-            {/* <Helmet>
-                <title>{pageTitle}</title>
+            <Helmet>
+                <title>السیرة الذاتیة</title>
             </Helmet>
-             */}
+            
             <div className='min-h-screen mt-16'>
                 <h1 className='title title-center'>
-                    سیرة الذاتیة
+                    السیرة الذاتیة
                 </h1>
-                <ul className="justify-center space-x-5 space-x-reverse space-y-3 flex flex-wrap mb-5">
+                <ul className="flex flex-wrap justify-center mb-5 space-x-5 space-y-3 space-x-reverse">
                     <li className={`py-1 px-3 mt-4 rounded-md ${selectedOption == 'a' ? 'about_option_selected' : 'border border-white'}`}><button type="button" onClick={() => {changeContentTo('a')}}>الولادة و النشأة</button></li>
                     <li className={`py-1 px-3 rounded-md ${selectedOption == 'b' ? 'about_option_selected' : 'border border-white'}`}><button type="button" onClick={() => {changeContentTo('b')}}>الدراسة الحوزويّة</button></li>
                     <li className={`py-1 px-3 rounded-md ${selectedOption == 'c' ? 'about_option_selected' : 'border border-white'}`}><button type="button" onClick={() => {changeContentTo('c')}}>الدراسة الجامعيّة</button></li>

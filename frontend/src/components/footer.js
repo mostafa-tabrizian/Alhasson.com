@@ -42,8 +42,8 @@ const Footer = () => {
                 </div>
             </div>
 
-            <h4 className="copyright text-center pb-5 flex flex-col justify-center opacity-50 text-sm text-black mt-5">
-                Copyright © 2021 . All Rights Reserved
+            <h4 className="flex flex-col justify-center pb-5 mt-5 text-sm text-center text-black opacity-50 copyright">
+                Copyright © 2022 . All Rights Reserved
                 <br />
                 For More Information Please <a target="_blank" href="mailto: tabrizian.codes@gmail.com" className='underline' style={{color: 'black !important'}}>Contact Us</a>
             </h4>

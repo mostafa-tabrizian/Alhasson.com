@@ -33,7 +33,7 @@ const Search = () => {
                 return (
                     <article className="hoverGold w-[16rem] max-w-max mr-5 my-3">
                         <Link to={`/المؤلفات/${replaceFunction(book.title, ' ', '-')}`}>
-                            <img className='rounded' src={book?.thumbnail} alt={book?.title} />
+                            <img className='rounded' type='image/webp' src={book?.thumbnail} alt={book?.title} />
                         </Link>
                     </article> 
                 )
@@ -63,7 +63,7 @@ const Search = () => {
 
     return (
         <React.Fragment>
-            <div className='wrapper pb-20'>
+            <div className='pb-20 wrapper'>
                 <h1 className='title title-center'>
                     بحث عن " {query} "
                 </h1>
@@ -93,7 +93,7 @@ const Search = () => {
                         <h1>
                             المحاضرات
                         </h1>
-                        <div className='wrapper space-y-5'>
+                        <div className='space-y-5 wrapper'>
                             {returnSearchResult_Clips()}
                         </div>
                     </div>
