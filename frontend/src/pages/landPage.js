@@ -74,7 +74,7 @@ const landPage = () => {
                 <meta name="description" content="دكتوراه في علوم الحديث، ومهتم حالياً بتأليف موسوعة حديث أهل البيت(ع)" />
             </Helmet>
 
-            <div className="mt-[-2rem]">
+            <div>
                 <img className="hidden w-full md:block" src='/static/img/mainBg.jpg' alt="الدکتور-الشیخ-علاء-الحسّون" />
                 <img className="block w-full md:hidden" src='/static/img/main-Mobile.jpg' alt="الدکتور-الشیخ-علاء-الحسّون" />
             </div>
