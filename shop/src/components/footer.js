@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const Footer = () => {
     return (
-        <footer className='pt-3 bg-[#e0bd87] text-[#0d0735] mt-[10rem] font-semibold'>
+        <footer className='pt-3 bg-[#e0bd87] text-[#0d0735] mt-[10rem] font-semibold hidden md:block'>
             <div className='grid grid-cols-2 text-center max-w-[70rem] px-[5rem] md:px-[10rem] m-auto pt-5'>
                 <div className='flex flex-col space-y-3 text-right'>
                     <Link to='/shop/'>صفحه فروشگاه</Link>

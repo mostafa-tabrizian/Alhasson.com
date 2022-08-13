@@ -64,14 +64,17 @@ axiosInstance.interceptors.response.use(
                                     document.cookie = `USER_REFRESH_TOKEN=; path=/;`
                                     
                                     log('logged from 2')
+                                    window.location.reload()
                                     // window.location.href = '/login';
                                 });
                     }else{
                         log('logged from 3')
+                        window.location.reload()
                         // window.location.href = '/login';
                     }
                 }else{
                     log('logged from 4')
+                    window.location.reload()
                     // window.location.href = '/login';
                 }
         }

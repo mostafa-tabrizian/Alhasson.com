@@ -83,7 +83,7 @@ const Cart = () => {
 
                 {
                     cartItems.items.length ?
-                    <div className='space-y-10 '>
+                    <div className='space-y-10'>
                         <div className='border border-[#cfa278] rounded-lg px-3 py-2 text-center'>
                             شما {cartItems.items.length} کتاب در سبد خود دارید.
                         </div>
@@ -110,9 +110,11 @@ const Cart = () => {
                             </div>
                         </div>
 
-                        <div className='flex justify-center bg-[#cfa278] w-full py-2 rounded-xl font-semibold'>
+                        <div>
                             <Link to='/shop/checkout/payment/'>
-                                ادامه فرایند خرید
+                                <div className='flex justify-center bg-[#cfa278] w-full py-2 rounded-xl font-semibold'>
+                                        ادامه فرایند خرید
+                                </div>
                             </Link>
                         </div>
                     </div>

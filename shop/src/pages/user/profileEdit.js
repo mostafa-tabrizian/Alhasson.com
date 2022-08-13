@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 import { useCookies } from "react-cookie";
 import debounce from 'lodash.debounce'
 import { message } from 'antd';
-import ReCAPTCHA from 'react-google-recaptcha'
+import ReCAPTCHA from "react-google-recaptcha";
 import { Link } from 'react-router-dom'
 
 import axiosInstance from '../../components/axiosApi';
@@ -15,7 +15,7 @@ const ProfileEdit = () => {
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
 
-    const reCaptchaResponse = useRef(null)
+    const recaptchaRef = useRef(null)
     const usernameRef = useRef()
     const firstNameRef = useRef()
     const lastNameRef = useRef()
@@ -55,18 +55,15 @@ const ProfileEdit = () => {
     }
 
     const checkRecaptcha = async () => {
-        if (reCaptchaResponse.current !== null) {
-            return await axiosInstance.get(`/shop/api/recaptcha?r=${reCaptchaResponse.current}`,)
-                .then(res => {
-                    return res.data
-                })
-                .catch(err => {
-                    log(err.response)
-                })
-        } else {
-            message.warning('لطفا تایید کنید که ربات نیستید!')
-            return false 
-        }
+        const recaptchaResponse = await recaptchaRef.current.executeAsync()
+
+        return await axiosInstance.get(`/shop/api/recaptcha?r=${recaptchaResponse}`,)
+            .then(res => {
+                return res.data
+            })
+            .catch(err => {
+                log(err.response)
+            })
     }
 
     const saveSetting = async () => {
@@ -86,7 +83,7 @@ const ProfileEdit = () => {
     const debouncePatchUserSetting = useCallback(
         debounce(
             async () => {
-                // if (await checkRecaptcha()) {
+                if (await checkRecaptcha()) {
                     const payload = {
                         access_token: cookies.USER_ACCESS_TOKEN,
                         username: usernameRef.current.value,
@@ -99,6 +96,7 @@ const ProfileEdit = () => {
                     
                     await axiosInstance.patch(`/shop/api/user/update`, payload)
                         .then(res => {
+                            log(res.data)
                             if (res.data == 'success') {
                                 message.success('اطلاعات شما با موفقیت تغییر یافت.')
                                 setTimeout(() => {
@@ -120,7 +118,7 @@ const ProfileEdit = () => {
                                 window.location.reload()
                             }, 10_000);
                         })
-                // }
+                }
             }
         , 1000), []
     );
@@ -186,14 +184,15 @@ const ProfileEdit = () => {
                             <input className='bg-transparent border-b placeholder:text-gray-500 border-b-yellow-500' type="text" placeholder={user?.phone_number} ref={phoneNumberRef} />
                         </div>
 
-                        <button onClick={saveSetting} className='absolute left-0 px-6 py-2 mt-4 border-2 border-green-600 h-fit rounded-xl'>‌ذخیره</button>
+                        <button onClick={saveSetting} className='left-0 px-6 py-2 mt-4 border-2 border-green-600 md:absolute h-fit rounded-xl'>‌ذخیره</button>
 
-                        {/* <ReCAPTCHA
-                            sitekey="6LeeCDchAAAAABN_9QhE42c0NXdyMyg5n-Mysh6Q"
-                            theme='dark'
-                            onChange={res => reCaptchaResponse.current = res}
-                            className=''
-                        /> */}
+                        <ReCAPTCHA
+                            sitekey="6LebnXIhAAAAACrReCUzsunEXTYBUEg9-feXGyhg"
+                            size='invisible'
+                            hl='fa'
+                            theme="dark"
+                            ref={recaptchaRef}
+                        />
                     </div>               
                 </div>
             </div>

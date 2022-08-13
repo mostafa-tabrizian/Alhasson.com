@@ -60,11 +60,31 @@ const Header = () => {
                         }}/>
                     </div>
                 </div>
-                <div className='items-center hidden space-x-10 space-x-reverse md:items-baseline md:flex'>
-                    <Link to='/shop/profile/'><div><svg class={`h-8 w-8 hover:text-[#cead94] text-gray-400`}  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />  <circle cx="12" cy="7" r="4" /></svg></div></Link>
+                <div className='hidden space-x-10 space-x-reverse md:flex'>
+                    {
+                        userProfile.userDetail.username ?
+                        <Link to='/shop/profile/' className='flex space-x-3 space-x-reverse'>
+                            <h4 className='flex items-center'>
+                                {
+                                    userProfile.userDetail.first_name || userProfile.userDetail.last_name?
+                                    userProfile.userDetail.first_name + ' ' + userProfile.userDetail.last_name
+                                    :
+                                    userProfile.userDetail.username
+                                }
+                            </h4>
+                            <div><svg class={`h-8 w-8 hover:text-[#636eff] text-gray-400`}  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />  <circle cx="12" cy="7" r="4" /></svg></div>
+                        </Link>
+                        :
+                        <Link to='/shop/login/' className='flex space-x-3 space-x-reverse'>
+                            <h4>
+                                ورود
+                            </h4>
+                            <div><svg class={`h-8 w-8 hover:text-[#636eff] text-gray-400`}  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />  <circle cx="12" cy="7" r="4" /></svg></div>
+                        </Link>
+                    }
                     <Link to='/shop/checkout/cart/'>
                         <Badge count={cartItems.items.length} color="#cfa278">
-                            <div><svg class={`h-8 w-8 hover:text-[#cead94] text-gray-400`}  fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg></div>
+                            <div><svg class={`h-8 w-8 hover:text-[#636eff] text-gray-400`}  fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg></div>
                         </Badge>
                     </Link>
                 </div>

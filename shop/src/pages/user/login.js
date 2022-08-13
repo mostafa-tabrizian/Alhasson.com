@@ -18,7 +18,7 @@ const Login = () => {
                         ورود به فروشگاه الحسون
                     </h1>
 
-                    <div className='grid md:grid-cols-2'>
+                    <div className='grid'>
                         <div className='flex flex-col my-auto'>
                             <LoginForm />
                             <button className='mt-5 text-gray-500'><Link to='/shop/'>برگشت به صفحه اصلی</Link></button>

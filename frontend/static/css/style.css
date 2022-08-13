@@ -75,7 +75,7 @@ p > a {
 }
 
 p > a:hover {
-  border-bottom: 1px solid #e0bd87;
+  border-bottom: 1px solid #636eff;
 }
 
 @media (min-width: 69em) {
@@ -97,7 +97,7 @@ footer a {
 }
 
 footer a:hover {
-  color: #4e3faa !important;
+  color: #636eff !important;
 }
 
 .underlineHover:hover {
