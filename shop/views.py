@@ -19,6 +19,8 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.tokens import AccessToken
 from django.core.serializers.json import DjangoJSONEncoder
 
+from django.views.decorators.csrf import ensure_csrf_cookie
+
 # MERCHANT = config('ZARINPAL_MERCHANT')
 # ZP_API_REQUEST = "https://api.zarinpal.com/pg/v4/payment/request.json"
 # ZP_API_VERIFY = "https://api.zarinpal.com/pg/v4/payment/verify.json"
@@ -52,6 +54,7 @@ class LogoutAndBlacklistRefreshTokenForUserView(APIView):
         except Exception as e:
             return Response(status=status.HTTP_400_BAD_REQUEST)
 
+@ensure_csrf_cookie
 def index(request, *args, **kwargs):
     return render(request, "shop/index.html")
 
@@ -68,9 +71,9 @@ def product_add_view(request, *args, **kwargs):
         except Exception as e:
             print(e)
             return HttpResponse(e)
-        
+  
 def user_data(request, *args, **kwargs):
-    if request.method == 'POST' and request.user.is_authenticated:
+    if request.method == 'POST':
         access_token = json.loads(request.body.decode('utf-8'))['access_token']
         userObject = AccessToken(access_token)
         
@@ -96,6 +99,8 @@ def user_data(request, *args, **kwargs):
             return HttpResponse('DoesNotExist')
         except Exception as e:
             return HttpResponse(e)
+    else:
+        return HttpResponse('Not Post Request')
     
 def checkAlreadyUserExists(username, email):
     return CustomUser.objects.filter(username=username).exists() or CustomUser.objects.filter(email=email).exists() 
@@ -113,7 +118,7 @@ def verify_recaptcha(res):
     return HttpResponse((json.loads(req.content))['success'])
     
 def user_update(request, *args, **kwargs):
-    if request.method == 'PATCH' and request.user.is_authenticated:
+    if request.method == 'PATCH':
         payload = json.loads(request.body.decode('utf-8'))
         
         access_token = AccessToken(payload['access_token'])
@@ -154,7 +159,7 @@ def user_update(request, *args, **kwargs):
         except Exception as e:
             print(e)
             return HttpResponse(e)
-    
+
 def auth_google(request, *args, **kwargs):
     payload = json.loads(request.body.decode('utf-8'))
     
@@ -281,7 +286,7 @@ def auth_google(request, *args, **kwargs):
 #             return HttpResponse('error: ' + e)
         
 def order_submit(request, *args, **kwargs):
-    if request.method == 'POST' and request.user.is_authenticated:
+    if request.method == 'POST':
         payload = json.loads(request.body.decode('utf-8'))
         
         user_access_token = AccessToken(payload['userAccessToken'])

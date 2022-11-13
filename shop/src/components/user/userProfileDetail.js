@@ -31,6 +31,7 @@ const UserProfileDetail = () => {
             
             return await axiosInstance.post(`/shop/api/user`, payload)
                 .then (res => {
+                    log(res.data)
                     if (res.data.is_active) {
                         return res.data
                     } else {

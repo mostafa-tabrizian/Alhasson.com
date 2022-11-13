@@ -102,6 +102,7 @@ const LoginForm = (props) => {
             accessToken &&
             await axiosInstance.post(`/shop/api/google`, payload)
                 .then(res => {
+                    log(res.data)
                     if (res.data == 'inactive') {
                         showInActiveNotification()
                         if ((cookies.USER_ACCESS_TOKEN == accessToken || cookies.USER_ACCESS_TOKEN == 'undefined')) {
