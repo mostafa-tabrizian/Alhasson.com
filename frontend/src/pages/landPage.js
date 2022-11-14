@@ -4,7 +4,7 @@ import axios from "axios";
 import { Link } from 'react-router-dom'
 import { ScrollingCarousel  } from '@trendyol-js/react-carousel';
 import { Skeleton } from 'antd'
-import { replaceFunction } from '../components/base'
+import { replaceFunction, log } from '../components/base'
 
 const landPage = () => {
     const [books, setBooks] = useState()
@@ -27,9 +27,10 @@ const landPage = () => {
     const returnBooks = () => {
         return (
             books?.map(book => {
+                log(book)
                 return (
                     <article className="my-3 mr-5 hoverGold">
-                        <Link to={`/books/${replaceFunction(book.title, ' ', '-')}`}>
+                        <Link to={`/books/${replaceFunction(book.title_url, ' ', '-')}`}>
                             <img className='rounded w-[11rem] md:w-[15rem] max-w-max' type='image/webp' src={book?.thumbnail} alt={book?.title} />
                         </Link>
                     </article>

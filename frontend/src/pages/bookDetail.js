@@ -18,7 +18,7 @@ const Book = () => {
     
     const getBookDetail = async () => {
         const bookTitleFromUrl = replaceFunction(window.location.pathname.split('/')[2], '-', '+')
-        await axios.get(`/api/bookView/?title__icontains=${bookTitleFromUrl}`)
+        await axios.get(`/api/bookView/?title_url__icontains=${bookTitleFromUrl}`)
             .then(book => {
                 setBookDetail(book.data[0])
             })
@@ -26,7 +26,7 @@ const Book = () => {
 
     const currentUrl = () => {
         if (bookDetail?.title) {
-            return `https://www.alhasson.com/books/${bookDetail?.title}}`
+            return `https://www.alhasson.com/books/${bookDetail?.title_url}}`
         }
     }
 

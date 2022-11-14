@@ -5,6 +5,7 @@ from ckeditor.fields import RichTextField
 class Book(models.Model):
     id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=255, help_text='عنوان الکتاب')
+    title_url = models.CharField(max_length=255, help_text='عنوان الکتاب')
     slug = models.CharField(max_length=255, help_text='عنوان للبحث')
     thumbnail = models.ImageField(help_text="مقیاس: ۲۴۰ فی ۳۶۰ | size: 240x360")
     cover = models.ImageField(help_text="مقیاس: ۳۶۰ فی ۵۴۰ | size: 360x540")
