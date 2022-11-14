@@ -46,13 +46,13 @@ const App = () => {
 
                     <Switch>
                         <Route path='/' exact component={Index} />
-                        <Route path='/المؤلفات' exact component={Books} />
-                        <Route path='/السیرة-الذاتیة' exact component={About} />
-                        <Route path='/المؤلفات/:title' exact component={bookDetail} />
-                        <Route path='/موسوعة-حدیث-أهل-البیت' exact component={aboutHadithProject} />
-                        <Route path='/المحاضرات' exact component={clips} />
-                        <Route path='/الصور' exact component={album} />
-                        <Route path='/بحث' exact component={search} />
+                        <Route path='/books' exact component={Books} />
+                        <Route path='/about' exact component={About} />
+                        <Route path='/books/:title' exact component={bookDetail} />
+                        <Route path='/hadith-ahl-al-bayt' exact component={aboutHadithProject} />
+                        <Route path='/lectures' exact component={clips} />
+                        <Route path='/pictures' exact component={album} />
+                        <Route path='/search' exact component={search} />
 
                         <Route path='/404/' exact component={pageNotFound_404} />
                         <Route component={pageNotFound_404} />

@@ -1,6 +1,6 @@
 from django.contrib.sitemaps import Sitemap
 from frontend.models import *
-from shop.models import *
+# from shop.models import *
 
 def titleHyphenAdder(title):
     updatedTitle = title.replace(' ', '-')
@@ -21,17 +21,17 @@ class BookSitemap(Sitemap):
         title = titleHyphenAdder(item.title)
         return f'/{title}'
     
-class ProductSitemap(Sitemap):
-    changefreq = "weekly"
-    priority = 1
-    protocol = 'https'
+# class ProductSitemap(Sitemap):
+#     changefreq = "weekly"
+#     priority = 1
+#     protocol = 'https'
 
-    def items(self):
-        return Product.objects.all()
+#     def items(self):
+#         return Product.objects.all()
 
-    def lastmod(self, item):
-        return item.created_at
+#     def lastmod(self, item):
+#         return item.created_at
 
-    def location(self, item):
-        title = titleHyphenAdder(item.title)
-        return f'/shop/{title}?id={item.id}'
+#     def location(self, item):
+#         title = titleHyphenAdder(item.title)
+#         return f'/shop/{title}?id={item.id}'

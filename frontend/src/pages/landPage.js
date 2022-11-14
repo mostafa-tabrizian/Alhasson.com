@@ -29,7 +29,7 @@ const landPage = () => {
             books?.map(book => {
                 return (
                     <article className="my-3 mr-5 hoverGold">
-                        <Link to={`/المؤلفات/${replaceFunction(book.title, ' ', '-')}`}>
+                        <Link to={`/books/${replaceFunction(book.title, ' ', '-')}`}>
                             <img className='rounded w-[11rem] md:w-[15rem] max-w-max' type='image/webp' src={book?.thumbnail} alt={book?.title} />
                         </Link>
                     </article>
@@ -83,7 +83,7 @@ const landPage = () => {
                 <div className='flex justify-between'>
                     <h1>المؤلفات</h1>
                     <div>
-                        <Link className='underlineHover' to='المؤلفات'>
+                        <Link className='underlineHover' to='books'>
                             مشاهدة الجمیع
                         </Link>
                     </div>
@@ -109,7 +109,7 @@ const landPage = () => {
                 <div className='flex justify-between'>
                     <h1>المحاضرات</h1>
                     <div>
-                        <Link className='underlineHover' to='المحاضرات'>
+                        <Link className='underlineHover' to='lectures'>
                             مشاهدة الجمیع
                         </Link>
                     </div>
@@ -146,7 +146,7 @@ const landPage = () => {
                             <p>
                                 يستهدف هذا المشروع عرض معلومات حديث أهـل البيـت (علیهم السلام) وفـق منهجية خـلق الصـور المعرفية الشامـلة والمــتكاملة عن طـريق تـنظيـم المقـاطع الجزئيـة المترابـطة التي بيّـنها أهل البيـت (علیهم السلام) في مختلف المواضيع.
                                 <button className='flex justify-end w-full colorPr'>
-                                    <Link to="موسوعة-حدیث-أهل-البیت" className="more_p3 pos-abs">للمزید ...</Link>
+                                    <Link to="hadith-ahl-al-bayt" className="more_p3 pos-abs">للمزید ...</Link>
                                 </button>
                             </p>
                         </div>

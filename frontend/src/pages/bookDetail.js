@@ -26,7 +26,7 @@ const Book = () => {
 
     const currentUrl = () => {
         if (bookDetail?.title) {
-            return `https://www.alhasson.com/المؤلفات/${bookDetail?.title}}`
+            return `https://www.alhasson.com/books/${bookDetail?.title}}`
         }
     }
 

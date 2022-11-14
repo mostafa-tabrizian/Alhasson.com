@@ -23,30 +23,30 @@ const Header = ({ history }) => {
                     <Link to="/">
                         الصفحة الرئیسیة
                     </Link>
-                    <Link to="/السیرة-الذاتیة" alt="الدکتور-الشیخ-علاء-الحسّون">
+                    <Link to="/about" alt="الدکتور-الشیخ-علاء-الحسّون">
                         السیرة الذاتیة
                     </Link>
-                    <Link to="/المؤلفات" alt="المؤلفات">
-                        المؤلفات 
+                    <Link to="/books" alt="المؤلفات">
+                        المؤلفات     
                     </Link>
-                    <a href="/shop/" alt="شراء الکتب">
+                    {/* <a href="/shop/" alt="شراء الکتب">
                         شراء الکتب  
-                    </a>
-                    <Link to="/المحاضرات" alt="المحاضرات">
-                        المحاضرات
+                    </a> */}
+                    <Link to="/lectures" alt="المحاضرات">
+                    المحاضرات   
                     </Link>
-                    <Link to="/موسوعة-حدیث-أهل-البیت" alt="موسوعة-حدیث-أهل-البیت">
+                    <Link to="/hadith-ahl-al-bayt" alt="موسوعة-حدیث-أهل-البیت">
                         موسوعة حدیث أهل البیت
                     </Link>
-                    {/* <Link className='hover:text-[#4e3faa]' to="/الصور" alt="الصور">
-                        الصور
+                    {/* <Link className='hover:text-[#4e3faa]' to="/pictures" alt="pictures">
+                        pictures
                     </Link> */}
                 </div>
                 <div className='flex items-center'>
                     <svg className="absolute w-6 h-6 mr-2 text-blue-900"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <circle cx="10" cy="10" r="7" />  <line x1="21" y1="21" x2="15" y2="15" /></svg>
                     <input type="text" className='rounded-lg text-blue-900 pr-12 py-1 w-[16rem]' placeholder="بحث عن کتاب أو محاضرة" onKeyDown={(e) => {
                         if (e.key == 'Enter') {
-                            document.location.href = `/بحث?q=${e.target.value}`
+                            document.location.href = `/search?q=${e.target.value}`
                         }
                     }}/>
                 </div>
@@ -72,23 +72,23 @@ const Header = ({ history }) => {
                             <Link className='hover:text-[#4e3faa]' to="/">
                                 الصفحة الرئیسیة
                             </Link>
-                            <Link className='hover:text-[#4e3faa]' to="/السیرة-الذاتیة" alt="الدکتور-الشیخ-علاء-الحسّون">
+                            <Link className='hover:text-[#4e3faa]' to="/about" alt="الدکتور-الشیخ-علاء-الحسّون">
                                 السیرة الذاتیة
                             </Link>
-                            <Link className='hover:text-[#4e3faa]' to="/المؤلفات" alt="المؤلفات">
+                            <Link className='hover:text-[#4e3faa]' to="/books" alt="المؤلفات">
                                 المؤلفات 
                             </Link>
-                            <a href="/shop/" alt="shop">
+                            {/* <a href="/shop/" alt="shop">
                                 شراء الکتب    
-                            </a>
-                            <Link className='hover:text-[#4e3faa]' to="/المحاضرات" alt="المحاضرات">
+                            </a> */}
+                            <Link className='hover:text-[#4e3faa]' to="/lectures" alt="المحاضرات">
                                 المحاضرات 
                             </Link>
-                            <Link className='hover:text-[#4e3faa]' to="/موسوعة-حدیث-أهل-البیت" alt="موسوعة-حدیث-أهل-البیت">
+                            <Link className='hover:text-[#4e3faa]' to="/hadith-ahl-al-bayt" alt="موسوعة-حدیث-أهل-البیت">
                                  موسوعة حدیث أهل البیت 
                             </Link>
-                            {/* <Link className='hover:text-[#4e3faa]' to="/الصور" alt="الصور">
-                                الصور
+                            {/* <Link className='hover:text-[#4e3faa]' to="/pictures" alt="pictures">
+                                pictures
                             </Link> */}
                         </div>
                     </div>

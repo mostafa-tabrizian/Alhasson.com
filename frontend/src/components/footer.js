@@ -9,20 +9,20 @@ const Footer = () => {
                     <Link to="/">
                         الصفحة الرئیسیة
                     </Link>
-                    <Link to="/السیرة-الذاتیة" alt="الدکتور-الشیخ-علاء-الحسّون">
+                    <Link to="/about" alt="الدکتور-الشیخ-علاء-الحسّون">
                         السیرة الذاتیة
                     </Link>
-                    <Link to="/المؤلفات" alt="المؤلفات">
-                        المؤلفات 
+                    <Link to="/books" alt="المؤلفات">
+                    المؤلفات 
                     </Link>
-                    <Link to="/المحاضرات" alt="المحاضرات">
-                        المحاضرات 
+                    <Link to="/lectures" alt="المحاضرات">
+                    المحاضرات 
                     </Link>
-                    <Link to="/موسوعة-حدیث-أهل-البیت" alt="موسوعة-حدیث-أهل-البیت">
+                    <Link to="/hadith-ahl-al-bayt" alt="موسوعة-حدیث-أهل-البیت">
                         موسوعة حدیث أهل البیت
                     </Link>
-                    {/* <Link to="/الصور" alt="الصور">
-                        الصور 
+                    {/* <Link to="/pictures" alt="pictures">
+                        pictures 
                     </Link> */}
                 </div>
 

@@ -26,7 +26,7 @@ const Books = () => {
             books?.map(book => {
                 return (
                     <article className="hoverGold w-[11rem] md:w-[16rem] max-w-max md:mr-5 my-3">
-                        <Link to={`/المؤلفات/${replaceFunction(book.title, ' ', '-')}`}>
+                        <Link to={`/books/${replaceFunction(book.title, ' ', '-')}`}>
                             <img type='image/webp' className='rounded' src={book?.cover} alt={book?.title} />
                         </Link>
                     </article> 

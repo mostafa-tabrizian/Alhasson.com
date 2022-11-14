@@ -1,33 +1,43 @@
 {
-    "short_name": "علاء الحسّون",
-    "name": "الدکتور الشیخ علاء الحسّون",
-    "icons": [
-      {
-        "src": "/static/img/logo.png",
-        "type": "image/png",
-        "sizes": "180x180"
-      }
-    ],
-    "start_url": "/",
-    "background_color": "#0d0735",
-    "display": "minimal-ui",
-    "scope": "/",
-    "theme_color": "#cfa97a",
-    "shortcuts": [
-      {
-        "name": "المؤلفات",
-        "short_name": "المؤلفات",
-        "description": "مؤلفات الدکتور الشیخ علاء الحسّون",
-        "url": "/المؤلفات",
-        "icons": [{ "src": "/static/img/logo.png", "sizes": "180x180" }]
-      },
-      {
-        "name": "المسجلات",
-        "short_name": "المسجلات",
-        "description": "مسجلات الدکتور الشیخ علاء الحسّون",
-        "url": "/المسجلات",
-        "icons": [{ "src": "/static/img/logo.png", "sizes": "180x180" }]
-      }
-    ],
-    "description": "موقع الدکتور الشیخ علاء الحسّون"
+  "short_name": "علاء الحسّون",
+  "name": "الدکتور الشیخ علاء الحسّون",
+  "icons": [
+    {
+      "src": "/static/img/logo.png",
+      "type": "image/png",
+      "sizes": "180x180"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#0d0735",
+  "display": "minimal-ui",
+  "scope": "/",
+  "theme_color": "#cfa97a",
+  "shortcuts": [
+    {
+      "name": "المؤلفات",
+      "short_name": "المؤلفات",
+      "description": "مؤلفات الدکتور الشیخ علاء الحسّون",
+      "url": "/books",
+      "icons": [
+        {
+          "src": "/static/img/logo.png",
+          "sizes": "180x180"
+        }
+      ]
+    },
+    {
+      "name": "المسجلات",
+      "short_name": "المسجلات",
+      "description": "مسجلات الدکتور الشیخ علاء الحسّون",
+      "url": "/المسجلات",
+      "icons": [
+        {
+          "src": "/static/img/logo.png",
+          "sizes": "180x180"
+        }
+      ]
+    }
+  ],
+  "description": "موقع الدکتور الشیخ علاء الحسّون"
 }

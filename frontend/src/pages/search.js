@@ -33,7 +33,7 @@ const Search = () => {
             searchResult_Books?.map(book => {
                 return (
                     <article className="hoverGold w-[16rem] max-w-max mr-5 my-3">
-                        <Link to={`/المؤلفات/${replaceFunction(book.title, ' ', '-')}`}>
+                        <Link to={`/books/${replaceFunction(book.title, ' ', '-')}`}>
                             <img className='rounded' type='image/webp' src={book?.thumbnail} alt={book?.title} />
                         </Link>
                     </article> 
@@ -81,7 +81,7 @@ const Search = () => {
                     searchResult_Books?.length ?
                     <div>
                         <h1>
-                            المؤلفات
+                            books
                         </h1>
                         <div className='flex flex-wrap gap-x-4 wrapper'>
                             {returnSearchResult_Books()}
