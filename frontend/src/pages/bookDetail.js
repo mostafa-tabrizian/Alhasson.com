@@ -5,7 +5,7 @@ import { Skeleton } from 'antd'
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
-import { log, replaceFunction } from '../components/base'
+import { log } from '../components/base'
 
 const Book = () => {
     const [bookDetail, setBookDetail] = useState()
@@ -17,7 +17,8 @@ const Book = () => {
     }, [])
     
     const getBookDetail = async () => {
-        const bookTitleFromUrl = replaceFunction(window.location.pathname.split('/')[2], '-', '+')
+        const bookTitleFromUrl = window.location.pathname.split('/')[2]
+        log(bookTitleFromUrl)
         await axios.get(`/api/bookView/?title_url__icontains=${bookTitleFromUrl}`)
             .then(book => {
                 setBookDetail(book.data[0])
@@ -28,6 +29,10 @@ const Book = () => {
         if (bookDetail?.title) {
             return `https://www.alhasson.com/books/${bookDetail?.title_url}}`
         }
+    }
+
+    String.prototype.EntoAr= function() {
+        return this.replace(/\d/g, d =>  '٠١٢٣٤٥٦٧٨٩'[d])
     }
 
     return (
@@ -90,9 +95,9 @@ const Book = () => {
                                 />
                             </a>
                         </div>
-                        <div className="md:w-[50rem] md:mr-8 mx-4">
+                        <div className="md:w-[50rem] md:mr-8 mx-4 space-y-5">
                             <h1 className="mb:mb-6 title"> {bookDetail?.title} </h1>
-                            <div className="flex space-x-20 space-x-reverse">
+                            <div className="flex justify-between">
                                 <div>
                                     <h5 className="">الناشر:</h5>
                                     <h4 className="">{bookDetail?.publisher}</h4>
@@ -100,12 +105,12 @@ const Book = () => {
     
                                 <div>
                                     <h5 className="">تاريخ النشر:</h5>
-                                    <h4 className="">{bookDetail?.year_published}</h4>
+                                    <h4 className="">{String(bookDetail?.year_published).EntoAr()}</h4>
                                 </div>
     
                                 <div>
                                     <h5 className="">عدد الصفحات:</h5>
-                                    <h4 className="">{bookDetail?.pages}</h4>
+                                    <h4 className="">{String(bookDetail?.pages).EntoAr()}</h4>
                                 </div>
                             </div>
                             <div className='flex items-center mt-5 space-x-1 space-x-reverse'>
@@ -128,7 +133,9 @@ const Book = () => {
                                     </a>
                                 }
                             </div>
-                            <br/>
+                            
+                            <hr />
+
                             <p>
                                 <span>هذا الکتاب:</span>
                                 <br/>

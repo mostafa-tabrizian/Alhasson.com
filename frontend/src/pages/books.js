@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { Skeleton } from 'antd'
-import { replaceFunction } from '../components/base'
 import { Helmet } from "react-helmet";
 
 const Books = () => {
@@ -26,7 +25,7 @@ const Books = () => {
             books?.map(book => {
                 return (
                     <article className="hoverGold w-[11rem] md:w-[16rem] max-w-max md:mr-5 my-3">
-                        <Link to={`/books/${replaceFunction(book.title_url, ' ', '-')}`}>
+                        <Link to={`/books/${book.title_url}`}>
                             <img type='image/webp' className='rounded' src={book?.cover} alt={book?.title} />
                         </Link>
                     </article> 

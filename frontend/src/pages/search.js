@@ -4,7 +4,7 @@ import axios from 'axios'
 import { Empty } from 'antd';
 import { Helmet } from "react-helmet";
 
-import { log, takeParameterFromUrl, replaceFunction } from '../components/base'
+import { log, takeParameterFromUrl } from '../components/base'
 
 const Search = () => {
     const [searchResult_Books, setSearchResult_Books] = useState()
@@ -33,7 +33,7 @@ const Search = () => {
             searchResult_Books?.map(book => {
                 return (
                     <article className="hoverGold w-[16rem] max-w-max mr-5 my-3">
-                        <Link to={`/books/${replaceFunction(book.title, ' ', '-')}`}>
+                        <Link to={`/books/${book.title_url}`}>
                             <img className='rounded' type='image/webp' src={book?.thumbnail} alt={book?.title} />
                         </Link>
                     </article> 

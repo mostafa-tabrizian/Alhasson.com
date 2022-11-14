@@ -68,7 +68,7 @@ const Header = ({ history }) => {
                         }
                     </button>
                     <div className={`flex justify-center fixed right-1/2 z-10 transition-transform ease-in-out duration-500 translate-x-1/2 ${menu ? 'translate-y-0' : 'translate-y-[-100%]'}`}>
-                        <div className='bg-gradient-to-tr from-[#3e328b] to-[#0d0735] rounded-b-lg py-6 text-center w-[13rem] flex flex-col'>
+                        <div className='bg-gradient-to-tr from-[#3e328b] to-[#0d0735] rounded-b-lg py-6 space-y-3 text-center w-[13rem] flex flex-col'>
                             <Link className='hover:text-[#4e3faa]' to="/">
                                 الصفحة الرئیسیة
                             </Link>

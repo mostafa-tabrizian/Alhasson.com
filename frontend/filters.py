@@ -8,6 +8,7 @@ class BookFilter(filters.FilterSet):
         fields = {
             'id': ['exact'],
             'title': ['icontains'],
+            'title_url': ['icontains'],
             'slug': ['icontains']
         }
         
