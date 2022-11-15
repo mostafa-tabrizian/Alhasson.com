@@ -3,7 +3,6 @@ import { Helmet } from "react-helmet";
 import axios from "axios";
 import { Link } from 'react-router-dom'
 import { ScrollingCarousel  } from '@trendyol-js/react-carousel';
-import { Skeleton } from 'antd'
 import { log } from '../components/base'
 
 const landPage = () => {
@@ -20,7 +19,7 @@ const landPage = () => {
     const getBooks = async () => {
         await axios.get(`/api/bookView/`)
             .then(book => {
-                book?.data.sort(function (a, b) {return b.year_published - a.year_published})
+                book?.data.sort(function (a, b) {return a.sort_id - b.sort_id})
                 setBooks(book?.data)
             })
     }
@@ -93,10 +92,10 @@ const landPage = () => {
                 {
                     loading ?
                     <div className='flex gap-8 wrapper'>
+                        {/* <Skeleton.Avatar active={true} size={250} shape={'default'} loading={true} />
                         <Skeleton.Avatar active={true} size={250} shape={'default'} loading={true} />
                         <Skeleton.Avatar active={true} size={250} shape={'default'} loading={true} />
-                        <Skeleton.Avatar active={true} size={250} shape={'default'} loading={true} />
-                        <Skeleton.Avatar active={true} size={250} shape={'default'} loading={true} />
+                        <Skeleton.Avatar active={true} size={250} shape={'default'} loading={true} /> */}
                     </div>
                     :
                     <ScrollingCarousel>
@@ -119,9 +118,9 @@ const landPage = () => {
                     {
                         loading ?
                         <div className='flex gap-8 wrapper'>
+                            {/* <Skeleton.Avatar active={true} size={300} shape={'default'} loading={true} />
                             <Skeleton.Avatar active={true} size={300} shape={'default'} loading={true} />
-                            <Skeleton.Avatar active={true} size={300} shape={'default'} loading={true} />
-                            <Skeleton.Avatar active={true} size={300} shape={'default'} loading={true} />
+                            <Skeleton.Avatar active={true} size={300} shape={'default'} loading={true} /> */}
                         </div>
                         :
                         <div className='flex flex-wrap'>

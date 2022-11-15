@@ -16,7 +16,7 @@ const Header = ({ history }) => {
     });
 
     return (
-        <header>
+        <header className='mb-8'>
             <div className="relative justify-between hidden m-8 md:flex">
                 <div className='flex items-center space-x-10 space-x-reverse'>
                     <img className='w-12' src="/static/img/inTheNameOfGod.png" alt="الدکتور-الشیخ-علاء-الحسّون" />
@@ -58,15 +58,26 @@ const Header = ({ history }) => {
                 </div>
 
                 <div>
-                    <button className='fixed p-2 bg-[#0d0735] rounded-bl-lg z-10' onClick={() => {menu ? setMenu(false) : setMenu(true)}} type='button'>
-                        {/* <img src='/static/img/menu.svg' alt="" /> */}
-                        {
-                            menu ?
-                            <svg class="h-12 w-12 text-[#e0bd87]"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <line x1="18" y1="6" x2="6" y2="18" />  <line x1="6" y1="6" x2="18" y2="18" /></svg>
-                            :
-                            <svg class="h-12 w-12 text-[#e0bd87]"  width="48" height="48" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <line x1="4" y1="6" x2="20" y2="6" />  <line x1="4" y1="12" x2="20" y2="12" />  <line x1="4" y1="18" x2="20" y2="18" /></svg>
-                        }
-                    </button>
+                    <div className='flex justify-between w-full fixed px-2 py-3 bg-[#0d0735] rounded-bl-lg z-10'>
+                        <button className='' onClick={() => {menu ? setMenu(false) : setMenu(true)}} type='button'>
+                            {/* <img src='/static/img/menu.svg' alt="" /> */}
+                            {
+                                menu ?
+                                <svg class="h-12 w-12 text-[#e0bd87]"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <line x1="18" y1="6" x2="6" y2="18" />  <line x1="6" y1="6" x2="18" y2="18" /></svg>
+                                :
+                                <svg class="h-12 w-12 text-[#e0bd87]"  width="48" height="48" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <line x1="4" y1="6" x2="20" y2="6" />  <line x1="4" y1="12" x2="20" y2="12" />  <line x1="4" y1="18" x2="20" y2="18" /></svg>
+                            }
+                        </button>
+                        <div className='flex items-center'>
+                            <svg className="absolute w-6 h-6 mr-2 text-blue-900"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <circle cx="10" cy="10" r="7" />  <line x1="21" y1="21" x2="15" y2="15" /></svg>
+                            <input type="text" className='rounded-lg text-blue-900 pr-12 py-1 w-[16rem]' placeholder="بحث عن کتاب أو محاضرة" onKeyDown={(e) => {
+                                if (e.key == 'Enter') {
+                                    document.location.href = `/search?q=${e.target.value}`
+                                }
+                            }}/>
+                        </div>
+                    </div>
+                    
                     <div className={`flex justify-center fixed right-1/2 z-10 transition-transform ease-in-out duration-500 translate-x-1/2 ${menu ? 'translate-y-0' : 'translate-y-[-100%]'}`}>
                         <div className='bg-gradient-to-tr from-[#3e328b] to-[#0d0735] rounded-b-lg py-6 space-y-3 text-center w-[13rem] flex flex-col'>
                             <Link className='hover:text-[#4e3faa]' to="/">

@@ -58,7 +58,7 @@ const Search = () => {
                 <title>‌الحسون | جستجوی عبارت "{query}"</title>
             </Helmet>
             
-            <div className='pb-20 wrapper'>
+            <div className='py-20 wrapper'>
                 <h1 className='mb-5 title title-center'>
                     جستجوی عبارت "{query}"
                 </h1>

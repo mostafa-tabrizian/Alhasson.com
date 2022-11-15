@@ -4,6 +4,7 @@ from ckeditor.fields import RichTextField
 
 class Book(models.Model):
     id = models.AutoField(primary_key=True)
+    sort_id = models.IntegerField(help_text='ترتیب')
     title = models.CharField(max_length=255, help_text='عنوان الکتاب')
     title_url = models.CharField(max_length=255, help_text='عنوان الکتاب')
     slug = models.CharField(max_length=255, help_text='عنوان للبحث')

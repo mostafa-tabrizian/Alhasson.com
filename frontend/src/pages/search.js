@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-import { Empty } from 'antd';
 import { Helmet } from "react-helmet";
 
 import { log, takeParameterFromUrl } from '../components/base'
@@ -67,23 +66,23 @@ const Search = () => {
             <Helmet>
                 <title>‌الحسون |  بحث عن "{query}"</title>
             </Helmet>
-            <div className='pb-20 wrapper'>
+            <div className='py-20 wrapper'>
                 <h1 className='title title-center'>
                     بحث عن "{query}"
                 </h1>
                 
                 {
                     !searchResult_Books?.length && !searchResult_Clips?.length &&
-                    <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />
+                    <h1 className='my-[50%] text-center'>لم يتم العثور على شيء</h1>
                 }
                 
                 {
                     searchResult_Books?.length ?
                     <div>
                         <h1>
-                            books
+                            المؤلفات
                         </h1>
-                        <div className='flex flex-wrap gap-x-4 wrapper'>
+                        <div className='p-5'>
                             {returnSearchResult_Books()}
                         </div>
                     </div>

@@ -48,7 +48,7 @@ const Clips = () => {
                 <title>‌الحسون | المحاضرات</title>
             </Helmet>
             
-            <div className='pb-20 wrapper'>
+            <div className='py-20 wrapper'>
                 <h1 className='title title-center'>
                     المحاضرات
                 </h1>

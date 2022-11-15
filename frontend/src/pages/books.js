@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-import { Skeleton } from 'antd'
 import { Helmet } from "react-helmet";
 
 const Books = () => {
@@ -10,13 +9,13 @@ const Books = () => {
     
     useEffect(() => {
         getBooks()
-        setLoading(false)
     }, [])
     
     const getBooks = async () => {
         await axios.get(`/api/bookView/`)
             .then(book => {
                 setBooks(book.data)
+                setLoading(false)
             })
     }
 
@@ -46,14 +45,14 @@ const Books = () => {
                 {
                     loading ?
                     <div className='flex flex-wrap gap-8 wrapper'>
+                        {/* <Skeleton.Avatar active={true} size={250} shape={'default'} loading={true} />
                         <Skeleton.Avatar active={true} size={250} shape={'default'} loading={true} />
                         <Skeleton.Avatar active={true} size={250} shape={'default'} loading={true} />
                         <Skeleton.Avatar active={true} size={250} shape={'default'} loading={true} />
                         <Skeleton.Avatar active={true} size={250} shape={'default'} loading={true} />
                         <Skeleton.Avatar active={true} size={250} shape={'default'} loading={true} />
                         <Skeleton.Avatar active={true} size={250} shape={'default'} loading={true} />
-                        <Skeleton.Avatar active={true} size={250} shape={'default'} loading={true} />
-                        <Skeleton.Avatar active={true} size={250} shape={'default'} loading={true} />
+                        <Skeleton.Avatar active={true} size={250} shape={'default'} loading={true} /> */}
                     </div>
                     :
                     <div className='flex flex-wrap gap-x-4 wrapper'>

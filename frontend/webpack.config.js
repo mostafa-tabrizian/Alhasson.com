@@ -1,5 +1,6 @@
 const path = require("path");
 const webpack = require("webpack");
+const CompressionPlugin = require('compression-webpack-plugin')
 
 module.exports = {
   entry: {
@@ -60,6 +61,11 @@ module.exports = {
       "process.env": {
         NODE_ENV: JSON.stringify("production"),  // development production
       },
+    }),
+  
+    new CompressionPlugin({
+      test: /\.js(\?.*)?$/i,
+      filename: "[path][base].gz"
     }),
 
     new webpack.ProvidePlugin({

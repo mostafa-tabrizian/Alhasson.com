@@ -1,8 +1,6 @@
 import React, { Suspense, lazy, useState } from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import { Spin } from 'antd'
-import { LoadingOutlined } from '@ant-design/icons'
 
 import { log } from './components/base'
 

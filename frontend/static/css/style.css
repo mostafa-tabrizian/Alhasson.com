@@ -351,5 +351,5 @@ input[type=search]::-webkit-search-results-decoration {
 .about_option_selected {
   background: linear-gradient(0deg, #e0bd87);
   box-shadow: 0 2px 10px #e0bd87;
-  color: black;
+  color: #e0bd87;
 }/*# sourceMappingURL=style.css.map */

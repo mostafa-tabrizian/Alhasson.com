@@ -1,6 +1,5 @@
 import React, { useState, useEffect} from 'react';
 import axios from 'axios';
-import { Image } from 'antd';
 import { Helmet } from "react-helmet";
 
 import { log, isItMobile } from '../components/base'
@@ -24,11 +23,11 @@ const Album = () => {
             albumImages?.map(image => {
                 return (
                     <div className='mb-5 md:mb-10'>
-                        <Image
+                        {/* <Image
                             width={isItMobile() ? 150 :250}
                             src={image.source}
                             alt={image.title}
-                        />
+                        /> */}
                         <h4 className='text-black'>
                             {image.title}
                         </h4>
@@ -43,7 +42,7 @@ const Album = () => {
             <Helmet>
                 <title>‌الحسون | البوم الصور</title>  
             </Helmet>
-            <div className='pb-20 wrapper'>
+            <div className='py-20 wrapper'>
                 <h1 className="title title-center">
                     البوم الصور
                 </h1>

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Helmet } from "react-helmet";
 import axios from 'axios'
-import { Skeleton } from 'antd'
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
@@ -82,7 +81,7 @@ const Book = () => {
             <div className="block md:flex wrapper max-w-[75rem] pb-20 pt-10">
                 {
                     loading ?
-                    <Skeleton active={true} loading={true} />
+                    <div></div>
                     :
                     <React.Fragment>
                         <div className='flex justify-center mb-10 mt-12 md:mt-0 w-[90vw] md:w-auto h-full'>
