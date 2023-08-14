@@ -1,22 +1,20 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./frontend/src/components/*.js",
-    
-    "./frontend/src/pages/*.js",
-
-    './shop/src/components/*.js',
-    './shop/src/components/order/*.js',
-    './shop/src/components/profile/*.js',
-
-    './shop/src/pages/*.js',
-    './shop/src/pages/order/*.js',
-    './shop/src/pages/user/*.js',
-  ],
-  theme: {
-    extend: {},
-  },
-  plugins: [
-    require('tailwindcss'),
-    require('autoprefixer'),
-  ],
-}
+   mode: 'jit',
+   darkMode: 'media',
+   content: [
+      './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+      './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+      './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+   ],
+   theme: {
+      extend: {
+         backgroundImage: {
+            'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+            'gradient-conic':
+               'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+         },
+      },
+   },
+   plugins: [],
+};

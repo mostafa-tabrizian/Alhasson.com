@@ -1,24 +1,43 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-*__pycache__*
-*.pyc
-htmlcov
-.coverage
-QuizLand.session.sql
-.vscode
-geckodriver
-venv-alhasson
-.gitignore
-.env
-migrations
-# *.jpg
-# *.png
-# *.gif
-# *.svg
-# *.webp
-frontend/static/build
-*.zip
-*.log
-changes.txt
-node_modules
-.gitOLD
-media/
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# local env files
+# .env*
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+sitemap.ts
+
+todo
+
+launch.json
+
+version.1
