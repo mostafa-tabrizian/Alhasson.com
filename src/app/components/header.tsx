@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import Image from 'next/image'
+import Image from "next/legacy/image"
 
 const Header = () => {
    const [menu, setMenu] = useState(false)

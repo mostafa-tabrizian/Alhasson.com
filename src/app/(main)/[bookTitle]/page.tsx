@@ -1,5 +1,5 @@
 // import { Metadata } from 'next'
-import Image from 'next/image'
+import Image from "next/legacy/image"
 import type { Metadata } from 'next'
 
 import { prisma } from '@/lib/prisma'
