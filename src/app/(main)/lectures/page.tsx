@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 
 import { prisma } from '@/lib/prisma'
+import YouTubeFrame from '../youtube'
 
 async function getLectures() {
    return await prisma.lecture.findMany().then((res) => res)
@@ -26,17 +27,15 @@ const Lectures = async () => {
 
    return (
       <div className='bg-gradient-to-b min-h-screen py-10 md:py-24 px-6 from-[#0d0735] to-[#070515]'>
-         <h1 className='title mt-14'>المحاضرات</h1>
+         <h1 className='title mt-14'>محاضرات الشیخ علاء الحسّون</h1>
 
-         <div className='flex flex-wrap gap-x-4 mt-10 justify-center'>
+         <div className='max-w-screen-lg mx-auto mt-10 justify-center'>
             {lectures?.map((lecture) => {
                return (
                   <div key={lecture.id} className=''>
                      <div key={lecture?.id} className='space-y-5'>
-                        <div
-                           className='flex justify-center'
-                           dangerouslySetInnerHTML={{ __html: lecture?.source }}
-                        ></div>
+                        <YouTubeFrame video={lecture} />
+
                         <h2 className='text-center'>
                            {lecture?.title}
                            <br />

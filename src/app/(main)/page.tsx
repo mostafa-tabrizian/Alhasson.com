@@ -1,9 +1,11 @@
-import Image from "next/legacy/image"
+import Image from 'next/legacy/image'
 import Link from 'next/link'
 import type { Metadata } from 'next'
 
 import { prisma } from '@/lib/prisma'
 import Bookshelf from './components/bookshelf'
+import LandpageHeroImage from './landpageHeroImage'
+import YouTubeFrame from './youtube'
 
 async function getBooks() {
    return await prisma.book.findMany().then((res) => res)
@@ -16,7 +18,7 @@ async function getFirstLecture() {
 export const metadata: Metadata = {
    metadataBase: new URL('https://alhasson.com'),
    title: 'موقع الدکتور الشیخ علاء الحسّون',
-   description: 'دكتوراه في علوم الحديث، ومهتم حالياً بتأليف موسوعة حديث أهل البيت(ع)',
+   description: 'دكتوراه في علوم الحديث، ومهتم حالياً بتأليف موسوعة حديث أهل البيت (ع)',
 }
 
 async function Home() {
@@ -25,54 +27,25 @@ async function Home() {
 
    return (
       <div>
-         <section className='w-full pt-10 md:pt-20 bg-[#070515] h-full relative'>
-            <Image
-               className='md:hidden'
-               alt='الدکتور شیخ علاء الحسون'
-               src='/image/landpageSM2.jpg'
-               width={0}
-               height={0}
-               sizes='100vw'
-               style={{ width: '100%', height: 'auto' }}
-               priority
-               unoptimized
-            />
-            <Image
-               className='hidden md:block'
-               alt='الدکتور شیخ علاء الحسون'
-               src='/image/landpage.jpg'
-               width={0}
-               height={0}
-               sizes='100vw'
-               style={{ width: '100%', height: 'auto' }}
-               priority
-               unoptimized
-            />
-         </section>
+         <LandpageHeroImage />
+
          <div className=' bg-gradient-to-b from-[#0d0735] to-[#070515]'>
             <div className='max-w-screen-lg mx-auto'>
                <section className='py-10 mx-6 overflow-x-hidden'>
-                  <div className='flex justify-between'>
-                     <Link href='books'>مشاهدة الجمیع</Link>
-                     <h1>المؤلفات</h1>
-                  </div>
-
+                  <h1 className='text-xl font-thin text-center'>مؤلفات الشیخ علاء الحسّون</h1>
                   <Bookshelf books={books} />
                </section>
 
-               <section className='py-10 px-6'>
-                  <div className='flex justify-between'>
-                     <Link href='lectures'>مشاهدة الجمیع</Link>
-                     <h1>المحاضرات</h1>
-                  </div>
+               <hr className='mx-20' />
+
+               <section className='py-10 px-6 space-y-6'>
+                  <h2 className='text-xl font-thin text-center'>محاضرات الشیخ علاء الحسّون</h2>
                   <div className='p-5'>
                      {lecture ? (
                         <div className=''>
                            <div key={lecture?.id} className='space-y-5'>
-                              <div
-                                 className='flex justify-center'
-                                 dangerouslySetInnerHTML={{ __html: lecture?.source }}
-                              ></div>
+                              <YouTubeFrame video={lecture} />
+
                               <h2 className='text-center'>
                                  {lecture?.title}
                                  <br />
@@ -90,31 +63,34 @@ async function Home() {
                   </div>
                </section>
 
+               <hr className='mx-20' />
+
                <section className='pt-10 pb-20 px-6'>
                   <div className='grid md:flex md:flex-row-reverse'>
-                     <div className='flex mx-6 mb-6 justify-center md:w-[70vw]'>
+                     <div className='flex relative mx-6 mb-6 justify-center w-[19rem] h-[28rem] md:w-[60rem] md:h-[33.4rem]'>
                         <Image
-                           width={0}
-                           height={0}
-                           sizes='100vw'
-                           style={{ width: '100%', height: 'auto' }}
+                           layout='fill'
+                           objectFit='contain'
                            className='rounded-lg'
                            src='/image/marefe.jpg'
-                           alt='الدکتور-الشیخ-علاء-الحسّون'
+                           alt='الدکتور الشیخ علاء الحسّون'
                         />
                      </div>
-                     <div className='pr-4 text-right border-r border-orange-200'>
-                        <h1 className='text-orange-200'>
+                     <div className='pr-4 text-right border-r  border-[#e5c698]'>
+                        <h2 className='text-xl font-thin text-[#e5c698]'>
                            التعريف بمشروع إحياء حديث أهل البيت
-                           <span className='text-orange-200 mr-2'>(علیهم السلام)</span>
-                        </h1>
+                           <span className='text-[#e5c698] mr-2'>(علیهم السلام)</span>
+                        </h2>
                         <p className='text-justify'>
                            يستهدف هذا المشروع عرض معلومات حديث أهـل البيـت (علیهم السلام) وفـق
                            منهجية خـلق الصـور المعرفية الشامـلة والمــتكاملة عن طـريق تـنظيـم
                            المقـاطع الجزئيـة المترابـطة التي بيّـنها أهل البيـت (علیهم السلام) في
                            مختلف المواضيع.
-                           <Link href='hadith-of-ahl-al-bayt'>
-                              <button className='flex justify-start w-full text-orange-200 text-shadow'>
+                           <Link
+                              aria-label='مزید عن المشروع إحياء حديث أهل البيت'
+                              href='hadith-of-ahl-al-bayt'
+                           >
+                              <button className='flex justify-start w-full text-[#e5c698] text-shadow'>
                                  ...للمزید
                               </button>
                            </Link>

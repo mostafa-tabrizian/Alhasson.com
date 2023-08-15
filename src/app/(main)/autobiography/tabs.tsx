@@ -19,7 +19,7 @@ const Tabs = () => {
       switch (selectedOption) {
          case 'a':
             return (
-               <p className='text-justify border-r border-orange-200 pr-5'>
+               <p className='text-justify border-r border-[#e5c698] pr-5'>
                   مكان وسنة الولادة: العراق، مدينة النجف الأشرف، ١٣٩٤هـ /١٩٧٥م.
                   <br />
                   الوالد: المرحوم الحاج عبد الحسين محمّد علي الحسّون، مؤلّف كتاب طبائع الأحياء (pdf)
@@ -55,7 +55,7 @@ const Tabs = () => {
 
          case 'b':
             return (
-               <p className='text-justify border-r border-orange-200 pr-5'>
+               <p className='text-justify border-r border-[#e5c698] pr-5'>
                   أكمل الشيخ علاء الحسّون المرحلة الثانويّة في مدينة مشهد المقدّسة، ثمّ انتقل إلى
                   مدينة قم المقدّسة، واهتمّ بالدراسة الحوزويّة في مدرسة الإمام المهدي (عجل اللّه
                   فرجه) عام ١٤١٤هـ، وبقى فيها مدّة ست سنوات حتى أنهى مرحلة المقدّمات، ثمّ واصل
@@ -65,7 +65,7 @@ const Tabs = () => {
 
          case 'c':
             return (
-               <p className='text-justify border-r border-orange-200 pr-5'>
+               <p className='text-justify border-r border-[#e5c698] pr-5'>
                   واصل الشيخ علاء الحسّون دراسته الجامعية في مدينة قم المقدّسة تزامناً مع دراسته
                   الحوزوية وفق المراحل التالية:
                   <a href='https://iki.ac.ir/' target='_blank' rel='noreferrer'>
@@ -89,7 +89,7 @@ const Tabs = () => {
 
          case 'd':
             return (
-               <p className='text-justify border-r border-orange-200 pr-5'>
+               <p className='text-justify border-r border-[#e5c698] pr-5'>
                   ١ ـ العمل في مختلف نشاطات{' '}
                   <a href='http://www.aqaed.com/' target='_blank' rel='noreferrer'>
                      {' '}
@@ -183,7 +183,7 @@ const Tabs = () => {
 
          case 'e':
             return (
-               <p className='text-justify border-r border-orange-200 pr-5'>
+               <p className='text-justify border-r border-[#e5c698] pr-5'>
                   ١ ـ مسؤوليّة بعض أقسام{' '}
                   <a href='http://www.aqaed.com/' target='_blank' rel='noreferrer'>
                      {' '}
@@ -229,7 +229,7 @@ const Tabs = () => {
 
          case 'f':
             return (
-               <p className='text-justify border-r border-orange-200 pr-5'>
+               <p className='text-justify border-r border-[#e5c698] pr-5'>
                   ١ ـ تنمية الوعي، منهج في ارتقاء المستوى الفكري وتشييد العقليّة الواعيّة، الناشر:
                   دار الغدير، قم، الطبعة الأولى، ١٤٢٤هـ، والطبعة الثانيّة، ١٤٢٦هـ.
                   <br />٢ ـ التحوّل المذهبي، بحث تحليلي حول رحلة المستبصرين إلى مذهب أهل البيت ،
@@ -271,7 +271,7 @@ const Tabs = () => {
             return (
                <div>
                   <h2> الموسوعات التي شارك الشيخ علاء الحسّون في تألیفها:</h2>
-                  <p className='text-justify border-r border-orange-200 pr-5'>
+                  <p className='text-justify border-r border-[#e5c698] pr-5'>
                      ١ ـ{' '}
                      <a href='http://www.aqaed.com/book/468/' target='_blank' rel='noreferrer'>
                         {' '}

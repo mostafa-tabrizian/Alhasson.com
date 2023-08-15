@@ -12,7 +12,7 @@ const Bookmark = () => {
             onClick={() => (bookmark ? setBookmark(false) : setBookmark(true))}
          >
             <svg
-               className='h-12 w-12 text-[#e0bd87]'
+               className='h-12 w-12 text-[#e5c698]'
                width='24'
                height='24'
                viewBox='0 0 24 24'
@@ -33,7 +33,7 @@ const Bookmark = () => {
                bookmark ? 'translate-x-0' : 'translate-x-[120%]'
             } md:translate-x-0 transition-transform duration-500 ease-in-out flex flex-col right-0 fixed p-6 mr-6 mt-20 md:mt-0 rounded-lg leading-8 bg-gradient-to-tr text-right from-[#3e328b] to-[#0d0735]`}
          >
-            <h5 className=''>الفهرس</h5>
+            <a className=''>الفهرس</a>
             <a href='#التعريف بمشروع'>التعريف بمشروع</a>
             <a href='#مراحل عمل'>مراحل عمل</a>
             <a href='#طريقة تنظيم بطاقات'>طريقة تنظيم بطاقات</a>

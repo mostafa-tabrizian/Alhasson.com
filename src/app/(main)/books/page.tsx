@@ -32,7 +32,7 @@ const Books = async () => {
    return (
       <div className='bg-gradient-to-b py-10 md:py-24 min-h-screen px-6 from-[#0d0735] to-[#070515]'>
          <div className='max-w-screen-lg mx-auto'>
-            <h1 className='title my-14'>المؤلفات</h1>
+            <h1 className='title my-14'>مؤلفات الشیخ علاء الحسّون</h1>
             <div className='grid grid-cols-2 md:grid-cols-4'>
                {books?.map((book) => <BookCard key={book.id} book={book} />)}
             </div>

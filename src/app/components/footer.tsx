@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 const Footer = () => {
    return (
-      <footer className='py-6 bg-[#e0bd87] text-[#0d0735] font-semibold'>
+      <footer className='py-6 bg-[#e5c698] text-[#0d0735] font-semibold'>
          <div className='flex mb-10 max-w-screen-md mx-auto justify-around items-center text-center'>
             <div className='flex flex-col space-y-3'>
                <Link className='hover:text-[#4e3faa]' href='/'>

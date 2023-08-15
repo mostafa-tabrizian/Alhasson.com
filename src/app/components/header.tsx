@@ -3,7 +3,6 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import Image from "next/legacy/image"
 
 const Header = () => {
    const [menu, setMenu] = useState(false)
@@ -13,56 +12,37 @@ const Header = () => {
 
    return (
       <header>
-         <div className='fixed w-full px-3 md:p-6 rounded-lg bg-[#0d07357e] backdrop-blur-xl top-0 right-0 z-10'>
-            <Image
-               width={0}
-               height={0}
-               className='rounded mx-auto mb-5 hidden md:block'
-               src={'/image/besmellah.png'}
-               sizes='100rem'
-               style={{ width: '10%', height: 'auto' }}
-               alt='بسم الله الرحمن الرحیم'
-            />
+         <div className='fixed w-full md:p-6 rounded-lg bg-[#0d07357e] backdrop-blur-xl top-0 right-0 z-10'>
             <div className='items-center space-x-10 hidden justify-center md:flex'>
-               <Link className='text-orange-200' href='/hadith-of-ahl-al-bayt'>
+               <Link className='text-[#e5c698]' href='/hadith-of-ahl-al-bayt'>
                   موسوعة حدیث أهل البیت
                </Link>
-               <Link className='text-orange-200' href='/lectures'>
+               <Link className='text-[#e5c698]' href='/lectures'>
                   المحاضرات
                </Link>
-               <Link className='text-orange-200' href='/books'>
+               <Link className='text-[#e5c698]' href='/books'>
                   المؤلفات
                </Link>
-               <Link className='text-orange-200' href='/autobiography'>
+               <Link className='text-[#e5c698]' href='/autobiography'>
                   السیرة الذاتیة
                </Link>
-               <Link className='text-orange-200' href='/'>
+               <Link className='text-[#e5c698]' href='/'>
                   الصفحة الرئیسیة
                </Link>
-               {/* <Link href="/الصور" >
-                           الصور
-                     </Link> */}
             </div>
 
-            <div className='md:hidden flex justify-end items-center'>
-               <Image
-                  width={0}
-                  height={0}
-                  className='absolute left-1/2 -translate-x-1/2 md:hidden'
-                  src={'/image/besmellah.png'}
-                  sizes='100rem'
-                  style={{ width: '40%', height: 'auto' }}
-                  alt='بسم الله الرحمن الرحیم'
-               />
+            <div className='md:hidden grid justify-end items-center'>
                <button
                   onClick={() => {
                      menu ? setMenu(false) : setMenu(true)
                   }}
                   type='button'
+                  className='flex justify-end'
+                  aria-label='القائمة'
                >
                   {menu ? (
                      <svg
-                        className='h-12 w-12 text-[#e0bd87]'
+                        className='h-12 w-12 text-[#e5c698]'
                         width='24'
                         height='24'
                         viewBox='0 0 24 24'
@@ -79,7 +59,7 @@ const Header = () => {
                      </svg>
                   ) : (
                      <svg
-                        className='h-12 w-12 text-[#e0bd87]'
+                        className='h-12 w-12 text-[#e5c698]'
                         width='48'
                         height='48'
                         viewBox='0 0 24 24'
@@ -105,11 +85,21 @@ const Header = () => {
             }`}
          >
             <div className='bg-gradient-to-tr space-y-3 from-[#3e328b] to-[#0d0735] rounded-b-lg py-6 text-center w-[13rem] flex flex-col'>
-               <Link href='/'>الصفحة الرئیسیة</Link>
-               <Link href='/autobiography'>السیرة الذاتیة</Link>
-               <Link href='/books'>المؤلفات</Link>
-               <Link href='/lectures'>المحاضرات</Link>
-               <Link href='/hadith-of-ahl-al-bayt'>موسوعة حدیث أهل البیت</Link>
+               <Link aria-label='الصفحة الرئیسیة' href='/'>
+                  الصفحة الرئیسیة
+               </Link>
+               <Link aria-label='السیرة الذاتیة' href='/autobiography'>
+                  السیرة الذاتیة
+               </Link>
+               <Link aria-label='المؤلفات' href='/books'>
+                  المؤلفات
+               </Link>
+               <Link aria-label='المحاضرات' href='/lectures'>
+                  المحاضرات
+               </Link>
+               <Link aria-label='موسوعة حدیث أهل البیت' href='/hadith-of-ahl-al-bayt'>
+                  موسوعة حدیث أهل البیت
+               </Link>
             </div>
          </div>
       </header>
