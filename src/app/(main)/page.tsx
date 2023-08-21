@@ -32,7 +32,7 @@ async function Home() {
          <div className=' bg-gradient-to-b from-[#0d0735] to-[#070515]'>
             <div className='max-w-screen-lg mx-auto'>
                <section className='py-10 mx-6 overflow-x-hidden'>
-                  <h1 className='text-xl font-thin text-center'>مؤلفات الشیخ علاء الحسّون</h1>
+                  <h1 className='text-xl mb-5 font-thin text-center'>مؤلفات الشیخ علاء الحسّون</h1>
                   <Bookshelf books={books} />
                </section>
 

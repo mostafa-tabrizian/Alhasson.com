@@ -155,7 +155,7 @@ const Book = async ({ params }: { params: { bookTitle: string } }) => {
                         <div className='flex space-x-3 mb-2 items-center justify-end'>
                            <h2>
                               <span className='text-sm font-thin'>تاريخ النشر</span> :{' '}
-                              {book?.publishedAt}
+                              {Math.floor(book?.publishedAt)}
                            </h2>
                         </div>
 

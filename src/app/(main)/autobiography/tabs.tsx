@@ -411,7 +411,7 @@ const Tabs = () => {
 
    return (
       <>
-         <ul className='justify-center max-w-screen-md mx-auto items-center mt-10 space-x-5 space-y-3 flex flex-wrap mb-5'>
+         <ul className='justify-center max-w-screen-md rtl mx-auto items-center mt-10 space-x-5 space-x-reverse space-y-3 flex flex-wrap mb-5'>
             <li
                className={`py-1 mt-3 px-3 rounded-md ${
                   selectedOption == 'a' ? 'about_option_selected' : 'border border-white'

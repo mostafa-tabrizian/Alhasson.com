@@ -27,7 +27,7 @@ const Lectures = async () => {
 
    return (
       <div className='bg-gradient-to-b min-h-screen py-10 md:py-24 px-6 from-[#0d0735] to-[#070515]'>
-         <h1 className='title mt-14'>محاضرات الشیخ علاء الحسّون</h1>
+         <h1 className='title mt-14 text-center'>محاضرات الشیخ علاء الحسّون</h1>
 
          <div className='max-w-screen-lg mx-auto mt-10 justify-center'>
             {lectures?.map((lecture) => {
