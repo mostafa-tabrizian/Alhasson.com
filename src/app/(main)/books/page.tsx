@@ -3,10 +3,6 @@ import type { Metadata } from 'next'
 import { prisma } from '@/lib/prisma'
 import Bookshelf from '../components/bookshelf'
 
-async function getBooks() {
-   return await prisma.book.findMany().then((res) => res)
-}
-
 // export const revalidate = 0;
 
 export const metadata: Metadata = {
@@ -25,7 +21,7 @@ export const metadata: Metadata = {
 }
 
 const Books = async () => {
-   const books = await getBooks()
+   const books = await prisma.book.findMany()
 
    return (
       <div className='bg-gradient-to-b py-10 md:py-24 min-h-screen px-6 from-[#0d0735] to-[#070515]'>

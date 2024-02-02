@@ -1,0 +1,15 @@
+{
+   "next": {
+      "modifyConfig": false
+   },
+   "disks": [
+      {
+         "name": "temp",
+         "mountTo": "/tmp"
+      },
+      {
+         "name": "isr",
+         "mountTo": ".next/server/app"
+      }
+   ]
+}

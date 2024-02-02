@@ -1,6 +1,6 @@
 'use client'
 
-import { Book } from '@prisma/client'
+import type { Book } from '@prisma/client'
 import BookCard from '@/app/components/bookCard'
 
 const Bookshelf = ({ books }: { books: Book[] }) => {

@@ -3,9 +3,7 @@ import type { Metadata } from 'next'
 import { prisma } from '@/lib/prisma'
 import YouTubeFrame from '../youtube'
 
-async function getLectures() {
-   return await prisma.lecture.findMany().then((res) => res)
-}
+import type { Lecture } from '@prisma/client'
 
 export const metadata: Metadata = {
    metadataBase: new URL('https://alhasson.com'),
@@ -23,7 +21,7 @@ export const metadata: Metadata = {
 }
 
 const Lectures = async () => {
-   const lectures = await getLectures()
+   const lectures: Lecture[] = await prisma.lecture.findMany()
 
    return (
       <div className='bg-gradient-to-b min-h-screen py-10 md:py-24 px-6 from-[#0d0735] to-[#070515]'>

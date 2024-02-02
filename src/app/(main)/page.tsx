@@ -7,12 +7,8 @@ import Bookshelf from './components/bookshelf'
 import LandpageHeroImage from './landpageHeroImage'
 import YouTubeFrame from './youtube'
 
-async function getBooks() {
-   return await prisma.book.findMany().then((res) => res)
-}
-
 async function getFirstLecture() {
-   return await prisma.lecture.findFirst().then((res) => res)
+   return await prisma.lecture.findFirst()
 }
 
 export const metadata: Metadata = {
@@ -22,7 +18,7 @@ export const metadata: Metadata = {
 }
 
 async function Home() {
-   const books = await getBooks()
+   const books = await prisma.book.findMany()
    const lecture = await getFirstLecture()
 
    return (
