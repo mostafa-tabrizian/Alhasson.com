@@ -1,9 +1,7 @@
 import type { Metadata } from 'next'
-
-import { prisma } from '@/lib/prisma'
 import YouTubeFrame from '../youtube'
-
-import type { Lecture } from '@prisma/client'
+import lecture, { ILecture } from '@/models/lecture'
+import dbConnect from '@/utils/dbConnect'
 
 export const metadata: Metadata = {
    metadataBase: new URL('https://alhasson.com'),
@@ -21,7 +19,8 @@ export const metadata: Metadata = {
 }
 
 const Lectures = async () => {
-   const lectures: Lecture[] = await prisma.lecture.findMany()
+   await dbConnect()
+   const lectures: ILecture[] = await lecture.find()
 
    return (
       <div className='bg-gradient-to-b min-h-screen py-10 md:py-24 px-6 from-[#0d0735] to-[#070515]'>
@@ -30,8 +29,8 @@ const Lectures = async () => {
          <div className='max-w-screen-lg mx-auto mt-10 justify-center'>
             {lectures?.map((lecture) => {
                return (
-                  <div key={lecture.id} className=''>
-                     <div key={lecture?.id} className='space-y-5'>
+                  <div key={lecture._id} className=''>
+                     <div key={lecture?._id} className='space-y-5'>
                         <YouTubeFrame video={lecture} />
 
                         <h2 className='text-center'>

@@ -1,8 +1,8 @@
 // import { Metadata } from 'next'
 import Image from 'next/legacy/image'
 import type { Metadata } from 'next'
-
-import { prisma } from '@/lib/prisma'
+import book from '@/models/book'
+import dbConnect from '@/utils/dbConnect'
 
 type Props = {
    params: { bookTitle: string }
@@ -34,10 +34,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 const getBook = async (bookTitle: string) => {
-   return await prisma.book.findFirst({
-      where: {
-         title: decodeURI(bookTitle),
-      },
+   await dbConnect()
+   return await book.findOne({
+      title: decodeURI(bookTitle),
    })
 }
 

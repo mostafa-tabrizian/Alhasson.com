@@ -1,8 +1,8 @@
-import { Book } from '@prisma/client'
+import { IBook } from '@/models/book'
 import Image from 'next/legacy/image'
 import Link from 'next/link'
 
-const BookCard = ({ book }: { book: Book }) => {
+const BookCard = ({ book }: { book: IBook }) => {
    return (
       <div className='my-3'>
          <Link href={`/${book.title}`}>

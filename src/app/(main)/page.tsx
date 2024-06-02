@@ -2,14 +2,12 @@ import Image from 'next/legacy/image'
 import Link from 'next/link'
 import type { Metadata } from 'next'
 
-import { prisma } from '@/lib/prisma'
 import Bookshelf from './components/bookshelf'
 import LandpageHeroImage from './landpageHeroImage'
 import YouTubeFrame from './youtube'
-
-async function getFirstLecture() {
-   return await prisma.lecture.findFirst()
-}
+import dbConnect from '@/utils/dbConnect'
+import Book from '@/models/book'
+import Lecture, { ILecture } from '@/models/lecture'
 
 export const metadata: Metadata = {
    metadataBase: new URL('https://alhasson.com'),
@@ -18,8 +16,14 @@ export const metadata: Metadata = {
 }
 
 async function Home() {
-   const books = await prisma.book.findMany()
-   const lecture = await getFirstLecture()
+   await dbConnect()
+   const booksData = await Book.find()
+   const firstLectureData = await Lecture.aggregate([
+      { $limit: 1 },
+      { $sort: { createdAt: -1 } },
+   ]).then((data: ILecture[]) => data[0])
+
+   console.log('firstLectureData', firstLectureData)
 
    return (
       <div>
@@ -29,7 +33,7 @@ async function Home() {
             <div className='max-w-screen-lg mx-auto'>
                <section className='py-10 mx-6 overflow-x-hidden'>
                   <h1 className='text-xl mb-5 font-thin text-center'>مؤلفات الشیخ علاء الحسّون</h1>
-                  <Bookshelf books={books} />
+                  <Bookshelf books={JSON.parse(JSON.stringify(booksData))} />
                </section>
 
                <hr className='mx-20' />
@@ -37,19 +41,22 @@ async function Home() {
                <section className='py-10 px-6 space-y-6'>
                   <h2 className='text-xl font-thin text-center'>محاضرات الشیخ علاء الحسّون</h2>
                   <div className='p-5'>
-                     {lecture ? (
+                     {firstLectureData ? (
                         <div className=''>
-                           <div key={lecture?.id} className='space-y-5'>
-                              <YouTubeFrame video={lecture} />
+                           <div key={firstLectureData?.id} className='space-y-5'>
+                              <YouTubeFrame video={JSON.parse(JSON.stringify(firstLectureData))} />
 
                               <h2 className='text-center'>
-                                 {lecture?.title}
+                                 {firstLectureData?.title}
                                  <br />
-                                 {new Date(lecture?.publishedAt).toLocaleDateString('ar-EG', {
-                                    year: 'numeric',
-                                    month: 'long',
-                                    day: 'numeric',
-                                 })}
+                                 {new Date(firstLectureData?.publishedAt).toLocaleDateString(
+                                    'ar-EG',
+                                    {
+                                       year: 'numeric',
+                                       month: 'long',
+                                       day: 'numeric',
+                                    },
+                                 )}
                               </h2>
                            </div>
                         </div>
