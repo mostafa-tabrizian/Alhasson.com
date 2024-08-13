@@ -19,7 +19,7 @@ const Footer = () => {
                <Link className='hover:text-[#4e3faa] text-slate-800' href='/lectures'>
                   المحاضرات
                </Link>
-               <Link className='hover:text-[#4e3faa] text-slate-800' href='/hadith-of-ahl-al-bayt'>
+               <Link className='hover:text-[#4e3faa] text-slate-800' href='/#encyclopedia'>
                   موسوعة حدیث أهل البیت
                </Link>
             </div>

@@ -14,7 +14,7 @@ const Header = () => {
       <header>
          <div className='fixed w-fit md:w-full px-1 md:p-6 rounded-lg bg-[#0d07357e] backdrop-blur-xl md:top-0 md:right-0 top-2 right-2 z-10'>
             <div className='items-center space-x-10 hidden justify-center md:flex'>
-               <Link className='text-[#e5c698]' href='/hadith-of-ahl-al-bayt'>
+               <Link className='text-[#e5c698]' href='/#encyclopedia'>
                   موسوعة حدیث أهل البیت
                </Link>
                <Link className='text-[#e5c698]' href='/lectures'>
@@ -97,7 +97,7 @@ const Header = () => {
                <Link aria-label='المحاضرات' href='/lectures'>
                   المحاضرات
                </Link>
-               <Link aria-label='موسوعة حدیث أهل البیت' href='/hadith-of-ahl-al-bayt'>
+               <Link aria-label='موسوعة حدیث أهل البیت' href='/#encyclopedia'>
                   موسوعة حدیث أهل البیت
                </Link>
             </div>

@@ -1,5 +1,3 @@
-import Image from 'next/image'
-import Link from 'next/link'
 import type { Metadata } from 'next'
 
 import Bookshelf from './components/bookshelf'
@@ -8,6 +6,7 @@ import YouTubeFrame from './youtube'
 import dbConnect from '@/utils/dbConnect'
 import Book from '@/models/book'
 import Lecture, { ILecture } from '@/models/lecture'
+import Encyclopedia from './components/encyclopedia'
 
 export const metadata: Metadata = {
    metadataBase: new URL('https://alhasson.com'),
@@ -66,38 +65,7 @@ async function Home() {
 
                <hr className='mx-20' />
 
-               <section className='pt-10 pb-20 px-6'>
-                  <div className='grid md:flex md:flex-row-reverse'>
-                     <div className='flex relative mx-6 mb-6 justify-center w-[19rem] h-[28rem] md:w-[60rem] md:h-[33.4rem]'>
-                        <Image
-                           fill
-                           className='rounded-lg object-contain'
-                           src='/image/marefe.jpg'
-                           alt='الدکتور الشیخ علاء الحسّون'
-                        />
-                     </div>
-                     <div className='pr-4 text-right border-r  border-[#e5c698]'>
-                        <h2 className='text-xl font-thin text-[#e5c698]'>
-                           التعريف بمشروع إحياء حديث أهل البيت
-                           <span className='text-[#e5c698] mr-2'>(علیهم السلام)</span>
-                        </h2>
-                        <p className='text-justify'>
-                           يستهدف هذا المشروع عرض معلومات حديث أهـل البيـت (علیهم السلام) وفـق
-                           منهجية خـلق الصـور المعرفية الشامـلة والمــتكاملة عن طـريق تـنظيـم
-                           المقـاطع الجزئيـة المترابـطة التي بيّـنها أهل البيـت (علیهم السلام) في
-                           مختلف المواضيع.
-                           <Link
-                              aria-label='مزید عن المشروع إحياء حديث أهل البيت'
-                              href='hadith-of-ahl-al-bayt'
-                           >
-                              <button className='flex justify-start w-full text-[#e5c698] text-shadow'>
-                                 ...للمزید
-                              </button>
-                           </Link>
-                        </p>
-                     </div>
-                  </div>
-               </section>
+               <Encyclopedia />
             </div>
          </div>
       </div>
