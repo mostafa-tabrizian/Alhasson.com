@@ -1,5 +1,5 @@
 // import { Metadata } from 'next'
-import Image from 'next/legacy/image'
+import Image from 'next/image'
 import type { Metadata } from 'next'
 import book from '@/models/book'
 import dbConnect from '@/utils/dbConnect'
@@ -129,22 +129,26 @@ const Book = async ({ params }: { params: { bookTitle: string } }) => {
 
          <div className='bg-gradient-to-b min-h-screen flex justify-cneter items-center py-10 px-6 from-[#070515] to-[#0d0735]'>
             {book ? (
-               <div className='max-w-screen-lg mx-auto relative md:flex mt-14 md:my-52'>
-                  <a href={`/image/book/${book?.cover}`} target='_blank' rel='noreferrer'>
-                     <div className='relative hoverGold w-[19rem] h-[28rem] md:w-[23.4rem] md:h-[35rem] mx-6 md:mx-0'>
-                        <Image
-                           layout='fill'
-                           objectFit='contain'
-                           className='rounded'
-                           src={`/image/book/${book?.cover}`}
-                           alt={book?.title}
-                           priority
-                        />
-                     </div>
+               <div className='max-w-screen-lg mx-auto relative lg:flex mt-14 lg:my-52'>
+                  <a
+                     href={`/image/book/${book?.cover}`}
+                     target='_blank'
+                     rel='noreferrer'
+                     className='w-80'
+                  >
+                     <Image
+                        className='aspect-[2/3] w-full object-cover rounded hoverGold'
+                        src={`/image/book/${book?.cover}`}
+                        alt={book?.title}
+                        height={600}
+                        width={600}
+                        priority
+                        placeholder='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPkCdf9DwACmAGRcCrybgAAAABJRU5ErkJggg=='
+                     />
                   </a>
-                  <div className='max-w-screen-sm md:ml-10'>
+                  <div className='max-w-screen-sm lg:ml-10'>
                      <h1 className='title my-6'> {book?.title} </h1>
-                     <div className='md:flex flex-row-reverse flex-wrap grid space-x-5 justify-evenly'>
+                     <div className='lg:flex flex-row-reverse flex-wrap grid space-x-5 justify-evenly'>
                         <div className='flex space-x-3 mb-2 items-center justify-end'>
                            <h2>
                               <span className='text-sm font-thin'>الناشر</span> : {book?.publisher}
@@ -173,9 +177,9 @@ const Book = async ({ params }: { params: { bookTitle: string } }) => {
                               className='relative w-11 h-11'
                            >
                               <Image
-                                 layout='fill'
-                                 objectFit='contain'
-                                 className='hidden md:block'
+                                 width={50}
+                                 height={50}
+                                 className='object-contain'
                                  alt='ملف ورد'
                                  src='/image/icon-word.png'
                               />
@@ -189,9 +193,8 @@ const Book = async ({ params }: { params: { bookTitle: string } }) => {
                               className='relative w-11 h-11'
                            >
                               <Image
-                                 layout='fill'
-                                 objectFit='contain'
-                                 className='hidden md:block'
+                                 fill
+                                 className='object-contain'
                                  alt='ملف بی دی اف'
                                  src='/image/icon-pdf.png'
                               />
@@ -205,9 +208,8 @@ const Book = async ({ params }: { params: { bookTitle: string } }) => {
                               className='relative w-11 h-11'
                            >
                               <Image
-                                 layout='fill'
-                                 objectFit='contain'
-                                 className='hidden md:block'
+                                 fill
+                                 className='object-contain'
                                  alt='ملف اش تی ام ال'
                                  src='/image/icon-html.png'
                               />

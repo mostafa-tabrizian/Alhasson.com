@@ -5,20 +5,21 @@ const Footer = () => {
    return (
       <footer className='py-6 bg-[#e5c698] text-[#0d0735] font-semibold'>
          <div className='flex mb-10 max-w-screen-md mx-auto justify-around items-center text-center'>
+            
             <div className='flex flex-col space-y-3'>
-               <Link className='hover:text-[#4e3faa]' href='/'>
+               <Link className='hover:text-[#4e3faa] text-slate-800' href='/'>
                   الصفحة الرئیسیة
                </Link>
-               <Link className='hover:text-[#4e3faa]' href='/autobiography'>
+               <Link className='hover:text-[#4e3faa] text-slate-800' href='/autobiography'>
                   السیرة الذاتیة
                </Link>
-               <Link className='hover:text-[#4e3faa]' href='/books'>
+               <Link className='hover:text-[#4e3faa] text-slate-800' href='/books'>
                   المؤلفات
                </Link>
-               <Link className='hover:text-[#4e3faa]' href='/lectures'>
+               <Link className='hover:text-[#4e3faa] text-slate-800' href='/lectures'>
                   المحاضرات
                </Link>
-               <Link className='hover:text-[#4e3faa]' href='/hadith-of-ahl-al-bayt'>
+               <Link className='hover:text-[#4e3faa] text-slate-800' href='/hadith-of-ahl-al-bayt'>
                   موسوعة حدیث أهل البیت
                </Link>
             </div>
@@ -91,20 +92,6 @@ const Footer = () => {
                </a>
             </div>
          </div>
-
-         <p className='text-center flex flex-col justify-center opacity-50 text-sm text-black mt-5'>
-            <span>حقوق النشر © {new Date().getFullYear()} . جميع الحقوق محفوظة</span>
-            <span>لمزيد من المعلومات يرجى </span>
-            <a
-               target='_blank'
-               href='mailto: tabrizian.codes@gmail.com'
-               className='underline'
-               style={{ color: 'black !important' }}
-               rel='noreferrer'
-            >
-               <span>الاتصال بنا</span>
-            </a>
-         </p>
       </footer>
    )
 }

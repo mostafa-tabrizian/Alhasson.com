@@ -1,6 +1,6 @@
 'use client'
 
-import Image from 'next/legacy/image'
+import Image from 'next/image'
 import { useEffect, useState } from 'react'
 
 const LandpageHeroImage = () => {
@@ -19,14 +19,14 @@ const LandpageHeroImage = () => {
             screenWidth <= 768 ? (
                <Image
                   alt='الدکتور شیخ علاء الحسون'
-                  layout='fill'
+                  fill
                   src='/image/landpageSM.jpg'
                   sizes='(max-width: 768px) 100vw,
                            (max-width: 1200px) 50vw,
                            33vw'
-                  objectFit='contain'
                   priority
                   unoptimized
+                  className='object-contain'
                />
             ) : (
                <Image

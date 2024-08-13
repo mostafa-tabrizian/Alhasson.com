@@ -65,115 +65,114 @@ const Tabs = () => {
 
          case 'c':
             return (
-               <p className='text-justify border-r border-[#e5c698] pr-5'>
-                  واصل الشيخ علاء الحسّون دراسته الجامعية في مدينة قم المقدّسة تزامناً مع دراسته
-                  الحوزوية وفق المراحل التالية:
-                  <a href='https://iki.ac.ir/' target='_blank' rel='noreferrer'>
-                     {' '}
-                     جامعة الإمام الخميني{' '}
-                  </a>{' '}
-                  البكالوريوس : حصل عام ١٤٣١هـ /٢٠١٠ م على شهادة البكالوريوس في العقائد والكلام من
-                  <a href='https://www.qhu.ac.ir/' target='_blank' rel='noreferrer'>
-                     {' '}
-                     كلّية علوم الحديث{' '}
-                  </a>
-                  الماجستير: حصل عام ١٤٣٥هـ /٢٠١٤ م على شهادة الماجستير في علوم الحديث فرع العقائد
-                  والكلام من الدكتوراه: حصل عام ١٤٤٢هـ /٢٠٢٠ م على شهادة الدكتوراه في علوم الحديث
-                  فرع كلام الإماميّة من
-                  <a href='https://www.qhu.ac.ir/' target='_blank' rel='noreferrer'>
-                     {' '}
-                     جامعة القرآن والحديث{' '}
-                  </a>
-               </p>
+               <div className='border-r border-[#e5c698] pr-5'>
+                  <p className='text-justify'>
+                     البكالوريوس:{' '}
+                     <a target='_blank' rel='noreferrer' href='https://iki.ac.ir/'>
+                        مؤسّسة الإمام الخميني للتعليم والأبحاث
+                     </a>
+                     ، فرع العقائد والكلام، ايران، قم، 1431 هـ/2010 م.
+                  </p>
+
+                  <p>
+                     الماجستير:{' '}
+                     <a target='_blank' rel='noreferrer' href='https://www.qhu.ac.ir/'>
+                        جامعة القرآن والحديث
+                     </a>
+                     ، فرع العقائد و الكلام، ايران، قم، 1435 هـ/2014 م.
+                  </p>
+
+                  <p>
+                     الدكتوراه:{' '}
+                     <a target='_blank' rel='noreferrer' href='https://www.qhu.ac.ir/'>
+                        جامعة القرآن والحديث
+                     </a>
+                     ، فرع كلام الإماميّة، ايران، قم، 1422 هـ/2020 م.
+                  </p>
+               </div>
             )
 
          case 'd':
             return (
                <p className='text-justify border-r border-[#e5c698] pr-5'>
                   ١ ـ العمل في مختلف نشاطات{' '}
-                  <a href='http://www.aqaed.com/' target='_blank' rel='noreferrer'>
+                  <a href='https://www.aqaed.com/' target='_blank' rel='noreferrer'>
                      {' '}
                      مركز الأبحاث العقائديّة{' '}
                   </a>{' '}
                   ، منها المشاركة في تأليف موسوعة الرأي الآخر، و{' '}
-                  <a href='http://www.aqaed.com/book/607/' target='_blank' rel='noreferrer'>
+                  <a href='https://www.aqaed.com/book/607/' target='_blank' rel='noreferrer'>
                      {' '}
                      موسوعة حديث الثقلين{' '}
                   </a>
                   ، و
-                  <a href='http://www.aqaed.com/book/462/' target='_blank' rel='noreferrer'>
+                  <a href='https://www.aqaed.com/book/462/' target='_blank' rel='noreferrer'>
                      {' '}
                      موسوعة الإمام المهدي{' '}
                   </a>{' '}
                   ، و
-                  <a href='http://www.aqaed.com/book/468/' target='_blank' rel='noreferrer'>
+                  <a href='https://www.aqaed.com/book/468/' target='_blank' rel='noreferrer'>
                      {' '}
                      موسوعة من حياة المستبصرين{' '}
                   </a>{' '}
                   (١٤١٩ ـ ١٤٣٠ﻫ).
-                  <br />٢ ـ عضو لجنة الرقابة على الكتب الدينيّة ومنع الكتب المحذورة عقائدياً في{' '}
-                  <a href='https://www.tibf.ir/fa' target='_blank' rel='noreferrer'>
+                  <br />۲ ـ تدوين المتون الدراسيّة في{' '}
+                  <a href='https://www.qhu.ac.ir/' target='_blank' rel='noreferrer'>
                      {' '}
-                     معرض كتاب طهران الدولي{' '}
-                  </a>
-                  (١٤٢٠ـ ١٤٢٧ﻫ)، ومسؤول هذه اللجنة عام ١٤٢٨ﻫ.
-                  <br /> ٣ ـ تدوين المتون الدراسيّة في{' '}
-                  <a href='http://www.qhu.ac.ir/' target='_blank' rel='noreferrer'>
-                     {' '}
-                     كلّية علوم الحديث{' '}
+                     جامعة القرآن و الحديث{' '}
                   </a>{' '}
                   في مدينة قم المقدّسة. (١٤٢٨ ـ ١٤٢٩ﻫ)
-                  <br /> ٤ ـ تأليف المضامين العلميّة ل
+                  <br /> ۳ ـ تأليف المضامين العلميّة ل
                   <a
-                     href='http://www.mawsoah.org/index.php/component/jshopping/product/view/1/26?Itemid=0'
+                     href='https://www.mawsoah.org/index.php/component/jshopping/product/view/1/26?Itemid=0'
                      target='_blank'
                      rel='noreferrer'
                   >
                      برنامج الأخلاق{' '}
                   </a>
-                  التابع لل
-                  <a href='http://www.mawsoah.org/' target='_blank' rel='noreferrer'>
-                     موسوعة الاسلاميّة الكمبيوتريّة{' '}
-                  </a>
-                  المنشور على شكل قرص مضغوط (١٤٢١ و١٤٢٢ﻫ).
-                  <br />٥ ـ المشاركة في تقييم المقالات العلميّة في مؤتمر العلّامة شرف الدين(١٤٢٦ﻫ).
-                  <br />٦ ـ التعاون العلمي مع{' '}
-                  <a href='http://tousi.miu.ac.ir/' target='_blank' rel='noreferrer'>
+                  التابع لل موسوعة الاسلاميّة الكمبيوتريّة المنشور على شكل قرص مضغوط (١٤٢١ و١٤٢٢ﻫ).
+                  <br />٤ ـ المشاركة في تقييم المقالات العلميّة في مؤتمر العلّامة شرف الدين(١٤٢٦ﻫ).
+                  <br />٥ ـ التعاون العلمي مع{' '}
+                  <a href='https://tousi.miu.ac.ir/' target='_blank' rel='noreferrer'>
                      {' '}
                      مهرجان الشيخ الطوسي{' '}
                   </a>{' '}
                   في مدينة قم المقدّسة الخاص بطلبة الحوزة غير الإيرانيين (١٤٢٦ﻫ).
-                  <br />٧ ـ التعاون مع{' '}
-                  <a href='http://www.ahl-ul-bayt.org/ar/' target='_blank' rel='noreferrer'>
+                  <br />٦ ـ التعاون مع{' '}
+                  <a href='https://www.ahl-ul-bayt.org/ar/' target='_blank' rel='noreferrer'>
                      {' '}
                      المجمع العالمي لأهل البيت{' '}
                   </a>
                   لإدارة الحوارات الدينيّة وردّ الشبهات العقائديّة عبر الإنترنت (برنامج البالتوك)
                   (١٤٢٧ﻫ).
-                  <br />٨ ـ المشاركة في برنامج بساتين العلماء للتعريف بكتب علماء الشيعة التراثيّة في{' '}
-                  <a href='http://arabicradio.net/' target='_blank' rel='noreferrer'>
+                  <br />٧ ـ المشاركة في برنامج بساتين العلماء للتعريف بكتب علماء الشيعة التراثيّة في{' '}
+                  <a href='https://arabicradio.net/' target='_blank' rel='noreferrer'>
                      {' '}
                      إذاعة طهران العربيّة{' '}
                   </a>{' '}
                   (١٤٢٩ﻫ).
-                  <br />٩ ـ كتابة البرامج الدينيّة ل
-                  <a href='https://www.alkawthartv.com/' target='_blank' rel='noreferrer'>
+                  <br />۸ ـ كتابة البرامج الدينيّة ل
+                  <a href='https://www.alkawthartv.ir/' target='_blank' rel='noreferrer'>
                      قناة الكوثر الفضائيّة{' '}
                   </a>{' '}
                   (١٤٢٩ﻫ).
                   <br />
-                  ١٠ ـ التبليغ في محافظة خوزستان، مدينتي شوش وخرمشهر (المحمّرة) (عشرة محرّم سنوات
+                  ۹ ـ التبليغ في محافظة خوزستان، مدينتي شوش وخرمشهر (المحمّرة) (عشرة محرّم سنوات
                   ١٤١٨ ـ ١٤٢٤ﻫ).
                   <br />
-                  ١١ ـ الإشراف على إعداد الفهرس الموضوعي لبحوث الإمامة،{' '}
-                  <a href='http://www.emamat.ir/' target='_blank' rel='noreferrer'>
+                  ۱۰ ـ الإشراف على إعداد الفهرس الموضوعي لبحوث الإمامة،{' '}
+                  <a href='https://www.emamat.ir/' target='_blank' rel='noreferrer'>
                      {' '}
                      مركز الدراسات التخصّصيّة في الإمامة{' '}
                   </a>{' '}
                   (١٤٢٩ﻫ).
                   <br />
-                  ١٢ ـ المشاركة في المؤتمرات والمهرجانات الدوليّة، منها:{' '}
-                  <a href='https://rabee.alkafeel.net/index.php' target='_blank' rel='noreferrer'>
+                  ۱۱ ـ المشاركة في المؤتمرات والمهرجانات الدوليّة، منها:{' '}
+                  <a
+                     href='https://www.ayandehroshan.ir/mahdaviatconference'
+                     target='_blank'
+                     rel='noreferrer'
+                  >
                      {' '}
                      مهرجان العقيدة المهدويّة{' '}
                   </a>{' '}
@@ -185,41 +184,39 @@ const Tabs = () => {
             return (
                <p className='text-justify border-r border-[#e5c698] pr-5'>
                   ١ ـ مسؤوليّة بعض أقسام{' '}
-                  <a href='http://www.aqaed.com/' target='_blank' rel='noreferrer'>
+                  <a href='https://www.aqaed.com/' target='_blank' rel='noreferrer'>
                      {' '}
                      مركز الأبحاث العقائديّة{' '}
                   </a>{' '}
                   ، أبرزها قسم المستبصرين، وقسم تأليف موسوعة من حياة المستبصرين (١٤٢٠ ـ ١٤٣٠هـ).
-                  <br />٢ ـ مسؤوليّة لجنة الرقابة على الكتب الدينيّة ومنع الكتب المحذورة عقائدياً في{' '}
-                  <a href='https://www.tibf.ir/fa' target='_blank' rel='noreferrer'>
-                     {' '}
-                     معرض كتاب طهران الدولي{' '}
-                  </a>{' '}
-                  (١٤٢٨هـ).
-                  <br />٣ ـ مسؤوليّة لجنة تأسيس موقع المبلّغ على الانترنت، التابع ل
-                  <a href='http://icro.ir/' target='_blank' rel='noreferrer'>
+                  <br />۲ ـ مسؤوليّة لجنة تأسيس موقع المبلّغ على الانترنت، التابع ل
+                  <a href='https://icro.ir/' target='_blank' rel='noreferrer'>
                      منظمة الثقافة والعلاقات الدوليّة{' '}
                   </a>{' '}
                   (١٤٢٧ ـ ١٤٢٨هـ).
-                  <br />٤ ـ مسؤوليّة قسم ردّ الشبهات الوهابيّة في ّ
-                  <a href='http://hzrc.ac.ir/' target='_blank' rel='noreferrer'>
+                  <br />۳ ـ مسؤوليّة قسم ردّ الشبهات الوهابيّة في ّ
+                  <a href='https://hzrc.ac.ir/' target='_blank' rel='noreferrer'>
                      {' '}
                      مركز بحوث الحج{' '}
                   </a>{' '}
                   (١٤٣٠ ـ ١٤٣١هـ).
-                  <br />٥ ـ مسؤوليّة قسم عقائد الأئمة الأطهار
-                  <a href='http://www.markazfeqhi.com/main/' target='_blank' rel='noreferrer'>
+                  <br />٤ ـ مسؤوليّة قسم عقائد الأئمة الأطهار
+                  <a href='https://www.markazfeqhi.com/main/' target='_blank' rel='noreferrer'>
                      {' '}
                      مركز فقه الأئمة الأطهار{' '}
                   </a>{' '}
                   في{' '}
-                  <a href='http://www.markazfeqhi.com/main/' target='_blank' rel='noreferrer'>
+                  <a href='https://www.markazfeqhi.com/main/' target='_blank' rel='noreferrer'>
                      {' '}
                      مركز فقه الأئمة الأطهار{' '}
                   </a>{' '}
                   (١٤٣٢هـ ـ ١٤٣٥هـ)
-                  <br />٦ ـ مدير{' '}
-                  <a href='http://alhasson.com/about/about_hadith' target='_blank' rel='noreferrer'>
+                  <br />٥ ـ مدير{' '}
+                  <a
+                     href='https://alhasson.com/about/about_hadith'
+                     target='_blank'
+                     rel='noreferrer'
+                  >
                      {' '}
                      مركز حديث أهل البيت{' '}
                   </a>{' '}
@@ -230,40 +227,70 @@ const Tabs = () => {
          case 'f':
             return (
                <p className='text-justify border-r border-[#e5c698] pr-5'>
-                  ١ ـ تنمية الوعي، منهج في ارتقاء المستوى الفكري وتشييد العقليّة الواعيّة، الناشر:
-                  دار الغدير، قم، الطبعة الأولى، ١٤٢٤هـ، والطبعة الثانيّة، ١٤٢٦هـ.
-                  <br />٢ ـ التحوّل المذهبي، بحث تحليلي حول رحلة المستبصرين إلى مذهب أهل البيت ،
-                  الناشر: قلم الشرق، قم، الطبعة الأولى، ١٤٢٦هـ.
-                  <br />٣ ـ العدل عند مذهب أهل البيت، الناشر:{' '}
-                  <a href='http://www.ahl-ul-bayt.org/fa/' target='_blank' rel='noreferrer'>
+                  ١ ـ{' '}
+                  <a href='http://localhost:3000/%20%D8%AA%D9%86%D9%85%D9%8A%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D9%8A'>
+                     تنمية الوعي
+                  </a>
+                  ، منهج في ارتقاء المستوى الفكري وتشييد العقليّة الواعيّة، الناشر: دار الغدير، قم،
+                  الطبعة الأولى، ١٤٢٤هـ، والطبعة الثانيّة، ١٤٢٦هـ.
+                  <br />٢ ـ{' '}
+                  <a href='http://localhost:3000/%D8%A7%D9%84%D8%AA%D8%AD%D9%88%D9%84%20%D8%A7%D9%84%D9%85%D8%B0%D9%87%D8%A8%DB%8C'>
+                     التحوّل المذهبي
+                  </a>
+                  ، بحث تحليلي حول رحلة المستبصرين إلى مذهب أهل البيت ، الناشر: قلم الشرق، قم،
+                  الطبعة الأولى، ١٤٢٦هـ.
+                  <br />٣ ـ{' '}
+                  <a href='http://localhost:3000/%D8%A7%D9%84%D8%B9%D8%AF%D9%84%20%D8%B9%D9%86%D8%AF%20%D9%85%D8%B0%D9%87%D8%A8%20%D8%A3%D9%87%D9%84%20%D8%A7%D9%84%D8%A8%DB%8C%D8%AA'>
+                     العدل عند مذهب أهل البيت
+                  </a>
+                  ، الناشر:{' '}
+                  <a href='https://www.ahl-ul-bayt.org/fa/' target='_blank' rel='noreferrer'>
                      {' '}
                      المجمع العالمي لأهل البيت{' '}
                   </a>
                   ، الطبعة الأولى، ١٤٣٢هـ، والطبعة الثانية، ١٤٣٢هـ.
-                  <br />٤ ـ التوحيد عند مذهب أهل البيت، الناشر:{' '}
-                  <a href='http://hzrc.ac.ir/' target='_blank' rel='noreferrer'>
+                  <br />٤ ـ{' '}
+                  <a href='http://localhost:3000/%D8%AA%D9%88%D8%AD%D9%8A%D8%AF%20%D8%B9%D9%86%D8%AF%20%D9%85%D8%B0%D9%87%D8%A8%20%D8%A3%D9%87%D9%84%20%D8%A7%D9%84%D8%A8%DB%8C%D8%AA'>
+                     التوحيد عند مذهب أهل البيت
+                  </a>
+                  ، الناشر:{' '}
+                  <a href='https://hzrc.ac.ir/' target='_blank' rel='noreferrer'>
                      {' '}
                      مركز بحوث الحجّ{' '}
                   </a>
                   ، الطبعة الأولى، ١٤٣۳هـ.
-                  <br />٥ ـ ، معرفة الله (مجلدان)، الناشر: مركز فقه الأئمة الأطهار
-                  <a href='http://www.markazfeqhi.com/main/' target='_blank' rel='noreferrer'>
+                  <br />٥ ـ ، <a href='https://www.hadith.center/books/marefat-allah'>
+                     معرفة الله
+                  </a>{' '}
+                  (مجلدان)، الناشر: مركز فقه الأئمة الأطهار
+                  <a href='https://www.markazfeqhi.com/main/' target='_blank' rel='noreferrer'>
                      {' '}
                      موسوعة عقائد الأئمة الأطهار{' '}
                   </a>{' '}
                   ، الطبعة الأولى، ١٤٣۳هـ.
-                  <br />٦ ـ معارف الصحيفة السجّاديّة، الناشر:{' '}
-                  <a href='http://www.chaponashr.ir/alrafed' target='_blank' rel='noreferrer'>
+                  <br />٦ ـ{' '}
+                  <a href='http://localhost:3000/%D9%85%D8%B9%D8%A7%D8%B1%D9%81%20%D8%A7%D9%84%D8%B5%D8%AD%DB%8C%D9%81%D8%A9%20%D8%A7%D9%84%D8%B3%D8%AC%D8%A7%D8%AF%DB%8C%D8%A9'>
+                     معارف الصحيفة السجّاديّة،
+                  </a>{' '}
+                  الناشر:{' '}
+                  <a href='https://www.chaponashr.ir/alrafed' target='_blank' rel='noreferrer'>
                      {' '}
                      الرافد{' '}
                   </a>{' '}
                   ، إصدار: مركز الهادي ، الطبعة الأولى، ١٤٣٦هـ.
-                  <br />٧ ـ الجداول الفقهيّة للمسائل المنتخبة، وفقاً لفتاوى{' '}
+                  <br />٧ ـ{' '}
+                  <a href='http://localhost:3000/%D8%A7%D9%84%D8%AC%D8%AF%D8%A7%D9%88%D9%84%20%D8%A7%D9%84%D9%81%D9%82%D9%87%DB%8C%D8%A9%20%D9%84%D9%84%D9%85%D8%B3%D8%A7%D8%A6%D9%84%20%D8%A7%D9%84%D9%85%D9%86%D8%AA%D8%AE%D8%A8%D8%A9'>
+                     الجداول الفقهيّة للمسائل المنتخبة
+                  </a>
+                  ، وفقاً لفتاوى{' '}
                   <a href='https://www.sistani.org/' target='_blank' rel='noreferrer'>
                      {' '}
                      سماحة آية الله العظمى السيّد علي السيستاني (دام ظلّه){' '}
                   </a>
-                  ، بمشاركة الشيخ مصطفى الجواهري، الناشر: دار التفسير، الطبعة الأولى، ١٤٣٨ هـ.
+                  <br />۸ - <a href='https://www.hadith.center/books/marefat-allah'>صحة الحديث</a> ،
+                  الناشر:{' '}
+                  <a href='https://www.hadith.center'>مركز حديث أهل البيت (عليهم السلام) </a> ،
+                  الطبعة الأولى، ١٤٤٣ هـ
                </p>
             )
 
@@ -273,28 +300,28 @@ const Tabs = () => {
                   <h2> الموسوعات التي شارك الشيخ علاء الحسّون في تألیفها:</h2>
                   <p className='text-justify border-r border-[#e5c698] pr-5'>
                      ١ ـ{' '}
-                     <a href='http://www.aqaed.com/book/468/' target='_blank' rel='noreferrer'>
+                     <a href='https://www.aqaed.com/book/468/' target='_blank' rel='noreferrer'>
                         {' '}
                         موسوعة من حياة المستبصرين ج ١{' '}
                      </a>
                      تأليف: الشيخ علاء الحسّون والشيخ محمّد اللبان، الشيخ طاهر السلامي. ٦١٩ صفحة،
                      وهو يختص بالمستبصرين المعاصرين، ويحتوي على ترجمة خمسين مستبصراً.
                      <br />٢ ـ{' '}
-                     <a href='http://www.aqaed.com/book/469/' target='_blank' rel='noreferrer'>
+                     <a href='https://www.aqaed.com/book/469/' target='_blank' rel='noreferrer'>
                         {' '}
                         موسوعة من حياة المستبصرين ج ٢{' '}
                      </a>
                      تأليف: الشيخ علاء الحسّون والشيخ صادق الحسّون. ٥٨٣ صفحة، وهو يختص بالمستبصرين
                      الذين لهم مؤلّفات، ويحتوي على ترجمة ثلاثة وعشرين مستبصراً.
                      <br />٣ ـ{' '}
-                     <a href='http://www.aqaed.com/book/577/' target='_blank' rel='noreferrer'>
+                     <a href='https://www.aqaed.com/book/577/' target='_blank' rel='noreferrer'>
                         {' '}
                         موسوعة من حياة المستبصرين ج ٣{' '}
                      </a>
                      تأليف: الشيخ علاء الحسّون والشيخ صادق الحسّون. ٦٠٥ صفحة، وهو أيضاً يختص
                      بالمستبصرين الذين لهم مؤلّفات، ويحتوي على ترجمة ستة وعشرين مستبصراً.
                      <br />٤ ـ{' '}
-                     <a href='http://www.aqaed.com/book/471/' target='_blank' rel='noreferrer'>
+                     <a href='https://www.aqaed.com/book/471/' target='_blank' rel='noreferrer'>
                         {' '}
                         موسوعة من حياة المستبصرين ج ٤{' '}
                      </a>
@@ -302,14 +329,14 @@ const Tabs = () => {
                      مستبصراً من إثيوبيا، الأرجنتين، الأردن، إسبانيا، استراليا، أفغانستان، ألمانيا،
                      الإمارات العربيّة، وأمريكا.
                      <br />٥ ـ{' '}
-                     <a href='http://www.aqaed.com/book/532/' target='_blank' rel='noreferrer'>
+                     <a href='https://www.aqaed.com/book/532/' target='_blank' rel='noreferrer'>
                         {' '}
                         موسوعة من حياة المستبصرين ج ٥{' '}
                      </a>
                      تأليف: الشيخ علاء الحسّون، الشيخ صادق الحسّون. ٦٠٠ صفحة، وهو يحتوي على ترجمة
                      مائة وواحد وثلاثين مستبصراً من أندونيسيا، أوزبكستان، أوغندا، إيران، وإيطاليا.
                      <br />٦ ـ{' '}
-                     <a href='http://www.aqaed.com/book/536/' target='_blank' rel='noreferrer'>
+                     <a href='https://www.aqaed.com/book/536/' target='_blank' rel='noreferrer'>
                         {' '}
                         موسوعة من حياة المستبصرين ج ٦{' '}
                      </a>
@@ -319,7 +346,7 @@ const Tabs = () => {
                      بورندي، البوسنة والهرسك، بولندا، بيرو، تايلند، تركمنستان، تركيا، تنزانيا، توغو،
                      وتونس.
                      <br />٧ ـ{' '}
-                     <a href='http://www.aqaed.com/book/555/' target='_blank' rel='noreferrer'>
+                     <a href='https://www.aqaed.com/book/555/' target='_blank' rel='noreferrer'>
                         {' '}
                         موسوعة من حياة المستبصرين ج ٧{' '}
                      </a>
@@ -328,7 +355,7 @@ const Tabs = () => {
                      تونس، الجزائر، جزر القمر، افريقيا، روسيا، زائير، ساحل العاج، السعوديّة،
                      والسنغال.
                      <br />٨ ـ{' '}
-                     <a href='http://www.aqaed.com/book/619/' target='_blank' rel='noreferrer'>
+                     <a href='https://www.aqaed.com/book/619/' target='_blank' rel='noreferrer'>
                         {' '}
                         موسوعة من حياة المستبصرين ج ٨{' '}
                      </a>
@@ -336,7 +363,7 @@ const Tabs = () => {
                      ٥٥٠ صفحة، وهو يحتوي على ترجمة ثمانية وسبعين مستبصراً من السودان، سوريا، السويد،
                      سويسرا، سيراليون، سيرلانكا، والصين.
                      <br />٩ ـ{' '}
-                     <a href='http://www.aqaed.com/book/624/' target='_blank' rel='noreferrer'>
+                     <a href='https://www.aqaed.com/book/624/' target='_blank' rel='noreferrer'>
                         {' '}
                         موسوعة من حياة المستبصرين ج ٩{' '}
                      </a>
@@ -344,7 +371,7 @@ const Tabs = () => {
                      ٦٣٩ صفحة، وهو يحتوي على ترجمة مائة وأربعة عشر مستبصراً من العراق.
                      <br />
                      ١٠ ـ{' '}
-                     <a href='http://www.aqaed.com/book/625/' target='_blank' rel='noreferrer'>
+                     <a href='https://www.aqaed.com/book/625/' target='_blank' rel='noreferrer'>
                         {' '}
                         موسوعة من حياة المستبصرين ج ١٠{' '}
                      </a>
@@ -353,56 +380,20 @@ const Tabs = () => {
                      عمان، غانا، غويانا، غينيا وكوناكري. واستمر تأليف هذه الموسوعة بعد ذلك في مركز
                      الأبحاث العقائديّة، ثمّ توقّفت عند المجلد الرابع عشر.
                      <br />
-                     ١١ ـ{' '}
-                     <a href='http://www.aqaed.com/book/607/' target='_blank' rel='noreferrer'>
-                        {' '}
-                        موسوعة حديث الثقلين{' '}
-                     </a>{' '}
-                     قسم دلالات حديث الثقلين، تأليف: الشيخ علاء الحسّون في مركز الأبحاث العقائدية.
-                     طُبع من هذه الموسوعة قسمان: القسم الأوّل: موسوعة حديث الثقلين في مصنفات
-                     الإماميّة من القرن الأول إلى القرن العاشر الهجري (مجلدان){' '}
-                     <a href='http://www.aqaed.com/book/607/' target='_blank' rel='noreferrer'>
-                        {' '}
-                        (ج ١){' '}
-                     </a>{' '}
-                     و{' '}
-                     <a href='http://www.aqaed.com/book/608/' target='_blank' rel='noreferrer'>
-                        {' '}
-                        (ج ٢){' '}
-                     </a>
-                     : تأليف: الشيخ محمّد رضا السلامي. القسم الثاني:{' '}
-                     <a href='http://www.aqaed.com/book/609/' target='_blank' rel='noreferrer'>
-                        {' '}
-                        موسوعة حديث الثقلين في مصنفات الزيديّة{' '}
-                     </a>{' '}
-                     و{' '}
-                     <a href='http://www.aqaed.com/book/610/' target='_blank' rel='noreferrer'>
-                        {' '}
-                        الأسماعيليّة{' '}
-                     </a>{' '}
-                     من القرن الأول إلى القرن العاشر الهجري (مجلدان): تأليف: الشيخ رافد التميمي. ثمّ
-                     توقّف العمل، ولم يؤلّف قسم حديث الثقلين في مصنفات أهل السنّة، ولم يطبع قسم
-                     دلالات حديث الثقلين.
-                     <br />
-                     ١٢ ـ{' '}
-                     <a href='http://www.aqaed.com/book/462/' target='_blank' rel='noreferrer'>
+                     ۱۱ ـ{' '}
+                     <a href='https://www.aqaed.com/book/462/' target='_blank' rel='noreferrer'>
                         {' '}
                         موسوعة الإمام المهدي{' '}
                      </a>
                      تأليف: السيّد هاشم الميلاني والشيخ علاء الحسّون في مركز الأبحاث العقائديّة.
                      <br />
-                     ١٣ ـ موسوعة الرأى الآخر (٨ مجلدات)، وهي موسوعة تتضمّن جمع وتنظيم أهم الشبهات
-                     المطروحة ضدّ مذهب أهل البيت ^، وقد تمّ تأليف هذه الموسوعة في مركز الأبحاث
-                     العقائديّة، لتكون المنطلق لعمل المركز في الإجابة على الشبهات العقائديّة، ولم
-                     يطبع من هذه الموسوعة سوى عشر دورات قام المركز بتوزيعها بين الجهات المعنيّة
-                     والمهتمة بردّ الشبهات فحسب. وكان في طليعة أعضاء اللجنة العلميّة التي قامت
-                     بتأليف هذه الموسوعة: السيّد هاشم الميلاني، الشيخ محمّد رضا السلامي، الشيخ علاء
-                     الحسّون.
-                     <br />
-                     <br />
-                     <br />
-                     <br />
-                     <br />
+                     ۱۲ ـ موسوعة الرأى الآخر (٨ مجلدات)، وهي موسوعة تتضمّن جمع وتنظيم أهم الشبهات
+                     المطروحة ضدّ مذهب أهل البيت (علیهم السلام)، وقد تمّ تأليف هذه الموسوعة في مركز
+                     الأبحاث العقائديّة، لتكون المنطلق لعمل المركز في الإجابة على الشبهات
+                     العقائديّة، ولم يطبع من هذه الموسوعة سوى عشر دورات قام المركز بتوزيعها بين
+                     الجهات المعنيّة والمهتمة بردّ الشبهات فحسب. وكان في طليعة أعضاء اللجنة العلميّة
+                     التي قامت بتأليف هذه الموسوعة: السيّد هاشم الميلاني، الشيخ محمّد رضا السلامي،
+                     الشيخ علاء الحسّون.
                   </p>
                </div>
             )

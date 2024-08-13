@@ -1,4 +1,4 @@
-import Image from 'next/legacy/image'
+import Image from 'next/image'
 import Link from 'next/link'
 import type { Metadata } from 'next'
 
@@ -23,8 +23,6 @@ async function Home() {
       { $sort: { createdAt: -1 } },
    ]).then((data: ILecture[]) => data[0])
 
-   console.log('firstLectureData', firstLectureData)
-
    return (
       <div>
          <LandpageHeroImage />
@@ -43,7 +41,7 @@ async function Home() {
                   <div className='p-5'>
                      {firstLectureData ? (
                         <div className=''>
-                           <div key={firstLectureData?.id} className='space-y-5'>
+                           <div key={firstLectureData?._id} className='space-y-5'>
                               <YouTubeFrame video={JSON.parse(JSON.stringify(firstLectureData))} />
 
                               <h2 className='text-center'>
@@ -72,9 +70,8 @@ async function Home() {
                   <div className='grid md:flex md:flex-row-reverse'>
                      <div className='flex relative mx-6 mb-6 justify-center w-[19rem] h-[28rem] md:w-[60rem] md:h-[33.4rem]'>
                         <Image
-                           layout='fill'
-                           objectFit='contain'
-                           className='rounded-lg'
+                           fill
+                           className='rounded-lg object-contain'
                            src='/image/marefe.jpg'
                            alt='الدکتور الشیخ علاء الحسّون'
                         />
