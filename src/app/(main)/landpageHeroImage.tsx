@@ -20,7 +20,7 @@ const LandpageHeroImage = () => {
                <Image
                   alt='الدکتور شیخ علاء الحسون'
                   fill
-                  src='/image/landpageSM.jpg'
+                  src='https://tabrizian.storage.iran.liara.space/alhasson/image/landpageSM.jpg'
                   sizes='(max-width: 768px) 100vw,
                            (max-width: 1200px) 50vw,
                            33vw'
@@ -33,7 +33,7 @@ const LandpageHeroImage = () => {
                   alt='الدکتور شیخ علاء الحسون'
                   height={1080}
                   width={1920}
-                  src='/image/landpage.jpg'
+                  src='https://tabrizian.storage.iran.liara.space/alhasson/image/landpage.jpg'
                   sizes='(max-width: 768px) 100vw,
                            (max-width: 1200px) 50vw,
                            33vw'

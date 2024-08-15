@@ -31,7 +31,7 @@ const Lectures = async () => {
                return (
                   <div key={lecture._id} className=''>
                      <div key={lecture?._id} className='space-y-5'>
-                        <YouTubeFrame video={lecture} />
+                        <YouTubeFrame video={JSON.parse(JSON.stringify(lecture))} />
 
                         <h2 className='text-center'>
                            {lecture?.title}
