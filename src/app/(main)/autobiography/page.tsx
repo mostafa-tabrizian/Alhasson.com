@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 const Autobiography = () => {
    return (
       <div className='bg-gradient-to-b min-h-screen py-10 md:py-24 px-6 from-[#0d0735] to-[#070515]'>
-         <h1 className='title mt-14'>سیرة الذاتیة</h1>
+         <h1 className='title mt-14'>السیرة الذاتیة</h1>
 
          <Tabs />
       </div>

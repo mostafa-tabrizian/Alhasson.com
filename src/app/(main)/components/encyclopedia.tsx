@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 const Encyclopedia = () => {
    return (
-      <div className='py-10' id='encyclopedia'>
+      <div className='pt-10 pb-40 mx-5 md:mx-auto' id='encyclopedia'>
          <Image
             src='https://tabrizian.storage.iran.liara.space/hadith/root/marefat-allah-title.png'
             alt='#'

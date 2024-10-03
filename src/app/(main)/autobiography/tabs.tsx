@@ -1,5 +1,7 @@
 'use client'
 
+import Image from 'next/image'
+
 import { useState } from 'react'
 const Tabs = () => {
    const [selectedOption, setSelectedOption] = useState('a')
@@ -19,59 +21,103 @@ const Tabs = () => {
       switch (selectedOption) {
          case 'a':
             return (
-               <p className='text-justify border-r border-[#e5c698] pr-5'>
-                  مكان وسنة الولادة: العراق، مدينة النجف الأشرف، ١٣٩٤هـ /١٩٧٥م.
-                  <br />
-                  الوالد: المرحوم الحاج عبد الحسين محمّد علي الحسّون، مؤلّف كتاب طبائع الأحياء (pdf)
-                  (word)، كان معروفاً بالزهد والتقوى، تخرّج من كلّية الزراعة في العراق، مدينة النجف
-                  الأشرف، وعمل مهندساً زراعياً مدّة عشر سنوات، ثمّ اهتم بالدراسة الدينيّة وتحقيق
-                  التراث بعد الهجرة الي ايران عام ١٩٨٠م، وعمل في العديد من المؤسّسات الدينيّة منها:
-                  موسّسة آل البيت (فرع مدينة مشهد المقدّسة)، مؤسّسة الوحيد البهبهاني{' '}
-                  <a
-                     href='https://www.pazhuhesh.ir/index.aspx?fkeyid=&siteid=16&fkeyid=&siteid=16&pageid=18321'
-                     target='_blank'
-                     rel='noreferrer'
-                  >
-                     {' '}
-                     ومؤسّسة آية الله العظمى البروجردي{' '}
-                  </a>{' '}
-                  في مدينة قم المقدّسة، توفّي عام ١٤٣٤هـ، ودفن في مقبرة الأسرة في وادي السلام في
-                  مدينة النجف الأشرف.
-                  <br />
-                  الوالدة: فاطمة جعفر محمّد حسين الحسّون، اهتمت بالدراسة الدينيّة حتي حصلت على إجازة
-                  الرواية من آية اللّه العظمى السيّد المرعشي النجفي، ثمّ شاركت في المجالات العلميّة
-                  مع العديد من المؤسّسات منها:{' '}
-                  <a href='https://www.darolzahra.com/' target='_blank' rel='noreferrer'>
-                     {' '}
-                     دار الزهراء الثقافيّة،
-                  </a>{' '}
-                  <a href='https://www.aqaed.com/' target='_blank' rel='noreferrer'>
-                     {' '}
-                     مركز الأبحاث العقائديّة{' '}
-                  </a>
-                  .
-               </p>
+               <div className='border-r border-[#e5c698] pr-5'>
+                  <h2 className='text-center mb-7'>الولادة و النشأة</h2>
+                  <p className='text-justify '>
+                     مكان وسنة الولادة: العراق، مدينة النجف الأشرف، ١٣٩٤هـ /١٩٧٥م.
+                     <br />
+                     الوالد: المرحوم الحاج عبد الحسين محمّد علي الحسّون، مؤلّف كتاب طبائع الأحياء
+                     <div className='inline-flex mx-2 gap-1'>
+                        <a
+                           href='https://tabrizian.storage.iran.liara.space/alhasson/pdf/tabae.pdf'
+                           target='_blank'
+                           rel='noreferrer'
+                           className='relative w-6 h-6'
+                        >
+                           <Image
+                              fill
+                              className='object-contain'
+                              alt='ملف بی دی اف'
+                              src='https://tabrizian.storage.iran.liara.space/alhasson/image/icon-pdf.png'
+                           />
+                        </a>{' '}
+                        <a
+                           href='https://tabrizian.storage.iran.liara.space/alhasson/doc/tabae.doc'
+                           target='_blank'
+                           rel='noreferrer'
+                           className='relative w-6 h-6'
+                        >
+                           <Image
+                              width={50}
+                              height={50}
+                              className='object-contain'
+                              alt='ملف ورد'
+                              src='https://tabrizian.storage.iran.liara.space/alhasson/image/icon-word.png'
+                           />
+                        </a>
+                     </div>
+                     ، كان معروفاً بالزهد والتقوى، تخرّج من كلّية الزراعة في العراق، مدينة النجف
+                     الأشرف، وعمل مهندساً زراعياً مدّة عشر سنوات، ثمّ اهتم بالدراسة الدينيّة وتحقيق
+                     التراث بعد الهجرة الي ايران عام ١٩٨٠م، وعمل في العديد من المؤسّسات الدينيّة
+                     منها: موسّسة آل البيت (فرع مدينة مشهد المقدّسة)، مؤسّسة الوحيد البهبهاني{' '}
+                     <a
+                        href='https://www.pazhuhesh.ir/index.aspx?fkeyid=&siteid=16&fkeyid=&siteid=16&pageid=18321'
+                        target='_blank'
+                        rel='noreferrer'
+                     >
+                        {' '}
+                        ومؤسّسة آية الله العظمى البروجردي{' '}
+                     </a>{' '}
+                     في مدينة قم المقدّسة، توفّي عام ١٤٣٤هـ، ودفن في مقبرة الأسرة في وادي السلام في
+                     مدينة النجف الأشرف.
+                     <br />
+                     الوالدة: فاطمة جعفر محمّد حسين الحسّون، اهتمت بالدراسة الدينيّة حتي حصلت على
+                     إجازة الرواية من آية اللّه العظمى السيّد المرعشي النجفي، ثمّ شاركت في المجالات
+                     العلميّة مع العديد من المؤسّسات منها:{' '}
+                     <a href='https://www.darolzahra.com/' target='_blank' rel='noreferrer'>
+                        {' '}
+                        دار الزهراء الثقافيّة،
+                     </a>{' '}
+                     <a href='https://www.aqaed.com/' target='_blank' rel='noreferrer'>
+                        {' '}
+                        مركز الأبحاث العقائديّة{' '}
+                     </a>
+                     .
+                  </p>
+               </div>
             )
 
          case 'b':
             return (
-               <p className='text-justify border-r border-[#e5c698] pr-5'>
-                  أكمل الشيخ علاء الحسّون المرحلة الثانويّة في مدينة مشهد المقدّسة، ثمّ انتقل إلى
-                  مدينة قم المقدّسة، واهتمّ بالدراسة الحوزويّة في مدرسة الإمام المهدي (عجل اللّه
-                  فرجه) عام ١٤١٤هـ، وبقى فيها مدّة ست سنوات حتى أنهى مرحلة المقدّمات، ثمّ واصل
-                  دراسته في مرحلة السطوح في حوزة قم العلميّة.
-               </p>
+               <div className='border-r border-[#e5c698] pr-5'>
+                  <h2 className='text-center mb-7'>الدراسة الحوزويّة</h2>
+                  <p className='text-justify '>
+                     أكمل الشيخ علاء الحسّون المرحلة الثانويّة في مدينة مشهد المقدّسة، ثمّ انتقل إلى
+                     مدينة قم المقدّسة، واهتمّ بالدراسة الحوزويّة في مدرسة الإمام المهدي (عجل اللّه
+                     فرجه) عام ١٤١٤هـ، وبقى فيها مدّة ست سنوات حتى أنهى مرحلة المقدّمات، ثمّ واصل
+                     دراسته في مرحلة السطوح في حوزة قم العلميّة.
+                  </p>
+               </div>
             )
 
          case 'c':
             return (
                <div className='border-r border-[#e5c698] pr-5'>
+                  <h2 className='text-center mb-7'>الدراسة الجامعيّة</h2>
                   <p className='text-justify'>
                      البكالوريوس:{' '}
                      <a target='_blank' rel='noreferrer' href='https://iki.ac.ir/'>
                         مؤسّسة الإمام الخميني للتعليم والأبحاث
                      </a>
-                     ، فرع العقائد والكلام، ايران، قم، 1431 هـ/2010 م.
+                     ، فرع العقائد والكلام، ايران، قم، 1431 هـ/2010 م.{' '}
+                     <a
+                        target='_blank'
+                        rel='noreferrer'
+                        href='https://tabrizian.storage.iran.liara.space/alhasson/image/certificate0.jpg'
+                        className='underline underline-offset-4'
+                     >
+                        (مشاهده)
+                     </a>
                   </p>
 
                   <p>
@@ -79,7 +125,15 @@ const Tabs = () => {
                      <a target='_blank' rel='noreferrer' href='https://www.qhu.ac.ir/'>
                         جامعة القرآن والحديث
                      </a>
-                     ، فرع العقائد و الكلام، ايران، قم، 1435 هـ/2014 م.
+                     ، فرع العقائد و الكلام، ايران، قم، 1435 هـ/2014 م.{' '}
+                     <a
+                        target='_blank'
+                        rel='noreferrer'
+                        href='https://tabrizian.storage.iran.liara.space/alhasson/image/certificate2.jpg'
+                        className='underline underline-offset-4'
+                     >
+                        (مشاهده)
+                     </a>
                   </p>
 
                   <p>
@@ -87,218 +141,236 @@ const Tabs = () => {
                      <a target='_blank' rel='noreferrer' href='https://www.qhu.ac.ir/'>
                         جامعة القرآن والحديث
                      </a>
-                     ، فرع كلام الإماميّة، ايران، قم، 1422 هـ/2020 م.
+                     ، فرع كلام الإماميّة، ايران، قم، 1422 هـ/2020 م.{' '}
+                     <a
+                        target='_blank'
+                        rel='noreferrer'
+                        href='https://tabrizian.storage.iran.liara.space/alhasson/image/certificate1.jpg'
+                        className='underline underline-offset-4'
+                     >
+                        (مشاهده)
+                     </a>
                   </p>
                </div>
             )
 
          case 'd':
             return (
-               <p className='text-justify border-r border-[#e5c698] pr-5'>
-                  ١ ـ العمل في مختلف نشاطات{' '}
-                  <a href='https://www.aqaed.com/' target='_blank' rel='noreferrer'>
-                     {' '}
-                     مركز الأبحاث العقائديّة{' '}
-                  </a>{' '}
-                  ، منها المشاركة في تأليف موسوعة الرأي الآخر، و{' '}
-                  <a href='https://www.aqaed.com/book/607/' target='_blank' rel='noreferrer'>
-                     {' '}
-                     موسوعة حديث الثقلين{' '}
-                  </a>
-                  ، و
-                  <a href='https://www.aqaed.com/book/462/' target='_blank' rel='noreferrer'>
-                     {' '}
-                     موسوعة الإمام المهدي{' '}
-                  </a>{' '}
-                  ، و
-                  <a href='https://www.aqaed.com/book/468/' target='_blank' rel='noreferrer'>
-                     {' '}
-                     موسوعة من حياة المستبصرين{' '}
-                  </a>{' '}
-                  (١٤١٩ ـ ١٤٣٠ﻫ).
-                  <br />۲ ـ تدوين المتون الدراسيّة في{' '}
-                  <a href='https://www.qhu.ac.ir/' target='_blank' rel='noreferrer'>
-                     {' '}
-                     جامعة القرآن و الحديث{' '}
-                  </a>{' '}
-                  في مدينة قم المقدّسة. (١٤٢٨ ـ ١٤٢٩ﻫ)
-                  <br /> ۳ ـ تأليف المضامين العلميّة ل
-                  <a
-                     href='https://www.mawsoah.org/index.php/component/jshopping/product/view/1/26?Itemid=0'
-                     target='_blank'
-                     rel='noreferrer'
-                  >
-                     برنامج الأخلاق{' '}
-                  </a>
-                  التابع لل موسوعة الاسلاميّة الكمبيوتريّة المنشور على شكل قرص مضغوط (١٤٢١ و١٤٢٢ﻫ).
-                  <br />٤ ـ المشاركة في تقييم المقالات العلميّة في مؤتمر العلّامة شرف الدين(١٤٢٦ﻫ).
-                  <br />٥ ـ التعاون العلمي مع{' '}
-                  <a href='https://tousi.miu.ac.ir/' target='_blank' rel='noreferrer'>
-                     {' '}
-                     مهرجان الشيخ الطوسي{' '}
-                  </a>{' '}
-                  في مدينة قم المقدّسة الخاص بطلبة الحوزة غير الإيرانيين (١٤٢٦ﻫ).
-                  <br />٦ ـ التعاون مع{' '}
-                  <a href='https://www.ahl-ul-bayt.org/ar/' target='_blank' rel='noreferrer'>
-                     {' '}
-                     المجمع العالمي لأهل البيت{' '}
-                  </a>
-                  لإدارة الحوارات الدينيّة وردّ الشبهات العقائديّة عبر الإنترنت (برنامج البالتوك)
-                  (١٤٢٧ﻫ).
-                  <br />٧ ـ المشاركة في برنامج بساتين العلماء للتعريف بكتب علماء الشيعة التراثيّة في{' '}
-                  <a href='https://arabicradio.net/' target='_blank' rel='noreferrer'>
-                     {' '}
-                     إذاعة طهران العربيّة{' '}
-                  </a>{' '}
-                  (١٤٢٩ﻫ).
-                  <br />۸ ـ كتابة البرامج الدينيّة ل
-                  <a href='https://www.alkawthartv.ir/' target='_blank' rel='noreferrer'>
-                     قناة الكوثر الفضائيّة{' '}
-                  </a>{' '}
-                  (١٤٢٩ﻫ).
-                  <br />
-                  ۹ ـ التبليغ في محافظة خوزستان، مدينتي شوش وخرمشهر (المحمّرة) (عشرة محرّم سنوات
-                  ١٤١٨ ـ ١٤٢٤ﻫ).
-                  <br />
-                  ۱۰ ـ الإشراف على إعداد الفهرس الموضوعي لبحوث الإمامة،{' '}
-                  <a href='https://www.emamat.ir/' target='_blank' rel='noreferrer'>
-                     {' '}
-                     مركز الدراسات التخصّصيّة في الإمامة{' '}
-                  </a>{' '}
-                  (١٤٢٩ﻫ).
-                  <br />
-                  ۱۱ ـ المشاركة في المؤتمرات والمهرجانات الدوليّة، منها:{' '}
-                  <a
-                     href='https://www.ayandehroshan.ir/mahdaviatconference'
-                     target='_blank'
-                     rel='noreferrer'
-                  >
-                     {' '}
-                     مهرجان العقيدة المهدويّة{' '}
-                  </a>{' '}
-                  في طهران، ومهرجان ربيع الشهادة العالمي في كربلاء المقدّسة .
-               </p>
+               <div className='border-r border-[#e5c698] pr-5'>
+                  <h2 className='text-center mb-7'>النشاطات العلمیة</h2>
+                  <p className='text-justify'>
+                     ١ ـ العمل في مختلف نشاطات{' '}
+                     <a href='https://www.aqaed.com/' target='_blank' rel='noreferrer'>
+                        {' '}
+                        مركز الأبحاث العقائديّة{' '}
+                     </a>{' '}
+                     ، منها المشاركة في تأليف موسوعة الرأي الآخر، و{' '}
+                     <a href='https://www.aqaed.com/book/607/' target='_blank' rel='noreferrer'>
+                        {' '}
+                        موسوعة حديث الثقلين{' '}
+                     </a>
+                     ، و
+                     <a href='https://www.aqaed.com/book/462/' target='_blank' rel='noreferrer'>
+                        {' '}
+                        موسوعة الإمام المهدي{' '}
+                     </a>{' '}
+                     ، و
+                     <a href='https://www.aqaed.com/book/468/' target='_blank' rel='noreferrer'>
+                        {' '}
+                        موسوعة من حياة المستبصرين{' '}
+                     </a>{' '}
+                     (١٤١٩ ـ ١٤٣٠ﻫ).
+                     <br />۲ ـ تدوين المتون الدراسيّة في{' '}
+                     <a href='https://www.qhu.ac.ir/' target='_blank' rel='noreferrer'>
+                        {' '}
+                        جامعة القرآن و الحديث{' '}
+                     </a>{' '}
+                     في مدينة قم المقدّسة. (١٤٢٨ ـ ١٤٢٩ﻫ)
+                     <br /> ۳ ـ تأليف المضامين العلميّة ل
+                     <a
+                        href='https://www.mawsoah.org/index.php/component/jshopping/product/view/1/26?Itemid=0'
+                        target='_blank'
+                        rel='noreferrer'
+                     >
+                        برنامج الأخلاق{' '}
+                     </a>
+                     التابع لل موسوعة الاسلاميّة الكمبيوتريّة المنشور على شكل قرص مضغوط (١٤٢١
+                     و١٤٢٢ﻫ).
+                     <br />٤ ـ المشاركة في تقييم المقالات العلميّة في مؤتمر العلّامة شرف
+                     الدين(١٤٢٦ﻫ).
+                     <br />٥ ـ التعاون العلمي مع{' '}
+                     <a href='https://tousi.miu.ac.ir/' target='_blank' rel='noreferrer'>
+                        {' '}
+                        مهرجان الشيخ الطوسي{' '}
+                     </a>{' '}
+                     في مدينة قم المقدّسة الخاص بطلبة الحوزة غير الإيرانيين (١٤٢٦ﻫ).
+                     <br />٦ ـ التعاون مع{' '}
+                     <a href='https://www.ahl-ul-bayt.org/ar/' target='_blank' rel='noreferrer'>
+                        {' '}
+                        المجمع العالمي لأهل البيت{' '}
+                     </a>
+                     لإدارة الحوارات الدينيّة وردّ الشبهات العقائديّة عبر الإنترنت (برنامج البالتوك)
+                     (١٤٢٧ﻫ).
+                     <br />٧ ـ المشاركة في برنامج بساتين العلماء للتعريف بكتب علماء الشيعة التراثيّة
+                     في{' '}
+                     <a href='https://arabicradio.net/' target='_blank' rel='noreferrer'>
+                        {' '}
+                        إذاعة طهران العربيّة{' '}
+                     </a>{' '}
+                     (١٤٢٩ﻫ).
+                     <br />۸ ـ كتابة البرامج الدينيّة ل
+                     <a href='https://www.alkawthartv.ir/' target='_blank' rel='noreferrer'>
+                        قناة الكوثر الفضائيّة{' '}
+                     </a>{' '}
+                     (١٤٢٩ﻫ).
+                     <br />
+                     ۹ ـ التبليغ في محافظة خوزستان، مدينتي شوش وخرمشهر (المحمّرة) (عشرة محرّم سنوات
+                     ١٤١٨ ـ ١٤٢٤ﻫ).
+                     <br />
+                     ۱۰ ـ الإشراف على إعداد الفهرس الموضوعي لبحوث الإمامة،{' '}
+                     <a href='https://www.emamat.ir/' target='_blank' rel='noreferrer'>
+                        {' '}
+                        مركز الدراسات التخصّصيّة في الإمامة{' '}
+                     </a>{' '}
+                     (١٤٢٩ﻫ).
+                     <br />
+                     ۱۱ ـ المشاركة في المؤتمرات والمهرجانات الدوليّة، منها:{' '}
+                     <a
+                        href='https://www.ayandehroshan.ir/mahdaviatconference'
+                        target='_blank'
+                        rel='noreferrer'
+                     >
+                        {' '}
+                        مهرجان العقيدة المهدويّة{' '}
+                     </a>{' '}
+                     في طهران، ومهرجان ربيع الشهادة العالمي في كربلاء المقدّسة .
+                  </p>
+               </div>
             )
 
          case 'e':
             return (
-               <p className='text-justify border-r border-[#e5c698] pr-5'>
-                  ١ ـ مسؤوليّة بعض أقسام{' '}
-                  <a href='https://www.aqaed.com/' target='_blank' rel='noreferrer'>
-                     {' '}
-                     مركز الأبحاث العقائديّة{' '}
-                  </a>{' '}
-                  ، أبرزها قسم المستبصرين، وقسم تأليف موسوعة من حياة المستبصرين (١٤٢٠ ـ ١٤٣٠هـ).
-                  <br />۲ ـ مسؤوليّة لجنة تأسيس موقع المبلّغ على الانترنت، التابع ل
-                  <a href='https://icro.ir/' target='_blank' rel='noreferrer'>
-                     منظمة الثقافة والعلاقات الدوليّة{' '}
-                  </a>{' '}
-                  (١٤٢٧ ـ ١٤٢٨هـ).
-                  <br />۳ ـ مسؤوليّة قسم ردّ الشبهات الوهابيّة في ّ
-                  <a href='https://hzrc.ac.ir/' target='_blank' rel='noreferrer'>
-                     {' '}
-                     مركز بحوث الحج{' '}
-                  </a>{' '}
-                  (١٤٣٠ ـ ١٤٣١هـ).
-                  <br />٤ ـ مسؤوليّة قسم عقائد الأئمة الأطهار
-                  <a href='https://www.markazfeqhi.com/main/' target='_blank' rel='noreferrer'>
-                     {' '}
-                     مركز فقه الأئمة الأطهار{' '}
-                  </a>{' '}
-                  في{' '}
-                  <a href='https://www.markazfeqhi.com/main/' target='_blank' rel='noreferrer'>
-                     {' '}
-                     مركز فقه الأئمة الأطهار{' '}
-                  </a>{' '}
-                  (١٤٣٢هـ ـ ١٤٣٥هـ)
-                  <br />٥ ـ مدير{' '}
-                  <a
-                     href='https://alhasson.com/about/about_hadith'
-                     target='_blank'
-                     rel='noreferrer'
-                  >
-                     {' '}
-                     مركز حديث أهل البيت{' '}
-                  </a>{' '}
-                  (علیه السلام) (١٤٣٥هـ ـ لحد الآن)
-               </p>
+               <div className='border-r border-[#e5c698] pr-5'>
+                  <h2 className='text-center mb-7'>المسؤوليات</h2>
+                  <p className='text-justify border-r border-[#e5c698] pr-5'>
+                     ١ ـ مسؤوليّة بعض أقسام{' '}
+                     <a href='https://www.aqaed.com/' target='_blank' rel='noreferrer'>
+                        {' '}
+                        مركز الأبحاث العقائديّة{' '}
+                     </a>{' '}
+                     ، أبرزها قسم المستبصرين، وقسم تأليف موسوعة من حياة المستبصرين (١٤٢٠ ـ ١٤٣٠هـ).
+                     <br />۲ ـ مسؤوليّة لجنة تأسيس موقع المبلّغ على الانترنت، التابع ل
+                     <a href='https://icro.ir/' target='_blank' rel='noreferrer'>
+                        منظمة الثقافة والعلاقات الدوليّة{' '}
+                     </a>{' '}
+                     (١٤٢٧ ـ ١٤٢٨هـ).
+                     <br />۳ ـ مسؤوليّة قسم ردّ الشبهات الوهابيّة في ّ
+                     <a href='https://hzrc.ac.ir/' target='_blank' rel='noreferrer'>
+                        {' '}
+                        مركز بحوث الحج{' '}
+                     </a>{' '}
+                     (١٤٣٠ ـ ١٤٣١هـ).
+                     <br />٤ ـ مسؤوليّة قسم عقائد الأئمة الأطهار في{' '}
+                     <a href='https://www.markazfeqhi.com/main/' target='_blank' rel='noreferrer'>
+                        {' '}
+                        مركز فقه الأئمة الأطهار{' '}
+                     </a>{' '}
+                     (١٤٣٢هـ ـ ١٤٣٥هـ)
+                     <br />٥ ـ مدير{' '}
+                     <a
+                        href='https://alhasson.com/about/about_hadith'
+                        target='_blank'
+                        rel='noreferrer'
+                     >
+                        {' '}
+                        مركز حديث أهل البيت{' '}
+                     </a>{' '}
+                     (علیه السلام) (١٤٣٥هـ ـ لحد الآن)
+                  </p>
+               </div>
             )
 
          case 'f':
             return (
-               <p className='text-justify border-r border-[#e5c698] pr-5'>
-                  ١ ـ{' '}
-                  <a href='http://localhost:3000/%20%D8%AA%D9%86%D9%85%D9%8A%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D9%8A'>
-                     تنمية الوعي
-                  </a>
-                  ، منهج في ارتقاء المستوى الفكري وتشييد العقليّة الواعيّة، الناشر: دار الغدير، قم،
-                  الطبعة الأولى، ١٤٢٤هـ، والطبعة الثانيّة، ١٤٢٦هـ.
-                  <br />٢ ـ{' '}
-                  <a href='http://localhost:3000/%D8%A7%D9%84%D8%AA%D8%AD%D9%88%D9%84%20%D8%A7%D9%84%D9%85%D8%B0%D9%87%D8%A8%DB%8C'>
-                     التحوّل المذهبي
-                  </a>
-                  ، بحث تحليلي حول رحلة المستبصرين إلى مذهب أهل البيت ، الناشر: قلم الشرق، قم،
-                  الطبعة الأولى، ١٤٢٦هـ.
-                  <br />٣ ـ{' '}
-                  <a href='http://localhost:3000/%D8%A7%D9%84%D8%B9%D8%AF%D9%84%20%D8%B9%D9%86%D8%AF%20%D9%85%D8%B0%D9%87%D8%A8%20%D8%A3%D9%87%D9%84%20%D8%A7%D9%84%D8%A8%DB%8C%D8%AA'>
-                     العدل عند مذهب أهل البيت
-                  </a>
-                  ، الناشر:{' '}
-                  <a href='https://www.ahl-ul-bayt.org/fa/' target='_blank' rel='noreferrer'>
-                     {' '}
-                     المجمع العالمي لأهل البيت{' '}
-                  </a>
-                  ، الطبعة الأولى، ١٤٣٢هـ، والطبعة الثانية، ١٤٣٢هـ.
-                  <br />٤ ـ{' '}
-                  <a href='http://localhost:3000/%D8%AA%D9%88%D8%AD%D9%8A%D8%AF%20%D8%B9%D9%86%D8%AF%20%D9%85%D8%B0%D9%87%D8%A8%20%D8%A3%D9%87%D9%84%20%D8%A7%D9%84%D8%A8%DB%8C%D8%AA'>
-                     التوحيد عند مذهب أهل البيت
-                  </a>
-                  ، الناشر:{' '}
-                  <a href='https://hzrc.ac.ir/' target='_blank' rel='noreferrer'>
-                     {' '}
-                     مركز بحوث الحجّ{' '}
-                  </a>
-                  ، الطبعة الأولى، ١٤٣۳هـ.
-                  <br />٥ ـ ، <a href='https://www.hadith.center/books/marefat-allah'>
-                     معرفة الله
-                  </a>{' '}
-                  (مجلدان)، الناشر: مركز فقه الأئمة الأطهار
-                  <a href='https://www.markazfeqhi.com/main/' target='_blank' rel='noreferrer'>
-                     {' '}
-                     موسوعة عقائد الأئمة الأطهار{' '}
-                  </a>{' '}
-                  ، الطبعة الأولى، ١٤٣۳هـ.
-                  <br />٦ ـ{' '}
-                  <a href='http://localhost:3000/%D9%85%D8%B9%D8%A7%D8%B1%D9%81%20%D8%A7%D9%84%D8%B5%D8%AD%DB%8C%D9%81%D8%A9%20%D8%A7%D9%84%D8%B3%D8%AC%D8%A7%D8%AF%DB%8C%D8%A9'>
-                     معارف الصحيفة السجّاديّة،
-                  </a>{' '}
-                  الناشر:{' '}
-                  <a href='https://www.chaponashr.ir/alrafed' target='_blank' rel='noreferrer'>
-                     {' '}
-                     الرافد{' '}
-                  </a>{' '}
-                  ، إصدار: مركز الهادي ، الطبعة الأولى، ١٤٣٦هـ.
-                  <br />٧ ـ{' '}
-                  <a href='http://localhost:3000/%D8%A7%D9%84%D8%AC%D8%AF%D8%A7%D9%88%D9%84%20%D8%A7%D9%84%D9%81%D9%82%D9%87%DB%8C%D8%A9%20%D9%84%D9%84%D9%85%D8%B3%D8%A7%D8%A6%D9%84%20%D8%A7%D9%84%D9%85%D9%86%D8%AA%D8%AE%D8%A8%D8%A9'>
-                     الجداول الفقهيّة للمسائل المنتخبة
-                  </a>
-                  ، وفقاً لفتاوى{' '}
-                  <a href='https://www.sistani.org/' target='_blank' rel='noreferrer'>
-                     {' '}
-                     سماحة آية الله العظمى السيّد علي السيستاني (دام ظلّه){' '}
-                  </a>
-                  <br />۸ - <a href='https://www.hadith.center/books/marefat-allah'>صحة الحديث</a> ،
-                  الناشر:{' '}
-                  <a href='https://www.hadith.center'>مركز حديث أهل البيت (عليهم السلام) </a> ،
-                  الطبعة الأولى، ١٤٤٣ هـ
-               </p>
+               <div className='border-r border-[#e5c698] pr-5'>
+                  <h2 className='text-center mb-7'>المؤلفات</h2>
+                  <p className='text-justify border-r border-[#e5c698] pr-5'>
+                     ١ ـ{' '}
+                     <a href='https://alhasson.com/%20%D8%AA%D9%86%D9%85%D9%8A%D8%A9%20%D8%A7%D9%84%D9%88%D8%B9%D9%8A'>
+                        تنمية الوعي
+                     </a>
+                     ، منهج في ارتقاء المستوى الفكري وتشييد العقليّة الواعيّة، الناشر: دار الغدير،
+                     قم، الطبعة الأولى، ١٤٢٤هـ، والطبعة الثانيّة، ١٤٢٦هـ.
+                     <br />٢ ـ{' '}
+                     <a href='https://alhasson.com/%D8%A7%D9%84%D8%AA%D8%AD%D9%88%D9%84%20%D8%A7%D9%84%D9%85%D8%B0%D9%87%D8%A8%DB%8C'>
+                        التحوّل المذهبي
+                     </a>
+                     ، بحث تحليلي حول رحلة المستبصرين إلى مذهب أهل البيت ، الناشر: قلم الشرق، قم،
+                     الطبعة الأولى، ١٤٢٦هـ.
+                     <br />٣ ـ{' '}
+                     <a href='https://alhasson.com/%D8%A7%D9%84%D8%B9%D8%AF%D9%84%20%D8%B9%D9%86%D8%AF%20%D9%85%D8%B0%D9%87%D8%A8%20%D8%A3%D9%87%D9%84%20%D8%A7%D9%84%D8%A8%DB%8C%D8%AA'>
+                        العدل عند مذهب أهل البيت
+                     </a>
+                     ، الناشر:{' '}
+                     <a href='https://www.ahl-ul-bayt.org/fa/' target='_blank' rel='noreferrer'>
+                        {' '}
+                        المجمع العالمي لأهل البيت{' '}
+                     </a>
+                     ، الطبعة الأولى، ١٤٣٢هـ، والطبعة الثانية، ١٤٣٢هـ.
+                     <br />٤ ـ{' '}
+                     <a href='https://alhasson.com/%D8%AA%D9%88%D8%AD%D9%8A%D8%AF%20%D8%B9%D9%86%D8%AF%20%D9%85%D8%B0%D9%87%D8%A8%20%D8%A3%D9%87%D9%84%20%D8%A7%D9%84%D8%A8%DB%8C%D8%AA'>
+                        التوحيد عند مذهب أهل البيت
+                     </a>
+                     ، الناشر:{' '}
+                     <a href='https://hzrc.ac.ir/' target='_blank' rel='noreferrer'>
+                        {' '}
+                        مركز بحوث الحجّ{' '}
+                     </a>
+                     ، الطبعة الأولى، ١٤٣۳هـ.
+                     <br />٥ ـ ،{' '}
+                     <a href='https://www.hadith.center/books/marefat-allah'>معرفة الله</a>{' '}
+                     (مجلدان)، الناشر: مركز فقه الأئمة الأطهار
+                     <a href='https://www.markazfeqhi.com/main/' target='_blank' rel='noreferrer'>
+                        {' '}
+                        موسوعة عقائد الأئمة الأطهار{' '}
+                     </a>{' '}
+                     ، الطبعة الأولى، ١٤٣۳هـ.
+                     <br />٦ ـ{' '}
+                     <a href='https://alhasson.com/%D9%85%D8%B9%D8%A7%D8%B1%D9%81%20%D8%A7%D9%84%D8%B5%D8%AD%DB%8C%D9%81%D8%A9%20%D8%A7%D9%84%D8%B3%D8%AC%D8%A7%D8%AF%DB%8C%D8%A9'>
+                        معارف الصحيفة السجّاديّة،
+                     </a>{' '}
+                     الناشر:{' '}
+                     <a href='https://www.chaponashr.ir/alrafed' target='_blank' rel='noreferrer'>
+                        {' '}
+                        الرافد{' '}
+                     </a>{' '}
+                     ، إصدار: مركز الهادي ، الطبعة الأولى، ١٤٣٦هـ.
+                     <br />٧ ـ{' '}
+                     <a href='https://alhasson.com/%D8%A7%D9%84%D8%AC%D8%AF%D8%A7%D9%88%D9%84%20%D8%A7%D9%84%D9%81%D9%82%D9%87%DB%8C%D8%A9%20%D9%84%D9%84%D9%85%D8%B3%D8%A7%D8%A6%D9%84%20%D8%A7%D9%84%D9%85%D9%86%D8%AA%D8%AE%D8%A8%D8%A9'>
+                        الجداول الفقهيّة للمسائل المنتخبة
+                     </a>
+                     ، وفقاً لفتاوى{' '}
+                     <a href='https://www.sistani.org/' target='_blank' rel='noreferrer'>
+                        {' '}
+                        سماحة آية الله العظمى السيّد علي السيستاني (دام ظلّه){' '}
+                     </a>
+                     <br />۸ -{' '}
+                     <a href='https://www.hadith.center/books/marefat-allah'>صحة الحديث</a> ،
+                     الناشر:{' '}
+                     <a href='https://www.hadith.center'>مركز حديث أهل البيت (عليهم السلام) </a> ،
+                     الطبعة الأولى، ١٤٤٣ هـ
+                  </p>
+               </div>
             )
 
          case 'g':
             return (
-               <div>
-                  <h2> الموسوعات التي شارك الشيخ علاء الحسّون في تألیفها:</h2>
-                  <p className='text-justify border-r border-[#e5c698] pr-5'>
+               <div className=' border-r border-[#e5c698] pr-5'>
+                  <h2 className='text-center mb-7'>
+                     {' '}
+                     الموسوعات التي شارك الشيخ علاء الحسّون في تألیفها:
+                  </h2>
+                  <p className='text-justify'>
                      ١ ـ{' '}
                      <a href='https://www.aqaed.com/book/468/' target='_blank' rel='noreferrer'>
                         {' '}
