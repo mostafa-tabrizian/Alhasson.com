@@ -29,7 +29,7 @@ const Tabs = () => {
                      الوالد: المرحوم الحاج عبد الحسين محمّد علي الحسّون، مؤلّف كتاب طبائع الأحياء
                      <div className='inline-flex mx-2 gap-1'>
                         <a
-                           href='https://tabrizian.storage.iran.liara.space/alhasson/pdf/tabae.pdf'
+                           href='https://bucket.alhasson.com/alhasson/pdf/tabae.pdf'
                            target='_blank'
                            rel='noreferrer'
                            className='relative w-6 h-6'
@@ -38,11 +38,11 @@ const Tabs = () => {
                               fill
                               className='object-contain'
                               alt='ملف بی دی اف'
-                              src='https://tabrizian.storage.iran.liara.space/alhasson/image/icon-pdf.png'
+                              src='https://bucket.alhasson.com/alhasson/image/icon-pdf.png'
                            />
                         </a>{' '}
                         <a
-                           href='https://tabrizian.storage.iran.liara.space/alhasson/doc/tabae.doc'
+                           href='https://bucket.alhasson.com/alhasson/doc/tabae.doc'
                            target='_blank'
                            rel='noreferrer'
                            className='relative w-6 h-6'
@@ -52,7 +52,7 @@ const Tabs = () => {
                               height={50}
                               className='object-contain'
                               alt='ملف ورد'
-                              src='https://tabrizian.storage.iran.liara.space/alhasson/image/icon-word.png'
+                              src='https://bucket.alhasson.com/alhasson/image/icon-word.png'
                            />
                         </a>
                      </div>
@@ -113,10 +113,10 @@ const Tabs = () => {
                      <a
                         target='_blank'
                         rel='noreferrer'
-                        href='https://tabrizian.storage.iran.liara.space/alhasson/image/certificate0.jpg'
+                        href='https://bucket.alhasson.com/alhasson/image/certificate0.jpg'
                         className='underline underline-offset-4'
                      >
-                        (مشاهده)
+                        (الشهادة)
                      </a>
                   </p>
 
@@ -129,10 +129,10 @@ const Tabs = () => {
                      <a
                         target='_blank'
                         rel='noreferrer'
-                        href='https://tabrizian.storage.iran.liara.space/alhasson/image/certificate2.jpg'
+                        href='https://bucket.alhasson.com/alhasson/image/certificate2.jpg'
                         className='underline underline-offset-4'
                      >
-                        (مشاهده)
+                        (الشهادة)
                      </a>
                   </p>
 
@@ -145,10 +145,10 @@ const Tabs = () => {
                      <a
                         target='_blank'
                         rel='noreferrer'
-                        href='https://tabrizian.storage.iran.liara.space/alhasson/image/certificate1.jpg'
+                        href='https://bucket.alhasson.com/alhasson/image/certificate1.jpg'
                         className='underline underline-offset-4'
                      >
-                        (مشاهده)
+                        (الشهادة)
                      </a>
                   </p>
                </div>

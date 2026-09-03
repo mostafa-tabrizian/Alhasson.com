@@ -23,12 +23,13 @@ const nextConfig = {
       ]
    },
    images: {
+      unoptimized: true,
       formats: ['image/avif', 'image/webp'],
       minimumCacheTTL: 7 * 24 * 60 * 60,
       remotePatterns: [
          {
             protocol: 'https',
-            hostname: 'tabrizian.storage.iran.liara.space',
+            hostname: 'bucket.alhasson.com',
             port: '',
          },
       ],

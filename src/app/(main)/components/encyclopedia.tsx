@@ -1,11 +1,11 @@
 import Image from 'next/image'
-// import Link from 'next/link'
+import Link from 'next/link'
 
 const Encyclopedia = () => {
    return (
       <div className='pt-10 pb-40 mx-5 md:mx-auto' id='encyclopedia'>
          <Image
-            src='https://tabrizian.storage.iran.liara.space/hadith/root/marefat-allah-title.png'
+            src='https://bucket.alhasson.com/hadith/root/marefat-allah-title.png'
             alt='#'
             width={500}
             height={1000}
@@ -15,13 +15,13 @@ const Encyclopedia = () => {
          />
          <div className='grid justify-center space-y-10'>
             <div>
-               <button // Link
-                  // href='#encyclopedia' // https://hadith.center/encyclopedia
-                  disabled
-                  className='mx-auto block w-fit rounded-full border border-black bg-gradient-to-tl from-indigo-900 px-14 py-3 text-center text-base  text-slate-200' //  font-semibold transition-transform hover:scale-105 hover:border-gray-950
+               <Link
+                  href='https://hadith.center/encyclopedia'
+                  target='_blank'
+                  className='mx-auto block w-fit rounded-full border border-black bg-gradient-to-tl from-indigo-900 px-14 py-3 text-center text-base text-slate-200 font-semibold transition-transform hover:scale-105 hover:border-gray-950'
                >
-                  شاهد الموسوعة (قریباً)
-               </button>
+                  شاهد الموسوعة
+               </Link>
             </div>
             <div className='space-y-3'>
                <p className='mx-3 block max-w-screen-md text-justify text-slate-200 lg:mx-auto'>

@@ -131,14 +131,14 @@ const Book = async ({ params }: { params: { bookTitle: string } }) => {
             {book ? (
                <div className='max-w-screen-lg mx-auto relative lg:flex mt-14 lg:my-52'>
                   <a
-                     href={`https://tabrizian.storage.iran.liara.space/alhasson/image/book/${book?.cover}`}
+                     href={`https://bucket.alhasson.com/alhasson/image/book/${book?.cover}`}
                      target='_blank'
                      rel='noreferrer'
                      className='w-80'
                   >
                      <Image
                         className='aspect-[2/3] w-full object-cover rounded hoverGold'
-                        src={`https://tabrizian.storage.iran.liara.space/alhasson/image/book/${book?.cover}`}
+                        src={`https://bucket.alhasson.com/alhasson/image/book/${book?.cover}`}
                         alt={book?.title}
                         height={600}
                         width={600}
@@ -171,7 +171,7 @@ const Book = async ({ params }: { params: { bookTitle: string } }) => {
                      <div className='flex items-center justify-end mt-5'>
                         {book?.WORDFile && (
                            <a
-                              href={`https://tabrizian.storage.iran.liara.space/alhasson/doc/${book?.WORDFile}`}
+                              href={`https://bucket.alhasson.com/alhasson/doc/${book?.WORDFile}`}
                               target='_blank'
                               rel='noreferrer'
                               className='relative w-11 h-11'
@@ -181,13 +181,13 @@ const Book = async ({ params }: { params: { bookTitle: string } }) => {
                                  height={50}
                                  className='object-contain'
                                  alt='ملف ورد'
-                                 src='https://tabrizian.storage.iran.liara.space/alhasson/image/icon-word.png'
+                                 src='https://bucket.alhasson.com/alhasson/image/icon-word.png'
                               />
                            </a>
                         )}
                         {book?.PDFFile && (
                            <a
-                              href={`https://tabrizian.storage.iran.liara.space/alhasson/pdf/${book?.PDFFile}`}
+                              href={`https://bucket.alhasson.com/alhasson/pdf/${book?.PDFFile}`}
                               target='_blank'
                               rel='noreferrer'
                               className='relative w-11 h-11'
@@ -196,13 +196,13 @@ const Book = async ({ params }: { params: { bookTitle: string } }) => {
                                  fill
                                  className='object-contain'
                                  alt='ملف بی دی اف'
-                                 src='https://tabrizian.storage.iran.liara.space/alhasson/image/icon-pdf.png'
+                                 src='https://bucket.alhasson.com/alhasson/image/icon-pdf.png'
                               />
                            </a>
                         )}
                         {book?.HTMLFILE && (
                            <a
-                              href={`https://tabrizian.storage.iran.liara.space/alhasson/html/${book?.HTMLFILE}`}
+                              href={`https://bucket.alhasson.com/alhasson/html/${book?.HTMLFILE}`}
                               target='_blank'
                               rel='noreferrer'
                               className='relative w-11 h-11'
@@ -211,7 +211,7 @@ const Book = async ({ params }: { params: { bookTitle: string } }) => {
                                  fill
                                  className='object-contain'
                                  alt='ملف اش تی ام ال'
-                                 src='https://tabrizian.storage.iran.liara.space/alhasson/image/icon-html.png'
+                                 src='https://bucket.alhasson.com/alhasson/image/icon-html.png'
                               />
                            </a>
                         )}
