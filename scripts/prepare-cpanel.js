@@ -36,7 +36,7 @@ const tmpDir = path.join(standaloneDir, 'tmp')
 fs.mkdirSync(tmpDir, { recursive: true })
 fs.writeFileSync(path.join(tmpDir, 'restart.txt'), '')
 
-// 5. Prepend TLS bypass to server.js so Next.js Image Optimizer can fetch from bucket.alhasson.com
+// 5. Prepend TLS bypass to server.js so Next.js Image Optimizer can fetch from c657400.parspack.net
 const serverFile = path.join(standaloneDir, 'server.js')
 let serverContent = fs.readFileSync(serverFile, 'utf8')
 

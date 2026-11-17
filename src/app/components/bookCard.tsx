@@ -9,7 +9,7 @@ const BookCard = ({ book }: { book: IBook }) => {
             <div className='w-40 md:w-48 h-60 md:h-72 relative rounded hoverGold'>
                <Image
                   className='rounded object-cover'
-                  src={`https://bucket.alhasson.com/alhasson/image/book/${book?.cover}`}
+                  src={`https://c657400.parspack.net/alhasson/image/book/${book?.cover}`}
                   fill
                   sizes='(max-width: 768px) 100vw,
                           (max-width: 1200px) 50vw,

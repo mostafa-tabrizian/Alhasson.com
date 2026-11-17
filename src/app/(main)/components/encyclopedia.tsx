@@ -5,7 +5,7 @@ const Encyclopedia = () => {
    return (
       <div className='pt-10 pb-40 mx-5 md:mx-auto' id='encyclopedia'>
          <Image
-            src='https://bucket.alhasson.com/hadith/root/marefat-allah-title.png'
+            src='https://c657400.parspack.net/hadith/root/marefat-allah-title.png'
             alt='#'
             width={500}
             height={1000}

@@ -29,8 +29,8 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'bucket.alhasson.com',
-      },
+        hostname: 'c657400.parspack.net'
+     },
       {
         protocol: 'https',
         hostname: 'trustseal.enamad.ir',
