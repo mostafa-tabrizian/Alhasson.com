@@ -1,0 +1,160 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="HttpUrlsUsage" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredUrls">
+        <list>
+          <option value="http://0.0.0.0" />
+          <option value="http://127.0.0.1" />
+          <option value="http://activemq.apache.org/schema/" />
+          <option value="http://cxf.apache.org/schemas/" />
+          <option value="http://java.sun.com/" />
+          <option value="http://javafx.com/fxml" />
+          <option value="http://javafx.com/javafx/" />
+          <option value="http://json-schema.org/draft" />
+          <option value="http://kara.qom.ir" />
+          <option value="http://localhost" />
+          <option value="http://maven.apache.org/POM/" />
+          <option value="http://maven.apache.org/xsd/" />
+          <option value="http://primefaces.org/ui" />
+          <option value="http://schema.cloudfoundry.org/spring/" />
+          <option value="http://schemas.xmlsoap.org/" />
+          <option value="http://tiles.apache.org/" />
+          <option value="http://www.ibm.com/webservices/xsd" />
+          <option value="http://www.jboss.com/xml/ns/" />
+          <option value="http://www.jboss.org/j2ee/schema/" />
+          <option value="http://www.springframework.org/schema/" />
+          <option value="http://www.springframework.org/security/tags" />
+          <option value="http://www.springframework.org/tags" />
+          <option value="http://www.thymeleaf.org" />
+          <option value="http://www.w3.org/" />
+          <option value="http://xmlns.jcp.org/" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <list>
+          <option value="amqp" />
+          <option value="asgiref" />
+          <option value="attrs" />
+          <option value="autobahn" />
+          <option value="Automat" />
+          <option value="billiard" />
+          <option value="blinker" />
+          <option value="celery" />
+          <option value="certifi" />
+          <option value="cffi" />
+          <option value="channels" />
+          <option value="channels_redis" />
+          <option value="charset-normalizer" />
+          <option value="click" />
+          <option value="click-didyoumean" />
+          <option value="click-plugins" />
+          <option value="click-repl" />
+          <option value="colorama" />
+          <option value="ConfigArgParse" />
+          <option value="configobj" />
+          <option value="constantly" />
+          <option value="cryptography" />
+          <option value="daphne" />
+          <option value="decorator" />
+          <option value="distro" />
+          <option value="Django" />
+          <option value="django-cors-headers" />
+          <option value="django-debug-toolbar" />
+          <option value="django-guardian" />
+          <option value="django-jalali" />
+          <option value="django-model-utils" />
+          <option value="django-polymorphic" />
+          <option value="django-privates" />
+          <option value="django-redis" />
+          <option value="django-sendfile2" />
+          <option value="django-tree-queries" />
+          <option value="djangorestframework" />
+          <option value="djangorestframework-api-key" />
+          <option value="djangorestframework_simplejwt" />
+          <option value="Flask" />
+          <option value="future" />
+          <option value="geocoder" />
+          <option value="geographiclib" />
+          <option value="geopy" />
+          <option value="gevent" />
+          <option value="graphene" />
+          <option value="graphene-django" />
+          <option value="graphql-core" />
+          <option value="graphql-relay" />
+          <option value="graypy" />
+          <option value="greenlet" />
+          <option value="gunicorn" />
+          <option value="hyperlink" />
+          <option value="idna" />
+          <option value="incremental" />
+          <option value="itsdangerous" />
+          <option value="jalali_core" />
+          <option value="jdatetime" />
+          <option value="Jinja2" />
+          <option value="joblib" />
+          <option value="josepy" />
+          <option value="jsonlines" />
+          <option value="kombu" />
+          <option value="MarkupSafe" />
+          <option value="msgpack" />
+          <option value="numpy" />
+          <option value="oauthlib" />
+          <option value="packaging" />
+          <option value="paho-mqtt" />
+          <option value="pandas" />
+          <option value="parsedatetime" />
+          <option value="persiantools" />
+          <option value="pika" />
+          <option value="pillow" />
+          <option value="promise" />
+          <option value="prompt_toolkit" />
+          <option value="psycopg2" />
+          <option value="psycopg2-binary" />
+          <option value="pyasn1" />
+          <option value="pyasn1_modules" />
+          <option value="pycparser" />
+          <option value="PyJWT" />
+          <option value="pyOpenSSL" />
+          <option value="pyRFC3339" />
+          <option value="python-dateutil" />
+          <option value="python-dotenv" />
+          <option value="pytz" />
+          <option value="PyYAML" />
+          <option value="ratelim" />
+          <option value="redis" />
+          <option value="requests" />
+          <option value="requests-oauthlib" />
+          <option value="scikit-learn" />
+          <option value="scipy" />
+          <option value="service-identity" />
+          <option value="setuptools" />
+          <option value="six" />
+          <option value="sqlparse" />
+          <option value="text-unidecode" />
+          <option value="threadpoolctl" />
+          <option value="Twisted" />
+          <option value="txaio" />
+          <option value="typing_extensions" />
+          <option value="tzdata" />
+          <option value="urllib3" />
+          <option value="vine" />
+          <option value="wcwidth" />
+          <option value="Werkzeug" />
+          <option value="whitenoise" />
+          <option value="zope.event" />
+          <option value="zope.interface" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyStubPackagesAdvertiser" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <list>
+          <option value="djangorestframework" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
